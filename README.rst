@@ -28,7 +28,9 @@ a. Check requirements
 '''''''''''''''''''''
 
 Make sure that you have installed `Python (>= 3.4)
-<https://www.python.org/>`_ on your system.
+<https://www.python.org/>`_ on your system. You also need build-essential
+packages (``build-essential``) and header files and a static library for
+Python (``python3-dev``).
 
 
 b. Setup a virtual Python environment (optional)
@@ -40,14 +42,19 @@ You can setup a virtual Python environment using the virtual environment
 *Note: For Ubuntu 14.04 you have to install the pyvenv binary package*
 ``python3.4-venv`` *before.*
 
-Create your OpenSlides directory, change to it, setup and activate the
-virtual environment::
+*Note: For Ubuntu 16.04 you have to install the pyvenv binary package*
+``python3-venv`` *before.*
+
+Create your OpenSlides directory and change to it::
 
     $ mkdir OpenSlides
     $ cd OpenSlides
+
+Setup and activate the virtual environment::
+
     $ python3 -m venv .virtualenv
     $ source .virtualenv/bin/activate
-    $ pip install -U setuptools
+    $ pip install --upgrade setuptools pip
 
 
 c. Install OpenSlides
@@ -75,7 +82,7 @@ To start OpenSlides simply run::
     $ openslides
 
 If you run this command the first time, a new database and the admin account
-(Username: `admin`, Password: `admin`) will be created. Please change the
+(Username: ``admin``, Password: ``admin``) will be created. Please change the
 password after first login!
 
 OpenSlides will start a webserver. It will also try to open the webinterface in
@@ -115,13 +122,18 @@ If you want to contribute to OpenSlides, have a look at `OpenSlides website
 `instruction to install the development version
 <https://github.com/OpenSlides/OpenSlides/blob/master/DEVELOPMENT.rst>`_.
 
+In OpenSlides repository you find a ``Dockerfile`` but this is not for
+production use. See our `Multi instance backend for OpenSlides
+<https://github.com/OpenSlides/openslides-multiinstance-backend>`_ for more
+information.
+
 
 Installation for big assemblies
 ===============================
 
-The installation steps described above install OpenSlides in a way that does
-NOT support hundreds of concurrent clients. To install OpenSlides for big
-assemblies some config variables have to be changed in the OpenSlides settings
+The installation steps described above install OpenSlides in a way that
+does NOT support hundreds of concurrent clients. To install OpenSlides for
+big assemblies some variables have to be changed in the OpenSlides settings
 file (usually called settings.py).
 
 The configuration values that have to be altered are:
@@ -129,18 +141,22 @@ The configuration values that have to be altered are:
 * CACHES
 * CHANNEL_LAYERS
 * DATABASES
+* SESSION_ENGINE
 
-Please see:
+You should use a webserver like Apache HTTP Server or nginx to serve the
+static and media files as proxy server in front of your OpenSlides
+interface server. You also should use a database like PostgreSQL and Redis
+as channels backend, cache backend and session engine. Finally you should
+start some WSGI workers and one or more interface servers (Daphne or Geiss).
 
-* http://channels.readthedocs.io/en/latest/deploying.html
+Please see the respective section in the `DEVELOPMENT.rst
+<https://github.com/OpenSlides/OpenSlides/blob/master/DEVELOPMENT.rst>`_ and:
+
+* https://channels.readthedocs.io/en/latest/deploying.html
+* https://github.com/ostcar/geiss
 * https://docs.djangoproject.com/en/1.10/topics/cache/
 * https://github.com/sebleier/django-redis-cache
 * https://docs.djangoproject.com/en/1.10/ref/settings/#databases
-
-You should use a webserver like Apache HTTP Server or nginx to serve the static
-and media files as proxy server in front of your OpenSlides server. You also
-should use a database like PostgreSQL and Redis as channels backend and cache
-backend.
 
 
 Used software
@@ -148,40 +164,7 @@ Used software
 
 OpenSlides uses the following projects or parts of them:
 
-* `asgiref <https://github.com/django/asgiref/>`_, License: BSD
-
-* `Autobahn <http://autobahn.ws/python/>`_, License: MIT
-
-* `Constantly <https://github.com/twisted/constantly>`_, License: MIT
-
-* `daphne <https://github.com/django/daphne/>`_, License: BSD
-
-* `Django <https://www.djangoproject.com>`_, License: BSD
-
-* `Django Channels <https://github.com/django/channels>`_, License: BSD
-
-* `django-jsonfield <https://github.com/bradjasper/django-jsonfield>`_,
-  License: MIT
-
-* `Django REST framework <http://www.django-rest-framework.org>`_, License:
-  BSD
-
-* `Incremental <https://github.com/hawkowl/incremental>`_, License: MIT
-
-* `PyPDF2 <http://mstamy2.github.io/PyPDF2/>`_, License: BSD
-
-* `roman <https://pypi.python.org/pypi/roman>`_, License: Python 2.1.1
-
-* `setuptools <https://pypi.python.org/pypi/setuptools>`_, License: MIT
-
-* `Six <http://pythonhosted.org/six/>`_, License: MIT
-
-* `Twisted <https://twistedmatrix.com>`_, License: MIT
-
-* `txaio <https://github.com/crossbario/txaio>`_, License: MIT
-
-* `zope.interface <https://github.com/zopefoundation/zope.interface>`,
-  License: ZPL 2.1
+* Several Python packages (see ``requirements_production.txt``).
 
 * Several JavaScript packages (see ``bower.json``)
 
