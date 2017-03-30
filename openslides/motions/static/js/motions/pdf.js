@@ -109,6 +109,7 @@ angular.module('OpenSlidesApp.motions.pdf', ['OpenSlidesApp.core.pdf'])
                             column3.push('');
                         }
                         // yes
+                        // TODO: Add voting principle precision.
                         var yes = poll.getVote(poll.yes, 'yes');
                         column1.push(gettextCatalog.getString('Yes') + ':');
                         column2.push(yes.value);

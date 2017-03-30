@@ -563,6 +563,7 @@ angular.module('OpenSlidesApp.motions.site', [
                     templateOptions: {
                         label: gettextCatalog.getString('Yes'),
                         type: 'number',
+                        // TODO: Add step (voting principle precision).
                         required: true
                     }
                 },
