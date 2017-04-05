@@ -1,6 +1,6 @@
 from ..core.exceptions import ProjectorException
 from ..utils.projector import ProjectorElement
-from .models import Motion, MotionBlock, MotionChangeRecommendation, Workflow
+from .models import Category, Motion, MotionBlock, MotionChangeRecommendation, Workflow
 
 
 class MotionSlide(ProjectorElement):
@@ -23,6 +23,7 @@ class MotionSlide(ProjectorElement):
             yield motion
             yield motion.agenda_item
             yield motion.state.workflow
+            yield from Category.objects.all()
             yield from motion.submitters.all()
             yield from motion.supporters.all()
             yield from MotionChangeRecommendation.objects.filter(motion_version=motion.get_active_version().id)
