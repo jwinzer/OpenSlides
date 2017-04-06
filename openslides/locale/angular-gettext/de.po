@@ -2160,12 +2160,12 @@ msgid "Quorum ({{ option.getVoteYes() - option.majorityReached }}) reached."
 msgstr "Quorum ({{ option.getVoteYes() - option.majorityReached }}) erreicht."
 
 #: motions/static/templates/motions/motion-detail.html:408
-msgid "Quorum ({{ voteYes.value - isReached() }}) not reached."
-msgstr "Quorum ({{ voteYes.value - isReached() }}) nicht erreicht."
+msgid "Quorum ({{ (voteYes.value - isReached()) | number:precision }}) not reached."
+msgstr "Quorum ({{ (voteYes.value - isReached()) | number:precision }}) nicht erreicht."
 
 #: motions/static/templates/motions/motion-detail.html:405
-msgid "Quorum ({{ voteYes.value - isReached() }}) reached."
-msgstr "Quorum ({{ voteYes.value - isReached() }}) erreicht."
+msgid "Quorum ({{ (voteYes.value - isReached()) | number:precision }}) reached."
+msgstr "Quorum ({{ (voteYes.value - isReached()) | number:precision }}) erreicht."
 
 #: motions/static/js/motions/docx.js:80 motions/static/js/motions/pdf.js:269
 #: motions/static/js/motions/site.js:355

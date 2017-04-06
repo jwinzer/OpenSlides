@@ -2164,12 +2164,12 @@ msgid "Quorum ({{ option.getVoteYes() - option.majorityReached }}) reached."
 msgstr "Usnášeníschopného počtu (kvorum) ({{ option.getVoteYes() - option.majorityReached }}) dosaženo."
 
 #: motions/static/templates/motions/motion-detail.html:408
-msgid "Quorum ({{ voteYes.value - isReached() }}) not reached."
-msgstr "Usnášeníschopného počtu (kvorum) ({{ voteYes.value - isReached() }}) nedosaženo."
+msgid "Quorum ({{ (voteYes.value - isReached()) | number:precision }}) not reached."
+msgstr "Usnášeníschopného počtu (kvorum) ({{ (voteYes.value - isReached()) | number:precision }}) nedosaženo."
 
 #: motions/static/templates/motions/motion-detail.html:405
-msgid "Quorum ({{ voteYes.value - isReached() }}) reached."
-msgstr "Usnášeníschopného počtu (kvorum) ({{ voteYes.value - isReached() }}) dosaženo."
+msgid "Quorum ({{ (voteYes.value - isReached()) | number:precision }}) reached."
+msgstr "Usnášeníschopného počtu (kvorum) ({{ (voteYes.value - isReached()) | number:precision }}) dosaženo."
 
 #: motions/static/js/motions/docx.js:80 motions/static/js/motions/pdf.js:269
 #: motions/static/js/motions/site.js:355
