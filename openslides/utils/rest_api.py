@@ -16,6 +16,7 @@ from rest_framework.serializers import (  # noqa
     DictField,
     Field,
     FileField,
+    FloatField,
     IntegerField,
     ListField,
     ListSerializer,
