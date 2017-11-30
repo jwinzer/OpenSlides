@@ -1,0 +1,3 @@
+#redis-server --port 62035 --daemonize yes
+#PYTHONPATH=$HOME/django-openslides:$HOME/OpenSlides:. $HOME/vopenslides/bin/python manage.py runworker --settings personal_data.var.settings
+$HOME/vopenslides/bin/daphne -u /tmp/23961.sock personal_data.var.asgi:channel_layer > /dev/null 2>&1 &
