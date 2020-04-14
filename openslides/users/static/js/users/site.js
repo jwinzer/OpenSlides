@@ -1700,15 +1700,17 @@ angular.module('OpenSlidesApp.users.site', [
     '$state',
     '$stateParams',
     '$q',
+    '$window',
     'operator',
     'gettext',
     'autoupdate',
     'mainMenu',
     'DS',
     'ngDialog',
-    function ($rootScope, $scope, $http, $state, $stateParams, $q, operator, gettext,
+    function ($rootScope, $scope, $http, $state, $stateParams, $q, $window, operator, gettext,
         autoupdate, mainMenu, DS, ngDialog) {
         $scope.alerts = [];
+        $scope.window = $window;
 
         if ($stateParams.msg) {
             $scope.alerts.push({
@@ -1761,7 +1763,7 @@ angular.module('OpenSlidesApp.users.site', [
                         operator.setUser(response.data.user_id, response.data.user);
                         $rootScope.operator = operator;
                         mainMenu.updateMainMenu();
-                        $state.go('home');
+                        $state.go($scope.window.innerWidth < 768 ? 'mobile' : 'home');
                         $rootScope.openslidesBootstrapDone = true;
                     });
                 },
