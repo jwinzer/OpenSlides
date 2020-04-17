@@ -28,10 +28,9 @@
   <div class="containerOS">
     <!-- Logo -->
     <div class="title">
-      <a ui-sref="home">
-        <img src="/static/img/openslides-logo-dark.png" alt="OpenSlides Logo" height="35">
-        <img ng-if="config('logo_web_header').path" ng-src="{{ config('logo_web_header').path }}" alt="OpenSlides Logo" height="35">
-      </a>
+      <!-- No link since it's different for mobile -->
+      <img src="/static/img/openslides-logo-dark.png" alt="OpenSlides Logo" height="35">
+      <img ng-if="config('logo_web_header').path" ng-src="{{ config('logo_web_header').path }}" alt="OpenSlides Logo" height="35">
       <span ng-bind-html="config('general_event_name')"></span>
     </div>
 
