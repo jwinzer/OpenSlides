@@ -13,7 +13,7 @@ def get_config_variables():
     """
     yield ConfigVariable(
         name='general_event_name',
-        default_value='OpenSlides',
+        default_value='Vote@Home',
         label='Event name',
         weight=110,
         group='General',

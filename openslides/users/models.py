@@ -82,18 +82,16 @@ class UserManager(BaseUserManager):
 
     def generate_username(self, first_name, last_name):
         """
-        Generates a username from first name and last name.
+        Generates a username from last name or first name.
         """
         first_name = first_name.strip()
         last_name = last_name.strip()
 
-        if first_name and last_name:
-            base_name = ' '.join((first_name, last_name))
-        else:
-            base_name = first_name or last_name
-            if not base_name:
-                raise ValueError("Either 'first_name' or 'last_name' must not be "
-                                 "empty.")
+        # Take the last word of last or first name.
+        base_name = (last_name or first_name).split(' ')[-1]
+        if not base_name:
+            raise ValueError("Either 'first_name' or 'last_name' must not be "
+                             "empty.")
 
         if not self.filter(username=base_name).exists():
             generated_username = base_name
@@ -101,7 +99,7 @@ class UserManager(BaseUserManager):
             counter = 0
             while True:
                 counter += 1
-                test_name = '%s %d' % (base_name, counter)
+                test_name = '%s%d' % (base_name, counter)
                 if not self.filter(username=test_name).exists():
                     generated_username = test_name
                     break

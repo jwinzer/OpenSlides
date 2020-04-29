@@ -4153,7 +4153,7 @@ msgstr "Abgegebene Stimmen"
 
 #: openslides\assignments\static\js\assignments\site.js:936
 msgid "Voting"
-msgstr "Im Wahlvorgang"
+msgstr "Voting"
 
 #: openslides\motions\static\js\motions\site.js:3295
 msgid "Voting and ballot papers"
