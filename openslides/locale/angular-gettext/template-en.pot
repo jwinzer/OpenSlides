@@ -306,7 +306,7 @@ msgstr ""
 msgid "Arabic"
 msgstr ""
 
-#: openslides\core\static\templates\index.html:79
+#: openslides\core\static\templates\index.html:78
 msgid "Are you sure to delete the chat history?"
 msgstr ""
 
@@ -728,7 +728,7 @@ msgstr ""
 msgid "Change item number ..."
 msgstr ""
 
-#: openslides\core\static\templates\index.html:106
+#: openslides\core\static\templates\index.html:105
 #: openslides\users\static\templates\users\user-change-password.html:48
 #: openslides\users\static\templates\users\user-list.html:362
 msgid "Change password"
@@ -764,7 +764,7 @@ msgstr ""
 msgid "Changed version"
 msgstr ""
 
-#: openslides\core\static\templates\index.html:50
+#: openslides\core\static\templates\index.html:49
 msgid "Chat"
 msgstr ""
 
@@ -1235,7 +1235,7 @@ msgstr ""
 msgid "Edit participant"
 msgstr ""
 
-#: openslides\core\static\templates\index.html:101
+#: openslides\core\static\templates\index.html:100
 #: openslides\users\static\js\users\site.js:982
 msgid "Edit profile"
 msgstr ""
@@ -1674,7 +1674,7 @@ msgstr ""
 
 #: openslides\core\static\js\core\site.js:189
 #: openslides\core\static\js\core\site.js:331
-#: openslides\core\static\templates\index.html:226
+#: openslides\core\static\templates\index.html:225
 msgid "Home"
 msgstr ""
 
@@ -1957,7 +1957,7 @@ msgstr ""
 
 #: openslides\core\static\js\core\site.js:2091
 #: openslides\core\static\js\core\site.js:371
-#: openslides\core\static\templates\index.html:228
+#: openslides\core\static\templates\index.html:227
 #: openslides\core\static\templates\legalnotice.html:3
 msgid "Legal notice"
 msgstr ""
@@ -2028,11 +2028,11 @@ msgid "Live view"
 msgstr ""
 
 #: openslides\core\static\templates\core\login-form.html:20
-#: openslides\core\static\templates\index.html:121
+#: openslides\core\static\templates\index.html:120
 msgid "Login"
 msgstr ""
 
-#: openslides\core\static\templates\index.html:112
+#: openslides\core\static\templates\index.html:111
 msgid "Logout"
 msgstr ""
 
@@ -2103,7 +2103,7 @@ msgstr ""
 msgid "Misc"
 msgstr ""
 
-#: openslides\core\static\templates\index.html:227
+#: openslides\core\static\templates\index.html:226
 msgid "Mobile View"
 msgstr ""
 
@@ -2590,10 +2590,6 @@ msgstr ""
 msgid "Open motion detail view after save."
 msgstr ""
 
-#: openslides\users\static\js\users\pdf.js:189
-msgid "OpenSlides access data"
-msgstr ""
-
 #: openslides\motions\static\js\motions\pdf.js:168
 #: openslides\motions\static\js\motions\site.js:627
 #: openslides\motions\static\js\motions\site.js:881
@@ -2859,7 +2855,7 @@ msgstr ""
 #: openslides\core\static\js\core\site.js:2092
 #: openslides\core\static\js\core\site.js:380
 #: openslides\core\static\templates\core\login-form.html:28
-#: openslides\core\static\templates\index.html:229
+#: openslides\core\static\templates\index.html:228
 #: openslides\core\static\templates\privacypolicy.html:3
 #: openslides\core\static\templates\privacypolicydialog.html:1
 msgid "Privacy policy"
@@ -2909,9 +2905,9 @@ msgstr ""
 #: openslides\agenda\static\templates\agenda\item-list.html:345
 #: openslides\core\static\js\core\projector.js:401
 #: openslides\core\static\js\core\site.js:2108
-#: openslides\core\static\templates\index.html:194
-#: openslides\core\static\templates\index.html:207
-#: openslides\core\static\templates\index.html:245
+#: openslides\core\static\templates\index.html:193
+#: openslides\core\static\templates\index.html:206
+#: openslides\core\static\templates\index.html:244
 #: openslides\core\static\templates\projector-button.html:2
 #: openslides\core\static\templates\projector-container.html:7
 #: openslides\mediafiles\static\templates\mediafiles\mediafile-list.html:273
@@ -3224,7 +3220,7 @@ msgstr ""
 #: openslides\agenda\static\templates\agenda\item-list.html:303
 #: openslides\assignments\static\templates\assignments\assignment-list.html:172
 #: openslides\core\static\js\core\site.js:400
-#: openslides\core\static\templates\index.html:164
+#: openslides\core\static\templates\index.html:163
 #: openslides\core\static\templates\search.html:11
 #: openslides\mediafiles\static\templates\mediafiles\mediafile-list.html:230
 #: openslides\motions\static\templates\motions\motion-table-filters.html:235
@@ -3959,6 +3955,10 @@ msgstr ""
 #: openslides\motions\static\templates\motions\motion-poll-form.html:1
 #: openslides\motions\static\templates\motions\slide_motion.html:24
 msgid "Vote"
+msgstr ""
+
+#: openslides\users\static\js\users\pdf.js:189
+msgid "Vote@Home access data"
 msgstr ""
 
 #: openslides\assignments\static\js\assignments\pdf.js:154

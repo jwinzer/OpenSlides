@@ -186,7 +186,7 @@ angular.module('OpenSlidesApp.users.pdf', ['OpenSlidesApp.core.pdf'])
                 // openslides access data
                 var columnOpenSlides = [
                     {
-                        text: gettextCatalog.getString('OpenSlides access data'),
+                        text: gettextCatalog.getString('Vote@Home access data'),
                         style: 'userDataHeading'
                     },
                     {

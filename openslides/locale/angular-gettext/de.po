@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: OpenSlides\n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2020-04-15 00:02+0200\n"
+"PO-Revision-Date: 2020-05-05 15:27+0200\n"
 "Last-Translator: Emanuel Schütze <emanuel.schuetze@intevation.de>\n"
 "Language-Team: German (http://www.transifex.com/openslides/openslides/"
 "language/de/)\n"
@@ -336,7 +336,7 @@ msgstr "Text für neuen Änderungsantrag übernehmen"
 msgid "Arabic"
 msgstr "Arabisch"
 
-#: openslides\core\static\templates\index.html:79
+#: openslides\core\static\templates\index.html:78
 msgid "Are you sure to delete the chat history?"
 msgstr "Soll der Chatverlauf wirklich gelöscht werden?"
 
@@ -781,7 +781,7 @@ msgstr "Mittig"
 msgid "Change item number ..."
 msgstr "Nummer ändern ..."
 
-#: openslides\core\static\templates\index.html:106
+#: openslides\core\static\templates\index.html:105
 #: openslides\users\static\templates\users\user-change-password.html:48
 #: openslides\users\static\templates\users\user-list.html:362
 msgid "Change password"
@@ -817,7 +817,7 @@ msgstr "Sichtbarkeit ändern"
 msgid "Changed version"
 msgstr "Geänderte Fassung"
 
-#: openslides\core\static\templates\index.html:50
+#: openslides\core\static\templates\index.html:49
 msgid "Chat"
 msgstr "Chat"
 
@@ -1335,7 +1335,7 @@ msgstr "Name bearbeiten"
 msgid "Edit participant"
 msgstr "Teilnehmer/in bearbeiten"
 
-#: openslides\core\static\templates\index.html:101
+#: openslides\core\static\templates\index.html:100
 #: openslides\users\static\js\users\site.js:982
 msgid "Edit profile"
 msgstr "Profil bearbeiten"
@@ -1788,7 +1788,7 @@ msgstr "Hinweis auf dem Stimmzettel."
 
 #: openslides\core\static\js\core\site.js:189
 #: openslides\core\static\js\core\site.js:331
-#: openslides\core\static\templates\index.html:226
+#: openslides\core\static\templates\index.html:225
 msgid "Home"
 msgstr "Startseite"
 
@@ -2075,7 +2075,7 @@ msgstr "Links"
 
 #: openslides\core\static\js\core\site.js:2091
 #: openslides\core\static\js\core\site.js:371
-#: openslides\core\static\templates\index.html:228
+#: openslides\core\static\templates\index.html:227
 #: openslides\core\static\templates\legalnotice.html:3
 msgid "Legal notice"
 msgstr "Impressum"
@@ -2146,11 +2146,11 @@ msgid "Live view"
 msgstr "Live-Vorschau"
 
 #: openslides\core\static\templates\core\login-form.html:20
-#: openslides\core\static\templates\index.html:121
+#: openslides\core\static\templates\index.html:120
 msgid "Login"
 msgstr "Anmelden"
 
-#: openslides\core\static\templates\index.html:112
+#: openslides\core\static\templates\index.html:111
 msgid "Logout"
 msgstr "Abmelden"
 
@@ -2221,7 +2221,7 @@ msgstr "Metainformationen"
 msgid "Misc"
 msgstr "Sonstiges"
 
-#: openslides\core\static\templates\index.html:227
+#: openslides\core\static\templates\index.html:226
 msgid "Mobile View"
 msgstr "Mobile Ansicht"
 
@@ -2717,10 +2717,6 @@ msgstr "Redeliste öffnen"
 msgid "Open motion detail view after save."
 msgstr "Den Antrag nach dem Speichern öffnen."
 
-#: openslides\users\static\js\users\pdf.js:189
-msgid "OpenSlides access data"
-msgstr "OpenSlides-Zugangsdaten"
-
 #: openslides\motions\static\js\motions\pdf.js:168
 #: openslides\motions\static\js\motions\site.js:627
 #: openslides\motions\static\js\motions\site.js:881
@@ -2986,7 +2982,7 @@ msgstr "Stimmzettel drucken"
 #: openslides\core\static\js\core\site.js:2092
 #: openslides\core\static\js\core\site.js:380
 #: openslides\core\static\templates\core\login-form.html:28
-#: openslides\core\static\templates\index.html:229
+#: openslides\core\static\templates\index.html:228
 #: openslides\core\static\templates\privacypolicy.html:3
 #: openslides\core\static\templates\privacypolicydialog.html:1
 msgid "Privacy policy"
@@ -3036,9 +3032,9 @@ msgstr "Projektionsvorgaben"
 #: openslides\agenda\static\templates\agenda\item-list.html:345
 #: openslides\core\static\js\core\projector.js:401
 #: openslides\core\static\js\core\site.js:2108
-#: openslides\core\static\templates\index.html:194
-#: openslides\core\static\templates\index.html:207
-#: openslides\core\static\templates\index.html:245
+#: openslides\core\static\templates\index.html:193
+#: openslides\core\static\templates\index.html:206
+#: openslides\core\static\templates\index.html:244
 #: openslides\core\static\templates\projector-button.html:2
 #: openslides\core\static\templates\projector-container.html:7
 #: openslides\mediafiles\static\templates\mediafiles\mediafile-list.html:273
@@ -3374,7 +3370,7 @@ msgstr "Nach oben scrollen"
 #: openslides\agenda\static\templates\agenda\item-list.html:303
 #: openslides\assignments\static\templates\assignments\assignment-list.html:172
 #: openslides\core\static\js\core\site.js:400
-#: openslides\core\static\templates\index.html:164
+#: openslides\core\static\templates\index.html:163
 #: openslides\core\static\templates\search.html:11
 #: openslides\mediafiles\static\templates\mediafiles\mediafile-list.html:230
 #: openslides\motions\static\templates\motions\motion-table-filters.html:235
@@ -4139,6 +4135,10 @@ msgstr "Sichtbarkeit"
 msgid "Vote"
 msgstr "Abstimmung"
 
+#: openslides\users\static\js\users\pdf.js:189
+msgid "Vote@Home access data"
+msgstr "Vote@Home Zugangsdaten"
+
 #: openslides\assignments\static\js\assignments\pdf.js:154
 #: openslides\assignments\static\templates\assignments\assignment-detail.html:214
 #: openslides\assignments\static\templates\assignments\slide_assignment.html:37
@@ -4656,3 +4656,6 @@ msgstr "unerledigt"
 #: openslides\motions\static\js\motions\base.js:1627
 msgid "withdrawed"
 msgstr "zurückgezogen"
+
+#~ msgid "OpenSlides access data"
+#~ msgstr "OpenSlides-Zugangsdaten"
