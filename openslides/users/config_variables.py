@@ -1,6 +1,22 @@
-from textwrap import dedent
-
 from openslides.core.config import ConfigVariable
+
+_email_body = (
+    "Sehr geehrte Damen und Herren.\n\n"
+    "dies sind Ihre Zugangsdaten zur virtuellen Versammlungsplattform Vote@Home, über die Sie an den "
+    "Beschlussfassungen der Versammlung {event_name} teilnehmen können.\n\n"
+    "Wir empfehlen Ihnen, diesen Link auf Ihrem Smartdevice (Mobiltelefon oder Tablett) zu öffnen und auf diesem "
+    "Weg an den Abstimmungen teilzunehmen:\n"
+    "    {url}\n\n"
+    "Für den Log-In verwenden Sie bitte Ihre persönlichen Zugangsdaten:\n"
+    "    Benutzername: {username}\n"
+    "    Passwort: {password}\n\n"
+    "Wenn Sie nachfolgenden zweiten Link auf Ihrem Laptop oder Desktop Rechner öffnen, können Sie mit diesem Rechner "
+    "an der Videokonferenz teilnehmen:\n\n"
+    "Selbstverständlich können Sie alternativ auch von einem einzigen Endgerät aus beide Plattformen gleichzeitig "
+    "aufrufen. Eine Erklärung und ein kurzes Video hierzu finden Sie auf der Startseite von {url}.\n\n"
+    "Für Rückfragen stehen wir Ihnen unter info@voteworks.de bzw der Rufnummer 02244-877710 gerne zur Verfügung.\n\n"
+    "Diese E-Mail wurde automatisch erstellt."
+)
 
 
 def get_config_variables():
@@ -36,7 +52,7 @@ def get_config_variables():
 
     yield ConfigVariable(
         name='users_pdf_welcometitle',
-        default_value='Welcome to OpenSlides',
+        default_value='Willkommen bei Vote@Home',
         label='Title for access data and welcome PDF',
         weight=520,
         group='Participants',
@@ -53,7 +69,7 @@ def get_config_variables():
     # TODO: Use Django's URLValidator here.
     yield ConfigVariable(
         name='users_pdf_url',
-        default_value='http://example.com:8000',
+        default_value='https://name.voteathome.de',
         label='System URL',
         help_text='Used for QRCode in PDF of access data.',
         weight=540,
@@ -97,7 +113,7 @@ def get_config_variables():
 
     yield ConfigVariable(
         name='users_email_sender',
-        default_value='noreply@yourdomain.com',
+        default_value='noreply@voteathome.de',
         input_type='string',
         label='Email sender',
         weight=600,
@@ -106,7 +122,7 @@ def get_config_variables():
 
     yield ConfigVariable(
         name='users_email_subject',
-        default_value='Your login for {event_name}',
+        default_value='Ihre Zugangsdaten zur virtuellen Versammlung {event_name}',
         input_type='string',
         label='Email subject',
         help_text='You can use {event_name} as a placeholder.',
@@ -116,16 +132,7 @@ def get_config_variables():
 
     yield ConfigVariable(
         name='users_email_body',
-        default_value=dedent('''\
-            Dear {name},
-
-            this is your OpenSlides login for the event {event_name}:
-
-                {url}
-                username: {username}
-                password: {password}
-
-            This email was generated automatically.'''),
+        default_value=_email_body,
         input_type='text',
         label='Email body',
         help_text='Use these placeholders: {name}, {event_name}, {url}, {username}, {password}. The url referrs to the system url.',
