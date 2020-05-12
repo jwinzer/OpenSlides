@@ -4100,7 +4100,7 @@ msgid "You can use {event_name} as a placeholder."
 msgstr ""
 
 #: openslides\users\static\js\users\site.js:1738
-msgid "You have to enable cookies to use OpenSlides."
+msgid "You have to enable cookies to use Vote@Home."
 msgstr ""
 
 #: openslides\users\static\templates\users\user-change-password.html:17

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: OpenSlides\n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2020-05-05 15:27+0200\n"
+"PO-Revision-Date: 2020-05-12 19:29+0200\n"
 "Last-Translator: Emanuel Schütze <emanuel.schuetze@intevation.de>\n"
 "Language-Team: German (http://www.transifex.com/openslides/openslides/"
 "language/de/)\n"
@@ -4287,8 +4287,8 @@ msgid "You can use {event_name} as a placeholder."
 msgstr "Sie können {event_name} als Platzhalter verwenden."
 
 #: openslides\users\static\js\users\site.js:1738
-msgid "You have to enable cookies to use OpenSlides."
-msgstr "Sie müssen Cookies aktivieren, um OpenSlides verwenden zu können."
+msgid "You have to enable cookies to use Vote@Home."
+msgstr "Sie müssen Cookies aktivieren, um Vote@Home verwenden zu können."
 
 #: openslides\users\static\templates\users\user-change-password.html:17
 msgid "You override the personally set password of"

@@ -1735,7 +1735,7 @@ angular.module('OpenSlidesApp.users.site', [
         if (!navigator.cookieEnabled) {
             $scope.alerts.push({
                 type: 'danger',
-                msg: gettext('You have to enable cookies to use OpenSlides.'),
+                msg: gettext('You have to enable cookies to use Vote@Home.'),
             });
         }
 
