@@ -2,6 +2,8 @@
 <html ng-controller="LanguageCtrl" lang="{{ selectedLanguage[0].code }}" class="no-js">
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
 <base href="/">
 <title ng-if="!activeAppTitle">Vote@Home</title> <!-- avoid {{ ... }} in title while angular is not loaded -->
 <title ng-if="activeAppTitle">{{ activeAppTitle | translate }} &ndash; Vote@Home</title>
@@ -222,7 +224,7 @@
         <div ui-view ng-if="openslidesBootstrapDone && baseViewPermissionsGranted"></div>
         <!-- footer -->
         <div id="footer">
-          <a ui-sref="home" translate>Home</a> |
+          <a ui-sref="home" translate>Desktop View</a> |
           <a ui-sref="mobile" translate>Mobile View</a> |
           <a ui-sref="legalnotice" translate>Legal notice</a> |
           <a ui-sref="privacypolicy" translate>Privacy policy</a>

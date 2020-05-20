@@ -519,63 +519,63 @@ msgstr ""
 msgid "CSV file"
 msgstr ""
 
-#: openslides\users\static\js\users\site.js:1838
+#: openslides\users\static\js\users\site.js:1839
 msgid "Can create motions"
 msgstr ""
 
-#: openslides\users\static\js\users\site.js:1813
+#: openslides\users\static\js\users\site.js:1814
 msgid "Can manage agenda"
 msgstr ""
 
-#: openslides\users\static\js\users\site.js:1842
+#: openslides\users\static\js\users\site.js:1843
 msgid "Can manage comments"
 msgstr ""
 
-#: openslides\users\static\js\users\site.js:1827
+#: openslides\users\static\js\users\site.js:1828
 msgid "Can manage configuration"
 msgstr ""
 
-#: openslides\users\static\js\users\site.js:1821
+#: openslides\users\static\js\users\site.js:1822
 msgid "Can manage elections"
 msgstr ""
 
-#: openslides\users\static\js\users\site.js:1834
+#: openslides\users\static\js\users\site.js:1835
 msgid "Can manage files"
 msgstr ""
 
-#: openslides\users\static\js\users\site.js:1814
+#: openslides\users\static\js\users\site.js:1815
 msgid "Can manage list of speakers"
 msgstr ""
 
-#: openslides\users\static\js\users\site.js:1830
+#: openslides\users\static\js\users\site.js:1831
 msgid "Can manage logos and fonts"
 msgstr ""
 
-#: openslides\users\static\js\users\site.js:1840
+#: openslides\users\static\js\users\site.js:1841
 msgid "Can manage motions"
 msgstr ""
 
-#: openslides\users\static\js\users\site.js:1826
+#: openslides\users\static\js\users\site.js:1827
 msgid "Can manage tags"
 msgstr ""
 
-#: openslides\users\static\js\users\site.js:1829
+#: openslides\users\static\js\users\site.js:1830
 msgid "Can manage the chat"
 msgstr ""
 
-#: openslides\users\static\js\users\site.js:1824
+#: openslides\users\static\js\users\site.js:1825
 msgid "Can manage the projector"
 msgstr ""
 
-#: openslides\users\static\js\users\site.js:1846
+#: openslides\users\static\js\users\site.js:1847
 msgid "Can manage users"
 msgstr ""
 
-#: openslides\users\static\js\users\site.js:1819
+#: openslides\users\static\js\users\site.js:1820
 msgid "Can nominate another participant"
 msgstr ""
 
-#: openslides\users\static\js\users\site.js:1820
+#: openslides\users\static\js\users\site.js:1821
 msgid "Can nominate oneself"
 msgstr ""
 
@@ -583,63 +583,63 @@ msgstr ""
 msgid "Can not open the projector."
 msgstr ""
 
-#: openslides\users\static\js\users\site.js:1816
+#: openslides\users\static\js\users\site.js:1817
 msgid "Can put oneself on the list of speakers"
 msgstr ""
 
-#: openslides\users\static\js\users\site.js:1812
+#: openslides\users\static\js\users\site.js:1813
 msgid "Can see agenda"
 msgstr ""
 
-#: openslides\users\static\js\users\site.js:1841
+#: openslides\users\static\js\users\site.js:1842
 msgid "Can see comments"
 msgstr ""
 
-#: openslides\users\static\js\users\site.js:1818
+#: openslides\users\static\js\users\site.js:1819
 msgid "Can see elections"
 msgstr ""
 
-#: openslides\users\static\js\users\site.js:1845
+#: openslides\users\static\js\users\site.js:1846
 msgid "Can see extra data of users (e.g. present and comment)"
 msgstr ""
 
-#: openslides\users\static\js\users\site.js:1835
+#: openslides\users\static\js\users\site.js:1836
 msgid "Can see hidden files"
 msgstr ""
 
-#: openslides\users\static\js\users\site.js:1815
+#: openslides\users\static\js\users\site.js:1816
 msgid "Can see internal items and time scheduling of agenda"
 msgstr ""
 
-#: openslides\users\static\js\users\site.js:1837
+#: openslides\users\static\js\users\site.js:1838
 msgid "Can see motions"
 msgstr ""
 
-#: openslides\users\static\js\users\site.js:1844
+#: openslides\users\static\js\users\site.js:1845
 msgid "Can see names of users"
 msgstr ""
 
-#: openslides\users\static\js\users\site.js:1825
+#: openslides\users\static\js\users\site.js:1826
 msgid "Can see the front page"
 msgstr ""
 
-#: openslides\users\static\js\users\site.js:1832
+#: openslides\users\static\js\users\site.js:1833
 msgid "Can see the list of files"
 msgstr ""
 
-#: openslides\users\static\js\users\site.js:1823
+#: openslides\users\static\js\users\site.js:1824
 msgid "Can see the projector"
 msgstr ""
 
-#: openslides\users\static\js\users\site.js:1839
+#: openslides\users\static\js\users\site.js:1840
 msgid "Can support motions"
 msgstr ""
 
-#: openslides\users\static\js\users\site.js:1833
+#: openslides\users\static\js\users\site.js:1834
 msgid "Can upload files"
 msgstr ""
 
-#: openslides\users\static\js\users\site.js:1828
+#: openslides\users\static\js\users\site.js:1829
 msgid "Can use the chat"
 msgstr ""
 
@@ -939,7 +939,7 @@ msgstr ""
 msgid "Custom translations"
 msgstr ""
 
-#: openslides\users\static\js\users\site.js:1877
+#: openslides\users\static\js\users\site.js:1878
 msgid ""
 "Dear {name},\n"
 "\n"
@@ -1076,6 +1076,10 @@ msgstr ""
 
 #: openslides\users\static\js\users\site.js:404
 msgid "Designates whether this user should be treated as active. Unselect this instead of deleting the account."
+msgstr ""
+
+#: openslides\core\static\templates\index.html:225
+msgid "Desktop View"
 msgstr ""
 
 #: openslides\users\static\js\users\site.js:613
@@ -1292,7 +1296,7 @@ msgstr ""
 msgid "Elections"
 msgstr ""
 
-#: openslides\users\static\js\users\site.js:1871
+#: openslides\users\static\js\users\site.js:1872
 #: openslides\users\static\js\users\site.js:313
 #: openslides\users\static\js\users\site.js:471
 #: openslides\users\static\templates\users\user-detail.html:36
@@ -1301,15 +1305,15 @@ msgstr ""
 msgid "Email"
 msgstr ""
 
-#: openslides\users\static\js\users\site.js:1876
+#: openslides\users\static\js\users\site.js:1877
 msgid "Email body"
 msgstr ""
 
-#: openslides\users\static\js\users\site.js:1872
+#: openslides\users\static\js\users\site.js:1873
 msgid "Email sender"
 msgstr ""
 
-#: openslides\users\static\js\users\site.js:1873
+#: openslides\users\static\js\users\site.js:1874
 msgid "Email subject"
 msgstr ""
 
@@ -1321,7 +1325,7 @@ msgstr ""
 msgid "Enable numbering for agenda items"
 msgstr ""
 
-#: openslides\users\static\js\users\site.js:1851
+#: openslides\users\static\js\users\site.js:1852
 msgid "Enable participant presence view"
 msgstr ""
 
@@ -1557,7 +1561,7 @@ msgstr ""
 #: openslides\core\static\js\core\site.js:2085
 #: openslides\motions\static\js\motions\site.js:3241
 #: openslides\users\static\js\users\site.js:1498
-#: openslides\users\static\js\users\site.js:1849
+#: openslides\users\static\js\users\site.js:1850
 msgid "General"
 msgstr ""
 
@@ -1579,7 +1583,7 @@ msgstr ""
 msgid "Generating PDFs and ZIP archive"
 msgstr ""
 
-#: openslides\users\static\js\users\site.js:1853
+#: openslides\users\static\js\users\site.js:1854
 #: openslides\users\static\js\users\site.js:296
 #: openslides\users\static\js\users\site.js:634
 #: openslides\users\static\templates\users\user-import.html:51
@@ -1621,7 +1625,7 @@ msgstr ""
 msgid "Groups created"
 msgstr ""
 
-#: openslides\users\static\js\users\site.js:1859
+#: openslides\users\static\js\users\site.js:1860
 msgid "Help text for access data and welcome PDF"
 msgstr ""
 
@@ -1674,7 +1678,6 @@ msgstr ""
 
 #: openslides\core\static\js\core\site.js:189
 #: openslides\core\static\js\core\site.js:331
-#: openslides\core\static\templates\index.html:225
 msgid "Home"
 msgstr ""
 
@@ -2357,7 +2360,7 @@ msgstr ""
 msgid "No emails were send."
 msgstr ""
 
-#: openslides\users\static\js\users\site.js:1870
+#: openslides\users\static\js\users\site.js:1871
 msgid "No encryption"
 msgstr ""
 
@@ -2625,7 +2628,7 @@ msgstr ""
 #: openslides\motions\static\templates\motions\motion-detail.html:71
 #: openslides\motions\static\templates\motions\motion-detail\comments.html:9
 #: openslides\motions\static\templates\motions\motion-detail\personal-note.html:9
-#: openslides\users\static\js\users\site.js:1855
+#: openslides\users\static\js\users\site.js:1856
 msgid "PDF"
 msgstr ""
 
@@ -2701,7 +2704,7 @@ msgstr ""
 
 #: openslides\users\static\js\users\base.js:19
 #: openslides\users\static\js\users\base.js:20
-#: openslides\users\static\js\users\site.js:1852
+#: openslides\users\static\js\users\site.js:1853
 #: openslides\users\static\js\users\site.js:19
 #: openslides\users\static\js\users\site.js:30
 #: openslides\users\static\js\users\site.js:48
@@ -3528,7 +3531,7 @@ msgstr ""
 msgid "Sort categories by"
 msgstr ""
 
-#: openslides\users\static\js\users\site.js:1850
+#: openslides\users\static\js\users\site.js:1851
 msgid "Sort name of participants by"
 msgstr ""
 
@@ -3645,7 +3648,7 @@ msgstr ""
 msgid "Supporters"
 msgstr ""
 
-#: openslides\users\static\js\users\site.js:1854
+#: openslides\users\static\js\users\site.js:1855
 #: openslides\users\static\js\users\site.js:304
 #: openslides\users\static\js\users\site.js:636
 #: openslides\users\static\templates\users\user-import.html:52
@@ -3653,7 +3656,7 @@ msgstr ""
 msgid "Surname"
 msgstr ""
 
-#: openslides\users\static\js\users\site.js:1860
+#: openslides\users\static\js\users\site.js:1861
 msgid "System URL"
 msgstr ""
 
@@ -3812,7 +3815,7 @@ msgstr ""
 msgid "Title for PDF document (all elections)"
 msgstr ""
 
-#: openslides\users\static\js\users\site.js:1857
+#: openslides\users\static\js\users\site.js:1858
 msgid "Title for access data and welcome PDF"
 msgstr ""
 
@@ -3888,17 +3891,17 @@ msgstr ""
 msgid "Use the following custom number"
 msgstr ""
 
-#: openslides\users\static\js\users\site.js:1878
+#: openslides\users\static\js\users\site.js:1879
 msgid "Use these placeholders: {name}, {event_name}, {url}, {username}, {password}. The url referrs to the system url."
 msgstr ""
 
-#: openslides\users\static\js\users\site.js:1861
+#: openslides\users\static\js\users\site.js:1862
 msgid "Used for QRCode in PDF of access data."
 msgstr ""
 
-#: openslides\users\static\js\users\site.js:1863
-#: openslides\users\static\js\users\site.js:1865
-#: openslides\users\static\js\users\site.js:1867
+#: openslides\users\static\js\users\site.js:1864
+#: openslides\users\static\js\users\site.js:1866
+#: openslides\users\static\js\users\site.js:1868
 msgid "Used for WLAN QRCode in PDF of access data."
 msgstr ""
 
@@ -3988,7 +3991,7 @@ msgstr ""
 msgid "Voting result"
 msgstr ""
 
-#: openslides\users\static\js\users\site.js:1868
+#: openslides\users\static\js\users\site.js:1869
 msgid "WEP"
 msgstr ""
 
@@ -3997,21 +4000,21 @@ msgid "WLAN access data"
 msgstr ""
 
 #: openslides\users\static\js\users\pdf.js:157
-#: openslides\users\static\js\users\site.js:1866
+#: openslides\users\static\js\users\site.js:1867
 msgid "WLAN encryption"
 msgstr ""
 
 #: openslides\users\static\js\users\pdf.js:141
-#: openslides\users\static\js\users\site.js:1862
+#: openslides\users\static\js\users\site.js:1863
 msgid "WLAN name (SSID)"
 msgstr ""
 
 #: openslides\users\static\js\users\pdf.js:149
-#: openslides\users\static\js\users\site.js:1864
+#: openslides\users\static\js\users\site.js:1865
 msgid "WLAN password"
 msgstr ""
 
-#: openslides\users\static\js\users\site.js:1869
+#: openslides\users\static\js\users\site.js:1870
 msgid "WPA/WPA2"
 msgstr ""
 
@@ -4028,7 +4031,7 @@ msgid "Web interface header logo"
 msgstr ""
 
 #: openslides\core\static\js\core\site.js:2094
-#: openslides\users\static\js\users\site.js:1856
+#: openslides\users\static\js\users\site.js:1857
 msgid "Welcome to OpenSlides"
 msgstr ""
 
@@ -4095,7 +4098,7 @@ msgstr ""
 msgid "You can replace the logo by uploading an image and set it as the \"Projector logo\" in \"files\"."
 msgstr ""
 
-#: openslides\users\static\js\users\site.js:1875
+#: openslides\users\static\js\users\site.js:1876
 msgid "You can use {event_name} as a placeholder."
 msgstr ""
 
@@ -4107,7 +4110,7 @@ msgstr ""
 msgid "You override the personally set password of"
 msgstr ""
 
-#: openslides\users\static\js\users\site.js:1874
+#: openslides\users\static\js\users\site.js:1875
 msgid "Your login for {event_name}"
 msgstr ""
 
@@ -4127,7 +4130,7 @@ msgstr ""
 msgid "[Begin speech] starts the countdown, [End speech] stops the countdown."
 msgstr ""
 
-#: openslides\users\static\js\users\site.js:1858
+#: openslides\users\static\js\users\site.js:1859
 msgid "[Place for your welcome and help text.]"
 msgstr ""
 

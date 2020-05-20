@@ -1763,7 +1763,8 @@ angular.module('OpenSlidesApp.users.site', [
                         operator.setUser(response.data.user_id, response.data.user);
                         $rootScope.operator = operator;
                         mainMenu.updateMainMenu();
-                        $state.go($scope.window.innerWidth < 768 ? 'mobile' : 'home');
+                        $state.go($scope.window.innerWidth < 768 ||
+                            operator.hasPerms('openslides_voting.go_mobile') ? 'mobile' : 'home');
                         $rootScope.openslidesBootstrapDone = true;
                     });
                 },
