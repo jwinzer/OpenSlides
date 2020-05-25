@@ -416,7 +416,7 @@ def get_config_variables():
     """
     yield ConfigVariable(
         name='general_event_name',
-        default_value='Hier können Sie IHREN Veranstaltungsnamen eintragen (siehe Einstellungen / Allgemein)',
+        default_value='Musterversammlung',
         label='Event name',
         weight=110,
         group='General',
