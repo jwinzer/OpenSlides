@@ -10,7 +10,8 @@ angular.module('OpenSlidesApp.assignments', [])
     'gettextCatalog',
     'Config',
     'MajorityMethods',
-    function (DS, jsDataModel, gettextCatalog, Config, MajorityMethods) {
+    'AssignmentPollDecimalPlaces',
+    function (DS, jsDataModel, gettextCatalog, Config, MajorityMethods, AssignmentPollDecimalPlaces) {
         return DS.defineResource({
             name: 'assignments/polloption',
             useClass: jsDataModel,
@@ -110,7 +111,8 @@ angular.module('OpenSlidesApp.assignments', [])
                     }
                     if (base) {
                         // Provide result only if base is not undefined and not 0.
-                        isReached = MajorityMethods[method](this.getVoteYes(), base);
+                        isReached = MajorityMethods[method](this.getVoteYes(), base,
+                            AssignmentPollDecimalPlaces.getPlaces(this.poll));
                     }
                     return isReached;
                 },
@@ -302,6 +304,21 @@ angular.module('OpenSlidesApp.assignments', [])
                         'percentNumber': percentNumber,
                         'display': value + ' ' + percentStr
                     };
+                },
+
+                // Returns options with result (votes) and rank attribute for sorting.
+                // Updates sortOrder.
+                getOptionsWithResult: function () {
+                    this.sortOrder = Config.get('assignments_poll_sort_by_votes').value ?
+                        '-rank' : 'weight';
+                    if (this.has_votes && this.has_result === undefined) {
+                        _.each(this.options, function (option) {
+                            option.result = option.getVotes();
+                            option.rank = option.result[0].value;
+                        });
+                        this.has_result = true;
+                    }
+                    return this.options;
                 }
             },
             relations: {

@@ -56,6 +56,15 @@ def get_config_variables():
         subgroup='Ballot and ballot papers')
 
     yield ConfigVariable(
+        name='assignments_poll_sort_by_votes',
+        default_value=False,
+        input_type='boolean',
+        label='Sort result by votes',
+        weight=426,
+        group='Elections',
+        subgroup='Ballot and ballot papers')
+
+    yield ConfigVariable(
         name='assignments_add_candidates_to_list_of_speakers',
         default_value=True,
         input_type='boolean',

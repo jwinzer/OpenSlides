@@ -928,6 +928,7 @@ angular.module('OpenSlidesApp.assignments.site', [
         gettext('Two-thirds majority');
         gettext('Three-quarters majority');
         gettext('Disabled');
+        gettext('Sort result by votes');
         gettext('Put all candidates on the list of speakers');
         gettext('Title for PDF document (all elections)');
         gettext('Preamble text for PDF document (all elections)');

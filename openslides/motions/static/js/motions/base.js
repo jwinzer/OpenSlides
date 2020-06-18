@@ -74,7 +74,8 @@ angular.module('OpenSlidesApp.motions', [
     'gettextCatalog',
     'Config',
     'MajorityMethods',
-    function (DS, gettextCatalog, Config, MajorityMethods) {
+    'MotionPollDecimalPlaces',
+    function (DS, gettextCatalog, Config, MajorityMethods, MotionPollDecimalPlaces) {
         return DS.defineResource({
             name: 'motions/motion-poll',
             relations: {
@@ -195,7 +196,8 @@ angular.module('OpenSlidesApp.motions', [
                     var base = this.getPercentBase(config, 'yes');
                     if (base) {
                         // Provide result only if base is not undefined and not 0.
-                        isReached = MajorityMethods[method](this.yes, base);
+                        isReached = MajorityMethods[method](this.yes, base,
+                            MotionPollDecimalPlaces.getPlaces(this));
                     }
                     return isReached;
                 }

@@ -14,11 +14,11 @@ msgctxt "special filetypes in a file open dialog"
 msgid "Accepted file types"
 msgstr ""
 
-#: openslides\motions\static\js\motions\base.js:1483
+#: openslides\motions\static\js\motions\base.js:1485
 msgid "%TYPE% from line %FROM% to %TO%"
 msgstr ""
 
-#: openslides\motions\static\js\motions\base.js:1485
+#: openslides\motions\static\js\motions\base.js:1487
 msgid "%TYPE% in line %FROM%"
 msgstr ""
 
@@ -68,7 +68,7 @@ msgstr ""
 msgid "<a href=\"http://www.openslides.org\">OpenSlides</a> is a free web based presentation and assembly system for visualizing and controlling agenda, motions and elections of an assembly."
 msgstr ""
 
-#: openslides\motions\static\js\motions\base.js:239
+#: openslides\motions\static\js\motions\base.js:241
 msgid "<unknown motion>"
 msgstr ""
 
@@ -100,13 +100,13 @@ msgstr ""
 msgid "Abstain"
 msgstr ""
 
-#: openslides\motions\static\js\motions\base.js:1607
-#: openslides\motions\static\js\motions\base.js:1622
+#: openslides\motions\static\js\motions\base.js:1609
+#: openslides\motions\static\js\motions\base.js:1624
 msgid "Accept"
 msgstr ""
 
-#: openslides\motions\static\js\motions\base.js:1608
-#: openslides\motions\static\js\motions\base.js:1623
+#: openslides\motions\static\js\motions\base.js:1610
+#: openslides\motions\static\js\motions\base.js:1625
 msgid "Acceptance"
 msgstr ""
 
@@ -171,11 +171,11 @@ msgstr ""
 msgid "Additional columns after the required ones may be present and won't affect the import."
 msgstr ""
 
-#: openslides\motions\static\js\motions\base.js:1630
+#: openslides\motions\static\js\motions\base.js:1632
 msgid "Adjourn"
 msgstr ""
 
-#: openslides\motions\static\js\motions\base.js:1631
+#: openslides\motions\static\js\motions\base.js:1633
 msgid "Adjournment"
 msgstr ""
 
@@ -306,7 +306,7 @@ msgstr ""
 msgid "Arabic"
 msgstr ""
 
-#: openslides\core\static\templates\index.html:78
+#: openslides\core\static\templates\index.html:80
 msgid "Are you sure to delete the chat history?"
 msgstr ""
 
@@ -728,7 +728,7 @@ msgstr ""
 msgid "Change item number ..."
 msgstr ""
 
-#: openslides\core\static\templates\index.html:105
+#: openslides\core\static\templates\index.html:107
 #: openslides\users\static\templates\users\user-change-password.html:48
 #: openslides\users\static\templates\users\user-list.html:362
 msgid "Change password"
@@ -764,7 +764,7 @@ msgstr ""
 msgid "Changed version"
 msgstr ""
 
-#: openslides\core\static\templates\index.html:49
+#: openslides\core\static\templates\index.html:51
 msgid "Chat"
 msgstr ""
 
@@ -848,7 +848,7 @@ msgstr ""
 msgid "Committees"
 msgstr ""
 
-#: openslides\motions\static\js\motions\base.js:1616
+#: openslides\motions\static\js\motions\base.js:1618
 msgid "Complex Workflow"
 msgstr ""
 
@@ -1047,7 +1047,7 @@ msgstr ""
 msgid "Delete selected participants"
 msgstr ""
 
-#: openslides\motions\static\js\motions\base.js:1492
+#: openslides\motions\static\js\motions\base.js:1494
 #: openslides\motions\static\js\motions\pdf.js:284
 #: openslides\motions\static\js\motions\site.js:372
 #: openslides\motions\static\templates\motions\motion-detail\change-summary.html:39
@@ -1078,7 +1078,7 @@ msgstr ""
 msgid "Designates whether this user should be treated as active. Unselect this instead of deleting the account."
 msgstr ""
 
-#: openslides\core\static\templates\index.html:225
+#: openslides\core\static\templates\index.html:227
 msgid "Desktop View"
 msgstr ""
 
@@ -1111,11 +1111,11 @@ msgstr ""
 msgid "Display header and footer"
 msgstr ""
 
-#: openslides\motions\static\js\motions\base.js:1633
+#: openslides\motions\static\js\motions\base.js:1635
 msgid "Do not concern"
 msgstr ""
 
-#: openslides\motions\static\js\motions\base.js:1613
+#: openslides\motions\static\js\motions\base.js:1615
 msgid "Do not decide"
 msgstr ""
 
@@ -1239,7 +1239,7 @@ msgstr ""
 msgid "Edit participant"
 msgstr ""
 
-#: openslides\core\static\templates\index.html:100
+#: openslides\core\static\templates\index.html:102
 #: openslides\users\static\js\users\site.js:982
 msgid "Edit profile"
 msgstr ""
@@ -1269,7 +1269,7 @@ msgstr ""
 msgid "Editing the text is not possible anymore once there are change recommendations."
 msgstr ""
 
-#: openslides\assignments\static\js\assignments\base.js:375
+#: openslides\assignments\static\js\assignments\base.js:392
 #: openslides\assignments\static\js\assignments\pdf.js:617
 #: openslides\assignments\static\js\assignments\site.js:453
 #: openslides\assignments\static\templates\assignments\assignment-detail.html:33
@@ -1286,7 +1286,7 @@ msgstr ""
 msgid "Election result"
 msgstr ""
 
-#: openslides\assignments\static\js\assignments\base.js:376
+#: openslides\assignments\static\js\assignments\base.js:393
 #: openslides\assignments\static\js\assignments\pdf.js:618
 #: openslides\assignments\static\js\assignments\site.js:19
 #: openslides\assignments\static\js\assignments\site.js:31
@@ -1514,7 +1514,7 @@ msgstr ""
 msgid "Final version"
 msgstr ""
 
-#: openslides\assignments\static\js\assignments\site.js:937
+#: openslides\assignments\static\js\assignments\site.js:938
 msgid "Finished"
 msgstr ""
 
@@ -1796,7 +1796,7 @@ msgstr ""
 msgid "Input format: DD.MM.YYYY HH:MM"
 msgstr ""
 
-#: openslides\motions\static\js\motions\base.js:1489
+#: openslides\motions\static\js\motions\base.js:1491
 #: openslides\motions\static\js\motions\pdf.js:282
 #: openslides\motions\static\js\motions\site.js:371
 #: openslides\motions\static\templates\motions\motion-detail\change-summary.html:38
@@ -1960,7 +1960,7 @@ msgstr ""
 
 #: openslides\core\static\js\core\site.js:2091
 #: openslides\core\static\js\core\site.js:371
-#: openslides\core\static\templates\index.html:227
+#: openslides\core\static\templates\index.html:229
 #: openslides\core\static\templates\legalnotice.html:3
 msgid "Legal notice"
 msgstr ""
@@ -2031,11 +2031,11 @@ msgid "Live view"
 msgstr ""
 
 #: openslides\core\static\templates\core\login-form.html:20
-#: openslides\core\static\templates\index.html:120
+#: openslides\core\static\templates\index.html:122
 msgid "Login"
 msgstr ""
 
-#: openslides\core\static\templates\index.html:111
+#: openslides\core\static\templates\index.html:113
 msgid "Logout"
 msgstr ""
 
@@ -2106,13 +2106,13 @@ msgstr ""
 msgid "Misc"
 msgstr ""
 
-#: openslides\core\static\templates\index.html:226
+#: openslides\core\static\templates\index.html:228
 msgid "Mobile View"
 msgstr ""
 
-#: openslides\motions\static\js\motions\base.js:293
-#: openslides\motions\static\js\motions\base.js:328
-#: openslides\motions\static\js\motions\base.js:337
+#: openslides\motions\static\js\motions\base.js:295
+#: openslides\motions\static\js\motions\base.js:330
+#: openslides\motions\static\js\motions\base.js:339
 #: openslides\motions\static\js\motions\docx.js:92
 #: openslides\motions\static\js\motions\pdf.js:1076
 #: openslides\motions\static\js\motions\pdf.js:1344
@@ -2165,7 +2165,7 @@ msgstr ""
 msgid "Motion preamble"
 msgstr ""
 
-#: openslides\motions\static\js\motions\base.js:294
+#: openslides\motions\static\js\motions\base.js:296
 #: openslides\motions\static\js\motions\site.js:23
 #: openslides\motions\static\js\motions\site.js:3238
 #: openslides\motions\static\js\motions\site.js:35
@@ -2196,7 +2196,7 @@ msgstr ""
 msgid "Name of recommender"
 msgstr ""
 
-#: openslides\motions\static\js\motions\base.js:1639
+#: openslides\motions\static\js\motions\base.js:1641
 msgid "Needs review"
 msgstr ""
 
@@ -2348,11 +2348,11 @@ msgstr ""
 msgid "No comments set"
 msgstr ""
 
-#: openslides\motions\static\js\motions\base.js:1634
+#: openslides\motions\static\js\motions\base.js:1636
 msgid "No concernment"
 msgstr ""
 
-#: openslides\motions\static\js\motions\base.js:1614
+#: openslides\motions\static\js\motions\base.js:1616
 msgid "No decision"
 msgstr ""
 
@@ -2724,7 +2724,7 @@ msgstr ""
 msgid "Pause"
 msgstr ""
 
-#: openslides\motions\static\js\motions\base.js:1620
+#: openslides\motions\static\js\motions\base.js:1622
 msgid "Permission"
 msgstr ""
 
@@ -2733,7 +2733,7 @@ msgstr ""
 msgid "Permissions"
 msgstr ""
 
-#: openslides\motions\static\js\motions\base.js:1619
+#: openslides\motions\static\js\motions\base.js:1621
 msgid "Permit"
 msgstr ""
 
@@ -2803,7 +2803,7 @@ msgstr ""
 msgid "Preamble text for PDF and DOCX documents (all motions)"
 msgstr ""
 
-#: openslides\assignments\static\js\assignments\site.js:933
+#: openslides\assignments\static\js\assignments\site.js:934
 msgid "Preamble text for PDF document (all elections)"
 msgstr ""
 
@@ -2858,7 +2858,7 @@ msgstr ""
 #: openslides\core\static\js\core\site.js:2092
 #: openslides\core\static\js\core\site.js:380
 #: openslides\core\static\templates\core\login-form.html:28
-#: openslides\core\static\templates\index.html:228
+#: openslides\core\static\templates\index.html:230
 #: openslides\core\static\templates\privacypolicy.html:3
 #: openslides\core\static\templates\privacypolicydialog.html:1
 msgid "Privacy policy"
@@ -2908,9 +2908,9 @@ msgstr ""
 #: openslides\agenda\static\templates\agenda\item-list.html:345
 #: openslides\core\static\js\core\projector.js:401
 #: openslides\core\static\js\core\site.js:2108
-#: openslides\core\static\templates\index.html:193
-#: openslides\core\static\templates\index.html:206
-#: openslides\core\static\templates\index.html:244
+#: openslides\core\static\templates\index.html:195
+#: openslides\core\static\templates\index.html:208
+#: openslides\core\static\templates\index.html:246
 #: openslides\core\static\templates\projector-button.html:2
 #: openslides\core\static\templates\projector-container.html:7
 #: openslides\mediafiles\static\templates\mediafiles\mediafile-list.html:273
@@ -2952,7 +2952,7 @@ msgstr ""
 msgid "Publish"
 msgstr ""
 
-#: openslides\assignments\static\js\assignments\site.js:931
+#: openslides\assignments\static\js\assignments\site.js:932
 msgid "Put all candidates on the list of speakers"
 msgstr ""
 
@@ -3007,7 +3007,7 @@ msgstr ""
 msgid "Reduce"
 msgstr ""
 
-#: openslides\motions\static\js\motions\base.js:1636
+#: openslides\motions\static\js\motions\base.js:1638
 msgid "Refer to committee"
 msgstr ""
 
@@ -3015,16 +3015,16 @@ msgstr ""
 msgid "Reference for current list of speakers"
 msgstr ""
 
-#: openslides\motions\static\js\motions\base.js:1637
+#: openslides\motions\static\js\motions\base.js:1639
 msgid "Referral to committee"
 msgstr ""
 
-#: openslides\motions\static\js\motions\base.js:1610
-#: openslides\motions\static\js\motions\base.js:1625
+#: openslides\motions\static\js\motions\base.js:1612
+#: openslides\motions\static\js\motions\base.js:1627
 msgid "Reject"
 msgstr ""
 
-#: openslides\motions\static\js\motions\base.js:1641
+#: openslides\motions\static\js\motions\base.js:1643
 msgid "Reject (not authorized)"
 msgstr ""
 
@@ -3041,12 +3041,12 @@ msgstr ""
 msgid "Rejected"
 msgstr ""
 
-#: openslides\motions\static\js\motions\base.js:1611
-#: openslides\motions\static\js\motions\base.js:1626
+#: openslides\motions\static\js\motions\base.js:1613
+#: openslides\motions\static\js\motions\base.js:1628
 msgid "Rejection"
 msgstr ""
 
-#: openslides\motions\static\js\motions\base.js:1642
+#: openslides\motions\static\js\motions\base.js:1644
 msgid "Rejection (not authorized)"
 msgstr ""
 
@@ -3089,7 +3089,7 @@ msgstr ""
 msgid "Remove message"
 msgstr ""
 
-#: openslides\motions\static\js\motions\base.js:1495
+#: openslides\motions\static\js\motions\base.js:1497
 #: openslides\motions\static\js\motions\pdf.js:280
 #: openslides\motions\static\js\motions\site.js:370
 #: openslides\motions\static\templates\motions\motion-detail\change-summary.html:18
@@ -3223,7 +3223,7 @@ msgstr ""
 #: openslides\agenda\static\templates\agenda\item-list.html:303
 #: openslides\assignments\static\templates\assignments\assignment-list.html:172
 #: openslides\core\static\js\core\site.js:400
-#: openslides\core\static\templates\index.html:163
+#: openslides\core\static\templates\index.html:165
 #: openslides\core\static\templates\search.html:11
 #: openslides\mediafiles\static\templates\mediafiles\mediafile-list.html:230
 #: openslides\motions\static\templates\motions\motion-table-filters.html:235
@@ -3235,7 +3235,7 @@ msgstr ""
 msgid "Search results"
 msgstr ""
 
-#: openslides\assignments\static\js\assignments\site.js:935
+#: openslides\assignments\static\js\assignments\site.js:936
 msgid "Searching for candidates"
 msgstr ""
 
@@ -3492,7 +3492,7 @@ msgstr ""
 msgid "Show title and description of event on projector"
 msgstr ""
 
-#: openslides\motions\static\js\motions\base.js:1604
+#: openslides\motions\static\js\motions\base.js:1606
 msgid "Simple Workflow"
 msgstr ""
 
@@ -3533,6 +3533,10 @@ msgstr ""
 
 #: openslides\users\static\js\users\site.js:1851
 msgid "Sort name of participants by"
+msgstr ""
+
+#: openslides\assignments\static\js\assignments\site.js:931
+msgid "Sort result by votes"
 msgstr ""
 
 #: openslides\motions\static\templates\motions\motion-detail.html:146
@@ -3811,7 +3815,7 @@ msgstr ""
 msgid "Title for PDF and DOCX documents (all motions)"
 msgstr ""
 
-#: openslides\assignments\static\js\assignments\site.js:932
+#: openslides\assignments\static\js\assignments\site.js:933
 msgid "Title for PDF document (all elections)"
 msgstr ""
 
@@ -3976,7 +3980,7 @@ msgstr ""
 msgid "Votes cast"
 msgstr ""
 
-#: openslides\assignments\static\js\assignments\site.js:936
+#: openslides\assignments\static\js\assignments\site.js:937
 msgid "Voting"
 msgstr ""
 
@@ -4039,7 +4043,7 @@ msgstr ""
 msgid "Will be displayed as label before selected recommendation. Use an empty value to disable the recommendation system."
 msgstr ""
 
-#: openslides\motions\static\js\motions\base.js:1628
+#: openslides\motions\static\js\motions\base.js:1630
 msgid "Withdraw"
 msgstr ""
 
@@ -4138,12 +4142,12 @@ msgstr ""
 msgid "[Space for your welcome text.]"
 msgstr ""
 
-#: openslides\motions\static\js\motions\base.js:1606
-#: openslides\motions\static\js\motions\base.js:1621
+#: openslides\motions\static\js\motions\base.js:1608
+#: openslides\motions\static\js\motions\base.js:1623
 msgid "accepted"
 msgstr ""
 
-#: openslides\motions\static\js\motions\base.js:1629
+#: openslides\motions\static\js\motions\base.js:1631
 msgid "adjourned"
 msgstr ""
 
@@ -4279,10 +4283,10 @@ msgstr ""
 msgid "keep original"
 msgstr ""
 
-#: openslides\assignments\static\js\assignments\base.js:280
-#: openslides\assignments\static\js\assignments\base.js:50
+#: openslides\assignments\static\js\assignments\base.js:282
+#: openslides\assignments\static\js\assignments\base.js:51
 #: openslides\assignments\static\templates\assignments\assignmentpoll-form.html:9
-#: openslides\motions\static\js\motions\base.js:157
+#: openslides\motions\static\js\motions\base.js:158
 #: openslides\motions\static\templates\motions\motion-poll-form.html:9
 msgid "majority"
 msgstr ""
@@ -4320,7 +4324,7 @@ msgstr ""
 msgid "needed"
 msgstr ""
 
-#: openslides\motions\static\js\motions\base.js:1638
+#: openslides\motions\static\js\motions\base.js:1640
 msgid "needs review"
 msgstr ""
 
@@ -4329,11 +4333,11 @@ msgstr ""
 msgid "none"
 msgstr ""
 
-#: openslides\motions\static\js\motions\base.js:1632
+#: openslides\motions\static\js\motions\base.js:1634
 msgid "not concerned"
 msgstr ""
 
-#: openslides\motions\static\js\motions\base.js:1612
+#: openslides\motions\static\js\motions\base.js:1614
 msgid "not decided"
 msgstr ""
 
@@ -4379,7 +4383,7 @@ msgstr ""
 msgid "participants-example"
 msgstr ""
 
-#: openslides\motions\static\js\motions\base.js:1618
+#: openslides\motions\static\js\motions\base.js:1620
 msgid "permitted"
 msgstr ""
 
@@ -4387,20 +4391,20 @@ msgstr ""
 msgid "personal note"
 msgstr ""
 
-#: openslides\motions\static\js\motions\base.js:1617
+#: openslides\motions\static\js\motions\base.js:1619
 msgid "published"
 msgstr ""
 
-#: openslides\motions\static\js\motions\base.js:1635
+#: openslides\motions\static\js\motions\base.js:1637
 msgid "refered to committee"
 msgstr ""
 
-#: openslides\motions\static\js\motions\base.js:1609
-#: openslides\motions\static\js\motions\base.js:1624
+#: openslides\motions\static\js\motions\base.js:1611
+#: openslides\motions\static\js\motions\base.js:1626
 msgid "rejected"
 msgstr ""
 
-#: openslides\motions\static\js\motions\base.js:1640
+#: openslides\motions\static\js\motions\base.js:1642
 msgid "rejected (not authorized)"
 msgstr ""
 
@@ -4427,7 +4431,7 @@ msgstr ""
 msgid "speakers"
 msgstr ""
 
-#: openslides\motions\static\js\motions\base.js:1605
+#: openslides\motions\static\js\motions\base.js:1607
 msgid "submitted"
 msgstr ""
 
@@ -4455,10 +4459,10 @@ msgstr ""
 msgid "undefined"
 msgstr ""
 
-#: openslides\assignments\static\js\assignments\base.js:283
-#: openslides\assignments\static\js\assignments\base.js:53
+#: openslides\assignments\static\js\assignments\base.js:285
+#: openslides\assignments\static\js\assignments\base.js:54
 #: openslides\assignments\static\templates\assignments\assignmentpoll-form.html:10
-#: openslides\motions\static\js\motions\base.js:160
+#: openslides\motions\static\js\motions\base.js:161
 #: openslides\motions\static\templates\motions\motion-poll-form.html:10
 msgid "undocumented"
 msgstr ""
@@ -4468,6 +4472,6 @@ msgstr ""
 msgid "undone"
 msgstr ""
 
-#: openslides\motions\static\js\motions\base.js:1627
+#: openslides\motions\static\js\motions\base.js:1629
 msgid "withdrawed"
 msgstr ""

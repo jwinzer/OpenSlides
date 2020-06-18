@@ -37,7 +37,7 @@
         <th ng-if="poll.has_votes" class="col-sm-5" translate>Votes</th>
 
       <!-- candidates (poll options) -->
-      <tr ng-repeat="option in poll.options | orderBy:'weight'">
+      <tr ng-repeat="option in poll.getOptionsWithResult() | orderBy:poll.sortOrder">
 
         <!-- candidate name -->
         <td class="bold">
@@ -46,7 +46,7 @@
 
         <!-- votes -->
         <td ng-if="poll.has_votes" class="bold">
-          <div ng-init="votes = option.getVotes()">
+          <div ng-init="votes = option.result">
             <div ng-show="poll.pollmethod == 'yna' || poll.pollmethod == 'yn'">
               <span ng-show="poll.pollmethod == 'yna'">
                 {{ votes[0].label | translate }}: {{ votes[0].value | textOrNumber:votesPrecision }} {{ votes[0].percentStr }}<br>
