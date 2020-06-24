@@ -224,7 +224,9 @@
         <div ui-view ng-if="openslidesBootstrapDone && baseViewPermissionsGranted"></div>
         <!-- footer -->
         <div id="footer">
-          <a ui-sref="home" translate>Desktop View</a> |
+          <span ng-if="!operator.hasPerms('openslides_voting.only_mobile')">
+            <a ui-sref="home" translate>Desktop View</a> |
+          </span>
           <a ui-sref="mobile" translate>Mobile View</a> |
           <a ui-sref="legalnotice" translate>Legal notice</a> |
           <a ui-sref="privacypolicy" translate>Privacy policy</a>

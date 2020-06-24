@@ -1764,7 +1764,8 @@ angular.module('OpenSlidesApp.users.site', [
                         $rootScope.operator = operator;
                         mainMenu.updateMainMenu();
                         $state.go($scope.window.innerWidth < 768 ||
-                            operator.hasPerms('openslides_voting.go_mobile') ? 'mobile' : 'home');
+                            operator.hasPerms('openslides_voting.go_mobile') ||
+                            operator.hasPerms('openslides_voting.only_mobile') ? 'mobile' : 'home');
                         $rootScope.openslidesBootstrapDone = true;
                     });
                 },
