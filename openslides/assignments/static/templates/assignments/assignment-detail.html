@@ -110,7 +110,7 @@
             placeholder-text-single="'Select or search a participant ...' | translate"
             no-results-text="'No results available ...' | translate"
             class="form-control">
-        <select>
+        </select>
       </div>
       <p os-perms="assignments.can_nominate_self" class="spacer">
         <button ng-if="!isCandidate()" ng-click="addMe()" class="btn btn-default btn-sm">
@@ -204,7 +204,8 @@
               <span><translate>Required majority</translate>: </span>
               <select ng-model="method"
                       ng-change="recalculateMajorities(method)"
-                      ng-options="option.value as option.display_name | translate for option in methodChoices" />
+                      ng-options="option.value as option.display_name | translate for option in methodChoices">
+              </select>
             </div>
           </div>
           <!-- election result of poll -->
@@ -243,11 +244,15 @@
                   </div>
                 </div>
               <td ng-hide="method === 'disabled'">
-                <span ng-if="option.majorityReached >= 0" class="text-success" translate>
-                    Quorum ({{ (option.getVoteYes() - option.majorityReached) | number:votesPrecision }}) reached.
+                <span ng-if="option.majorityReached >= 0" class="text-success">
+                  <translate>Quorum</translate>
+                  ({{ (option.getVoteYes() - option.majorityReached) | number:votesPrecision }})
+                  <translate>reached</translate>.
                 </span>
-                <span ng-if="option.majorityReached < 0" class="text-danger" translate>
-                    Quorum ({{ (option.getVoteYes() - option.majorityReached) | number:votesPrecision }}) not reached.
+                <span ng-if="option.majorityReached < 0" class="text-danger">
+                  <translate>Quorum</translate>
+                  ({{ (option.getVoteYes() - option.majorityReached) | number:votesPrecision }})
+                  <translate>not reached</translate>.
                 </span>
 
             <!-- total votes (valid/invalid/casts) -->

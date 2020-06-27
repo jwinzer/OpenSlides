@@ -472,17 +472,22 @@
                           <span><translate>Required majority</translate>: </span>
                           <select ng-model="$parent.method"
                                   ng-options="option.value as option.display_name | translate for option in methodChoices">
+                          </select>
                         </div>
                       </div>
                   <tr>
                     <td>
                     <td>
                       <div os-perms="motions.can_manage">
-                        <span class="text-success" ng-if="isReached() >= 0" translate>
-                          Quorum ({{ (voteYes.value - isReached()) | number:votesPrecision }}) reached.
+                        <span class="text-success" ng-if="isReached() >= 0">
+                          <translate>Quorum</translate>
+                          ({{ (voteYes.value - isReached()) | number:votesPrecision }})
+                          <translate>reached</translate>.
                         </span>
-                        <span class="text-danger" ng-if="isReached() < 0" translate>
-                          Quorum ({{ (voteYes.value - isReached()) | number:votesPrecision }}) not reached.
+                        <span class="text-danger" ng-if="isReached() < 0">
+                          <translate>Quorum</translate>
+                          ({{ (voteYes.value - isReached()) | number:votesPrecision }})
+                          <translate>not reached</translate>.
                        </span>
                       </div>
 

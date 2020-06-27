@@ -113,7 +113,7 @@ angular.module('OpenSlidesApp.assignments.pdf', ['OpenSlidesApp.core.pdf'])
                 }
             };
 
-            //creates the voting string for the result table and differentiates between special values
+            // creates the voting string for the result table and differentiates between special values
             var parseVoteValue = function(voteObject, printLabel, precision) {
                 var voteVal = '';
                 if (voteObject) {
@@ -134,9 +134,10 @@ angular.module('OpenSlidesApp.assignments.pdf', ['OpenSlidesApp.core.pdf'])
             var createPollResultTable = function() {
                 var resultBody = [];
                 _.forEach(assignment.polls, function(poll, pollIndex) {
-                    if (poll.published) {
+                    if (poll.published && poll.has_votes) {
                         var pollTableBody = [];
                         var precision = AssignmentPollDecimalPlaces.getPlaces(poll);
+                        var showQuorum = poll.options[0].majorityReached !== undefined;
 
                         resultBody.push({
                             text: gettextCatalog.getString('Ballot') + ' ' + (pollIndex+1),
@@ -153,16 +154,24 @@ angular.module('OpenSlidesApp.assignments.pdf', ['OpenSlidesApp.core.pdf'])
                             {
                                 text: gettextCatalog.getString('Votes'),
                                 style: 'tableHeader',
+                            },
+                            {
+                                text: showQuorum ? gettextCatalog.getString('Quorum') : null,
+                                style: 'tableHeader',
                             }
                         ]);
 
-                        _.forEach(poll.options, function(pollOption, optionIndex) {
+                        _.forEach(_.sortBy(poll.getOptionsWithResult(), 'sortOrder'), function(pollOption, optionIndex) {
                             var candidateName = pollOption.candidate.get_full_name();
-                            var votes = pollOption.getVotes(); // 0 = yes, 1 = no, 2 = abstain
+                            var votes = pollOption.result; // 0 = yes, 1 = no, 2 = abstain
+                            var quorum = null;
                             var tableLine = [];
 
+                            // Candidate name
                             tableLine.push(electedCandidateLine(candidateName, pollOption, pollTableBody));
-                            if (poll.pollmethod == 'votes') {
+
+                            // Vote
+                            if (poll.pollmethod === 'votes') {
                                 tableLine.push(
                                     {
                                         text: parseVoteValue(votes[0], false, precision),
@@ -180,11 +189,27 @@ angular.module('OpenSlidesApp.assignments.pdf', ['OpenSlidesApp.core.pdf'])
                                     }
                                 );
                             }
+
+                            // Quorum
+                            if (pollOption.majorityReached !== undefined) {
+                                var majority = $filter('number')(pollOption.getVoteYes() - pollOption.majorityReached,
+                                    precision);
+                                quorum = gettextCatalog.getString('Quorum') + ' (' + majority + ') ' +
+                                    gettextCatalog.getString(pollOption.majorityReached >= 0 ?
+                                        'reached' : 'not reached') + '.';
+                            }
+                            tableLine.push(
+                                {
+                                    text: quorum,
+                                    style: PDFLayout.flipTableRowStyle(pollTableBody.length)
+                                }
+                            );
+
                             pollTableBody.push(tableLine);
                         });
 
                         var pushConcludeRow = function (title, fieldName) {
-                            if (poll[fieldName]) {
+                            if (poll[fieldName] != null) {
                                 pollTableBody.push([
                                     {
                                         text: gettextCatalog.getString(title),
@@ -192,6 +217,10 @@ angular.module('OpenSlidesApp.assignments.pdf', ['OpenSlidesApp.core.pdf'])
                                     },
                                     {
                                         text: parseVoteValue(poll.getVote(fieldName), false, precision),
+                                        style: 'tableConclude'
+                                    },
+                                    {
+                                        text: null,
                                         style: 'tableConclude'
                                     },
                                 ]);
@@ -206,7 +235,7 @@ angular.module('OpenSlidesApp.assignments.pdf', ['OpenSlidesApp.core.pdf'])
 
                         var resultTableJsonSting = {
                             table: {
-                                widths: ['64%','33%'],
+                                widths: ['45%','20%', '35%'],
                                 headerRows: 1,
                                 body: pollTableBody,
                             },

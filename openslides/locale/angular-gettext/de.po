@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: OpenSlides\n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2020-06-18 17:18+0200\n"
+"PO-Revision-Date: 2020-06-27 15:18+0200\n"
 "Last-Translator: Emanuel Schütze <emanuel.schuetze@intevation.de>\n"
 "Language-Team: German (http://www.transifex.com/openslides/openslides/"
 "language/de/)\n"
@@ -108,11 +108,11 @@ msgstr ""
 msgid "About me"
 msgstr "Über mich"
 
-#: openslides\assignments\static\js\assignments\pdf.js:332
+#: openslides\assignments\static\js\assignments\pdf.js:360
 #: openslides\assignments\static\js\assignments\site.js:613
 #: openslides\assignments\static\js\assignments\site.js:758
 #: openslides\assignments\static\js\assignments\site.js:799
-#: openslides\assignments\static\templates\assignments\assignment-detail.html:256
+#: openslides\assignments\static\templates\assignments\assignment-detail.html:260
 #: openslides\assignments\static\templates\assignments\slide_assignment.html:72
 #: openslides\motions\static\js\motions\pdf.js:203
 #: openslides\motions\static\js\motions\pdf.js:741
@@ -393,7 +393,7 @@ msgstr "Soll diese Datei wirklich gelöscht werden?"
 msgid "Are you sure you want to delete this poll?"
 msgstr "Soll diese Abstimmung wirklich gelöscht werden?"
 
-#: openslides\motions\static\templates\motions\motion-detail.html:630
+#: openslides\motions\static\templates\motions\motion-detail.html:634
 msgid "Are you sure you want to delete this version?"
 msgstr "Soll diese Version wirklich gelöscht werden?"
 
@@ -433,7 +433,7 @@ msgstr ""
 "Mindestens der Vorname oder der Nachname müssen angegeben sein. Alle übrigen "
 "Felder sind optional und dürfen leer sein."
 
-#: openslides\motions\static\templates\motions\motion-detail.html:551
+#: openslides\motions\static\templates\motions\motion-detail.html:555
 #, fuzzy
 #| msgid ""
 #| "At least two amendments or change recommendations affecting the same line "
@@ -457,7 +457,7 @@ msgstr ""
 msgid "Attachment"
 msgstr "Anhang"
 
-#: openslides\motions\static\templates\motions\motion-detail.html:601
+#: openslides\motions\static\templates\motions\motion-detail.html:605
 #: openslides\topics\static\templates\topics\topic-detail.html:31
 msgid "Attachments"
 msgstr "Anhänge"
@@ -520,8 +520,8 @@ msgid "Background color of projector header and footer"
 msgstr "Hintergrundfarbe des Projektor-Kopf- und Fußbereichs"
 
 #: openslides\assignments\static\js\assignments\pdf.js:142
-#: openslides\assignments\static\js\assignments\pdf.js:306
-#: openslides\assignments\static\js\assignments\pdf.js:654
+#: openslides\assignments\static\js\assignments\pdf.js:334
+#: openslides\assignments\static\js\assignments\pdf.js:682
 #: openslides\assignments\static\templates\assignments\assignment-detail.html:139
 #: openslides\assignments\static\templates\assignments\assignmentpoll-form.html:1
 msgid "Ballot"
@@ -571,63 +571,63 @@ msgstr "Bilder durchsuchen"
 msgid "CSV file"
 msgstr "CSV-Datei"
 
-#: openslides\users\static\js\users\site.js:1839
+#: openslides\users\static\js\users\site.js:1840
 msgid "Can create motions"
 msgstr "Darf Anträge erstellen"
 
-#: openslides\users\static\js\users\site.js:1814
+#: openslides\users\static\js\users\site.js:1815
 msgid "Can manage agenda"
 msgstr "Darf die Tagesordung verwalten"
 
-#: openslides\users\static\js\users\site.js:1843
+#: openslides\users\static\js\users\site.js:1844
 msgid "Can manage comments"
 msgstr "Darf Kommentare verwalten"
 
-#: openslides\users\static\js\users\site.js:1828
+#: openslides\users\static\js\users\site.js:1829
 msgid "Can manage configuration"
 msgstr "Darf die Konfiguration verwalten"
 
-#: openslides\users\static\js\users\site.js:1822
+#: openslides\users\static\js\users\site.js:1823
 msgid "Can manage elections"
 msgstr "Darf Wahlen verwalten"
 
-#: openslides\users\static\js\users\site.js:1835
+#: openslides\users\static\js\users\site.js:1836
 msgid "Can manage files"
 msgstr "Darf Dateien verwalten"
 
-#: openslides\users\static\js\users\site.js:1815
+#: openslides\users\static\js\users\site.js:1816
 msgid "Can manage list of speakers"
 msgstr "Darf Redelisten verwalten"
 
-#: openslides\users\static\js\users\site.js:1831
+#: openslides\users\static\js\users\site.js:1832
 msgid "Can manage logos and fonts"
 msgstr "Darf Logos und Schriften verwalten"
 
-#: openslides\users\static\js\users\site.js:1841
+#: openslides\users\static\js\users\site.js:1842
 msgid "Can manage motions"
 msgstr "Darf Anträge verwalten"
 
-#: openslides\users\static\js\users\site.js:1827
+#: openslides\users\static\js\users\site.js:1828
 msgid "Can manage tags"
 msgstr "Darf Schlagwörter verwalten"
 
-#: openslides\users\static\js\users\site.js:1830
+#: openslides\users\static\js\users\site.js:1831
 msgid "Can manage the chat"
 msgstr "Darf den Chat verwalten"
 
-#: openslides\users\static\js\users\site.js:1825
+#: openslides\users\static\js\users\site.js:1826
 msgid "Can manage the projector"
 msgstr "Darf den Projektor steuern"
 
-#: openslides\users\static\js\users\site.js:1847
+#: openslides\users\static\js\users\site.js:1848
 msgid "Can manage users"
 msgstr "Darf Benutzer verwalten"
 
-#: openslides\users\static\js\users\site.js:1820
+#: openslides\users\static\js\users\site.js:1821
 msgid "Can nominate another participant"
 msgstr "Darf andere Teilnehmende für Wahlen vorschlagen"
 
-#: openslides\users\static\js\users\site.js:1821
+#: openslides\users\static\js\users\site.js:1822
 msgid "Can nominate oneself"
 msgstr "Darf selbst für Wahlen kandidieren"
 
@@ -635,64 +635,64 @@ msgstr "Darf selbst für Wahlen kandidieren"
 msgid "Can not open the projector."
 msgstr "Der Projektor kann nicht geöffnet werden."
 
-#: openslides\users\static\js\users\site.js:1817
+#: openslides\users\static\js\users\site.js:1818
 msgid "Can put oneself on the list of speakers"
 msgstr "Darf sich selbst auf die Redeliste setzen"
 
-#: openslides\users\static\js\users\site.js:1813
+#: openslides\users\static\js\users\site.js:1814
 msgid "Can see agenda"
 msgstr "Darf die Tagesordnung sehen"
 
-#: openslides\users\static\js\users\site.js:1842
+#: openslides\users\static\js\users\site.js:1843
 msgid "Can see comments"
 msgstr "Darf Kommentare sehen"
 
-#: openslides\users\static\js\users\site.js:1819
+#: openslides\users\static\js\users\site.js:1820
 msgid "Can see elections"
 msgstr "Darf Wahlen sehen"
 
-#: openslides\users\static\js\users\site.js:1846
+#: openslides\users\static\js\users\site.js:1847
 msgid "Can see extra data of users (e.g. present and comment)"
 msgstr ""
 "Darf die zusätzlichen Daten der Benutzer sehen (z. B. anwesend und Kommentar)"
 
-#: openslides\users\static\js\users\site.js:1836
+#: openslides\users\static\js\users\site.js:1837
 msgid "Can see hidden files"
 msgstr "Darf versteckte Dateien sehen"
 
-#: openslides\users\static\js\users\site.js:1816
+#: openslides\users\static\js\users\site.js:1817
 msgid "Can see internal items and time scheduling of agenda"
 msgstr "Darf interne Einträge und Zeitplan der Tagesordnung sehen"
 
-#: openslides\users\static\js\users\site.js:1838
+#: openslides\users\static\js\users\site.js:1839
 msgid "Can see motions"
 msgstr "Darf Anträge sehen"
 
-#: openslides\users\static\js\users\site.js:1845
+#: openslides\users\static\js\users\site.js:1846
 msgid "Can see names of users"
 msgstr "Darf die Namen der Benutzer sehen"
 
-#: openslides\users\static\js\users\site.js:1826
+#: openslides\users\static\js\users\site.js:1827
 msgid "Can see the front page"
 msgstr "Darf die Startseite sehen"
 
-#: openslides\users\static\js\users\site.js:1833
+#: openslides\users\static\js\users\site.js:1834
 msgid "Can see the list of files"
 msgstr "Darf die Dateiliste sehen"
 
-#: openslides\users\static\js\users\site.js:1824
+#: openslides\users\static\js\users\site.js:1825
 msgid "Can see the projector"
 msgstr "Darf den Projektor sehen"
 
-#: openslides\users\static\js\users\site.js:1840
+#: openslides\users\static\js\users\site.js:1841
 msgid "Can support motions"
 msgstr "Darf Anträge unterstützen"
 
-#: openslides\users\static\js\users\site.js:1834
+#: openslides\users\static\js\users\site.js:1835
 msgid "Can upload files"
 msgstr "Darf Dateien hochladen"
 
-#: openslides\users\static\js\users\site.js:1829
+#: openslides\users\static\js\users\site.js:1830
 msgid "Can use the chat"
 msgstr "Darf den Chat benutzen"
 
@@ -743,7 +743,7 @@ msgid "Cannot load image"
 msgstr "Konnte folgendes Bild nicht laden:"
 
 #: openslides\assignments\static\js\assignments\site.js:846
-#: openslides\assignments\static\templates\assignments\assignment-detail.html:280
+#: openslides\assignments\static\templates\assignments\assignment-detail.html:284
 #: openslides\assignments\static\templates\assignments\slide_assignment.html:94
 msgid "Casted ballots"
 msgstr "Abgegebene Stimmzettel"
@@ -955,7 +955,7 @@ msgstr "Countdowns"
 msgid "Couple countdown with the list of speakers"
 msgstr "Countdown mit der Redeliste verkoppeln"
 
-#: openslides\motions\static\templates\motions\motion-detail.html:563
+#: openslides\motions\static\templates\motions\motion-detail.html:567
 msgid "Create final print template"
 msgstr "Beschluss-Druckvorlage erstellen"
 
@@ -1002,7 +1002,7 @@ msgstr "Benutzerdefinierte Anzahl von Stimmzetteln"
 msgid "Custom translations"
 msgstr "Benutzerdefinierte Übersetzungen"
 
-#: openslides\users\static\js\users\site.js:1878
+#: openslides\users\static\js\users\site.js:1879
 msgid ""
 "Dear {name},\n"
 "\n"
@@ -1087,7 +1087,7 @@ msgstr "Delegierte"
 #: openslides\motions\static\templates\motions\motion-amendment-list.html:337
 #: openslides\motions\static\templates\motions\motion-block-list.html:44
 #: openslides\motions\static\templates\motions\motion-detail.html:384
-#: openslides\motions\static\templates\motions\motion-detail.html:633
+#: openslides\motions\static\templates\motions\motion-detail.html:637
 #: openslides\motions\static\templates\motions\motion-detail\view-diff.html:27
 #: openslides\motions\static\templates\motions\motion-detail\view-diff.html:81
 #: openslides\motions\static\templates\motions\motion-detail\view-original.html:36
@@ -1162,7 +1162,7 @@ msgstr ""
 "Bestimmt, ob dieser Benutzer als aktiv behandelt werden soll. Sie können ihn "
 "deaktivieren anstatt ihn zu löschen."
 
-#: openslides\core\static\templates\index.html:227
+#: openslides\core\static\templates\index.html:228
 msgid "Desktop View"
 msgstr "Desktop Ansicht"
 
@@ -1206,14 +1206,14 @@ msgstr "Nicht befassen"
 msgid "Do not decide"
 msgstr "Nicht entscheiden"
 
-#: openslides\motions\static\templates\motions\motion-detail.html:560
+#: openslides\motions\static\templates\motions\motion-detail.html:564
 msgid "Do you want to copy the final version to the final print template?"
 msgstr ""
 "Soll die Beschlussfassung weiter bearbeitet und eine Beschluss-Druckvorlage "
 "erstellt werden?"
 
-#: openslides\motions\static\templates\motions\motion-detail.html:539
-#: openslides\motions\static\templates\motions\motion-detail.html:569
+#: openslides\motions\static\templates\motions\motion-detail.html:543
+#: openslides\motions\static\templates\motions\motion-detail.html:573
 msgid ""
 "Do you want to create a new version of this motion based on this changes?"
 msgstr ""
@@ -1374,7 +1374,7 @@ msgstr ""
 "Änderungsempfehlungen vorliegen."
 
 #: openslides\assignments\static\js\assignments\base.js:392
-#: openslides\assignments\static\js\assignments\pdf.js:617
+#: openslides\assignments\static\js\assignments\pdf.js:645
 #: openslides\assignments\static\js\assignments\site.js:453
 #: openslides\assignments\static\templates\assignments\assignment-detail.html:33
 #: openslides\assignments\static\templates\assignments\slide_assignment.html:7
@@ -1382,7 +1382,7 @@ msgid "Election"
 msgstr "Wahl"
 
 #: openslides\assignments\static\js\assignments\site.js:903
-#: openslides\assignments\static\templates\assignments\assignment-detail.html:286
+#: openslides\assignments\static\templates\assignments\assignment-detail.html:290
 msgid "Election method"
 msgstr "Wahlmethode"
 
@@ -1391,7 +1391,7 @@ msgid "Election result"
 msgstr "Wahlergebnis"
 
 #: openslides\assignments\static\js\assignments\base.js:393
-#: openslides\assignments\static\js\assignments\pdf.js:618
+#: openslides\assignments\static\js\assignments\pdf.js:646
 #: openslides\assignments\static\js\assignments\site.js:19
 #: openslides\assignments\static\js\assignments\site.js:31
 #: openslides\assignments\static\js\assignments\site.js:49
@@ -1400,7 +1400,7 @@ msgstr "Wahlergebnis"
 msgid "Elections"
 msgstr "Wahlen"
 
-#: openslides\users\static\js\users\site.js:1872
+#: openslides\users\static\js\users\site.js:1873
 #: openslides\users\static\js\users\site.js:313
 #: openslides\users\static\js\users\site.js:471
 #: openslides\users\static\templates\users\user-detail.html:36
@@ -1409,15 +1409,15 @@ msgstr "Wahlen"
 msgid "Email"
 msgstr "E-Mail"
 
-#: openslides\users\static\js\users\site.js:1877
+#: openslides\users\static\js\users\site.js:1878
 msgid "Email body"
 msgstr "Nachrichtentext"
 
-#: openslides\users\static\js\users\site.js:1873
+#: openslides\users\static\js\users\site.js:1874
 msgid "Email sender"
 msgstr "Absender"
 
-#: openslides\users\static\js\users\site.js:1874
+#: openslides\users\static\js\users\site.js:1875
 msgid "Email subject"
 msgstr "Betreff"
 
@@ -1429,7 +1429,7 @@ msgstr "Leeres Textfeld"
 msgid "Enable numbering for agenda items"
 msgstr "Nummerierung von Tagesordnungspunkten aktivieren"
 
-#: openslides\users\static\js\users\site.js:1852
+#: openslides\users\static\js\users\site.js:1853
 msgid "Enable participant presence view"
 msgstr "Ansicht zur Teilnehmeranwesenheit aktivieren"
 
@@ -1675,7 +1675,7 @@ msgstr "Titel der Startseite"
 #: openslides\core\static\js\core\site.js:2085
 #: openslides\motions\static\js\motions\site.js:3241
 #: openslides\users\static\js\users\site.js:1498
-#: openslides\users\static\js\users\site.js:1850
+#: openslides\users\static\js\users\site.js:1851
 msgid "General"
 msgstr "Allgemein"
 
@@ -1697,7 +1697,7 @@ msgstr "PDF-Datei wird erstellt"
 msgid "Generating PDFs and ZIP archive"
 msgstr "PDF-Dokumente und ZIP-Archiv werden erstellt"
 
-#: openslides\users\static\js\users\site.js:1854
+#: openslides\users\static\js\users\site.js:1855
 #: openslides\users\static\js\users\site.js:296
 #: openslides\users\static\js\users\site.js:634
 #: openslides\users\static\templates\users\user-import.html:51
@@ -1739,7 +1739,7 @@ msgstr "Gruppen"
 msgid "Groups created"
 msgstr "Gruppen angelegt"
 
-#: openslides\users\static\js\users\site.js:1860
+#: openslides\users\static\js\users\site.js:1861
 msgid "Help text for access data and welcome PDF"
 msgstr "Hilfetext für das Zugangsdaten- und Willkommens-PDF"
 
@@ -1944,7 +1944,7 @@ msgid "Internal items"
 msgstr "Interne Einträge"
 
 #: openslides\assignments\static\js\assignments\site.js:836
-#: openslides\assignments\static\templates\assignments\assignment-detail.html:274
+#: openslides\assignments\static\templates\assignments\assignment-detail.html:278
 #: openslides\assignments\static\templates\assignments\slide_assignment.html:88
 msgid "Invalid ballots"
 msgstr "Ungültige Stimmzettel"
@@ -2056,7 +2056,7 @@ msgid "Last email send to the user"
 msgstr "Letzte gesendete E-Mail an den Benutzer"
 
 #: openslides\motions\static\js\motions\site.js:1433
-#: openslides\motions\static\templates\motions\motion-detail.html:636
+#: openslides\motions\static\templates\motions\motion-detail.html:640
 msgid "Last modified"
 msgstr "Zuletzt geändert"
 
@@ -2078,7 +2078,7 @@ msgstr "Links"
 
 #: openslides\core\static\js\core\site.js:2091
 #: openslides\core\static\js\core\site.js:371
-#: openslides\core\static\templates\index.html:229
+#: openslides\core\static\templates\index.html:231
 #: openslides\core\static\templates\legalnotice.html:3
 msgid "Legal notice"
 msgstr "Impressum"
@@ -2224,7 +2224,7 @@ msgstr "Metainformationen"
 msgid "Misc"
 msgstr "Sonstiges"
 
-#: openslides\core\static\templates\index.html:228
+#: openslides\core\static\templates\index.html:230
 msgid "Mobile View"
 msgstr "Mobile Ansicht"
 
@@ -2404,12 +2404,12 @@ msgstr "Neuer Titel"
 msgid "New topic"
 msgstr "Neues Thema"
 
-#: openslides\motions\static\templates\motions\motion-detail.html:542
-#: openslides\motions\static\templates\motions\motion-detail.html:572
+#: openslides\motions\static\templates\motions\motion-detail.html:546
+#: openslides\motions\static\templates\motions\motion-detail.html:576
 msgid "New version on these changes"
 msgstr "Neue Version mit diesen Änderungen"
 
-#: openslides\motions\static\templates\motions\motion-detail.html:495
+#: openslides\motions\static\templates\motions\motion-detail.html:499
 msgid "New vote"
 msgstr "Neue Abstimmung"
 
@@ -2421,12 +2421,12 @@ msgstr "Nächste Seite"
 msgid "Next states"
 msgstr "Nächste Status"
 
-#: openslides\assignments\static\js\assignments\pdf.js:323
-#: openslides\assignments\static\js\assignments\pdf.js:358
+#: openslides\assignments\static\js\assignments\pdf.js:351
+#: openslides\assignments\static\js\assignments\pdf.js:386
 #: openslides\assignments\static\js\assignments\site.js:612
 #: openslides\assignments\static\js\assignments\site.js:743
 #: openslides\assignments\static\js\assignments\site.js:809
-#: openslides\assignments\static\templates\assignments\assignment-detail.html:262
+#: openslides\assignments\static\templates\assignments\assignment-detail.html:266
 #: openslides\assignments\static\templates\assignments\slide_assignment.html:77
 #: openslides\motions\static\js\motions\pdf.js:198
 #: openslides\motions\static\js\motions\pdf.js:740
@@ -2478,7 +2478,7 @@ msgstr "Keine Entscheidung"
 msgid "No emails were send."
 msgstr "Es wurden keine E-Mails versandt."
 
-#: openslides\users\static\js\users\site.js:1871
+#: openslides\users\static\js\users\site.js:1872
 msgid "No encryption"
 msgstr "Keine Verschlüsselung"
 
@@ -2668,7 +2668,7 @@ msgstr "Ein anonymer Gast ist auch gerade in Bearbeitung."
 msgid "One email was send sucessfully."
 msgstr "Eine E-Mail wurde erfolgreich versandt."
 
-#: openslides\assignments\static\templates\assignments\assignment-detail.html:287
+#: openslides\assignments\static\templates\assignments\assignment-detail.html:291
 msgid "One vote per candidate"
 msgstr "Eine Stimme pro Kandidat/in"
 
@@ -2755,7 +2755,7 @@ msgstr "außerhalb"
 #: openslides\motions\static\templates\motions\motion-detail.html:71
 #: openslides\motions\static\templates\motions\motion-detail\comments.html:9
 #: openslides\motions\static\templates\motions\motion-detail\personal-note.html:9
-#: openslides\users\static\js\users\site.js:1856
+#: openslides\users\static\js\users\site.js:1857
 msgid "PDF"
 msgstr "PDF"
 
@@ -2831,7 +2831,7 @@ msgstr "Teilnehmernummer"
 
 #: openslides\users\static\js\users\base.js:19
 #: openslides\users\static\js\users\base.js:20
-#: openslides\users\static\js\users\site.js:1853
+#: openslides\users\static\js\users\site.js:1854
 #: openslides\users\static\js\users\site.js:19
 #: openslides\users\static\js\users\site.js:30
 #: openslides\users\static\js\users\site.js:48
@@ -2864,7 +2864,7 @@ msgstr "Rechte"
 msgid "Permit"
 msgstr "Zulassen"
 
-#: openslides\motions\static\templates\motions\motion-detail.html:624
+#: openslides\motions\static\templates\motions\motion-detail.html:628
 msgid "Permit and activate"
 msgstr "Zulassen und aktivieren"
 
@@ -2873,7 +2873,7 @@ msgid "Personal data"
 msgstr "Persönliche Daten"
 
 #: openslides\motions\static\js\motions\pdf.js:1401
-#: openslides\motions\static\templates\motions\motion-detail.html:500
+#: openslides\motions\static\templates\motions\motion-detail.html:504
 #: openslides\motions\static\templates\motions\motion-detail\personal-note.html:25
 msgid "Personal note"
 msgstr "Persönliche Notiz"
@@ -2985,7 +2985,7 @@ msgstr "Stimmzettel drucken"
 #: openslides\core\static\js\core\site.js:2092
 #: openslides\core\static\js\core\site.js:380
 #: openslides\core\static\templates\core\login-form.html:28
-#: openslides\core\static\templates\index.html:230
+#: openslides\core\static\templates\index.html:232
 #: openslides\core\static\templates\privacypolicy.html:3
 #: openslides\core\static\templates\privacypolicydialog.html:1
 msgid "Privacy policy"
@@ -3037,7 +3037,7 @@ msgstr "Projektionsvorgaben"
 #: openslides\core\static\js\core\site.js:2108
 #: openslides\core\static\templates\index.html:195
 #: openslides\core\static\templates\index.html:208
-#: openslides\core\static\templates\index.html:246
+#: openslides\core\static\templates\index.html:248
 #: openslides\core\static\templates\projector-button.html:2
 #: openslides\core\static\templates\projector-container.html:7
 #: openslides\mediafiles\static\templates\mediafiles\mediafile-list.html:273
@@ -3083,46 +3083,21 @@ msgstr "Veröffentlichen"
 msgid "Put all candidates on the list of speakers"
 msgstr "Alle Kandidaten auf die Redeliste setzen"
 
+#: openslides\assignments\static\js\assignments\pdf.js:158
+#: openslides\assignments\static\js\assignments\pdf.js:196
 #: openslides\assignments\static\templates\assignments\assignment-detail.html:215
+#: openslides\assignments\static\templates\assignments\assignment-detail.html:247
+#: openslides\assignments\static\templates\assignments\assignment-detail.html:252
+#: openslides\motions\static\templates\motions\motion-detail.html:482
+#: openslides\motions\static\templates\motions\motion-detail.html:487
 msgid "Quorum"
 msgstr "Quorum"
-
-#: openslides\assignments\static\templates\assignments\assignment-detail.html:249
-msgid ""
-"Quorum ({{ (option.getVoteYes() - option.majorityReached) | number:"
-"votesPrecision }}) not reached."
-msgstr ""
-"Quorum ({{ (option.getVoteYes() - option.majorityReached) | number:"
-"votesPrecision }}) nicht erreicht."
-
-#: openslides\assignments\static\templates\assignments\assignment-detail.html:246
-msgid ""
-"Quorum ({{ (option.getVoteYes() - option.majorityReached) | number:"
-"votesPrecision }}) reached."
-msgstr ""
-"Quorum ({{ (option.getVoteYes() - option.majorityReached) | number:"
-"votesPrecision }}) erreicht."
-
-#: openslides\motions\static\templates\motions\motion-detail.html:484
-msgid ""
-"Quorum ({{ (voteYes.value - isReached()) | number:votesPrecision }}) not "
-"reached."
-msgstr ""
-"Quorum ({{ (voteYes.value - isReached()) | number:votesPrecision }}) nicht "
-"erreicht."
-
-#: openslides\motions\static\templates\motions\motion-detail.html:481
-msgid ""
-"Quorum ({{ (voteYes.value - isReached()) | number:votesPrecision }}) reached."
-msgstr ""
-"Quorum ({{ (voteYes.value - isReached()) | number:votesPrecision }}) "
-"erreicht."
 
 #: openslides\motions\static\js\motions\docx.js:96
 #: openslides\motions\static\js\motions\pdf.js:393
 #: openslides\motions\static\js\motions\site.js:529
 #: openslides\motions\static\js\motions\site.js:986
-#: openslides\motions\static\templates\motions\motion-detail.html:594
+#: openslides\motions\static\templates\motions\motion-detail.html:598
 #: openslides\motions\static\templates\motions\motion-import.html:25
 #: openslides\motions\static\templates\motions\motion-import.html:48
 #: openslides\motions\static\templates\motions\slide_motion.html:151
@@ -3604,7 +3579,7 @@ msgstr "Erweiterte Felder anzeigen"
 msgid "Show highlighted line also on projector"
 msgstr "hervorgehobene Zeile auch auf dem Projektor anzeigen"
 
-#: openslides\motions\static\templates\motions\motion-detail.html:642
+#: openslides\motions\static\templates\motions\motion-detail.html:646
 msgid "Show history"
 msgstr "Verlauf anzeigen"
 
@@ -3684,7 +3659,7 @@ msgstr "Tagesordnung sortieren"
 msgid "Sort categories by"
 msgstr "Sachgebiete sortieren nach"
 
-#: openslides\users\static\js\users\site.js:1851
+#: openslides\users\static\js\users\site.js:1852
 msgid "Sort name of participants by"
 msgstr "Namen der Teilnehmenden sortieren nach"
 
@@ -3806,7 +3781,7 @@ msgstr "Antrag unterstützen"
 msgid "Supporters"
 msgstr "Unterstützer/innen"
 
-#: openslides\users\static\js\users\site.js:1855
+#: openslides\users\static\js\users\site.js:1856
 #: openslides\users\static\js\users\site.js:304
 #: openslides\users\static\js\users\site.js:636
 #: openslides\users\static\templates\users\user-import.html:52
@@ -3814,11 +3789,11 @@ msgstr "Unterstützer/innen"
 msgid "Surname"
 msgstr "Nachname"
 
-#: openslides\users\static\js\users\site.js:1861
+#: openslides\users\static\js\users\site.js:1862
 msgid "System URL"
 msgstr "System-URL"
 
-#: openslides\assignments\static\js\assignments\pdf.js:552
+#: openslides\assignments\static\js\assignments\pdf.js:580
 #: openslides\motions\static\js\motions\docx.js:52
 #: openslides\motions\static\js\motions\pdf.js:872
 msgid "Table of contents"
@@ -3941,7 +3916,7 @@ msgstr "Es gibt mehr als ein Duplikat von diesem Nutzer!"
 msgid "This change collides with another one."
 msgstr "Diese Änderung kollidiert mit einer anderen."
 
-#: openslides\motions\static\templates\motions\motion-detail.html:620
+#: openslides\motions\static\templates\motions\motion-detail.html:624
 msgid "This is the last active version."
 msgstr "Dies ist die letzte aktive Version."
 
@@ -3989,7 +3964,7 @@ msgstr "Titel für PDF- und DOCX-Dokumente (alle Anträge) "
 msgid "Title for PDF document (all elections)"
 msgstr "Titel für PDF-Dokument (alle Wahlen)"
 
-#: openslides\users\static\js\users\site.js:1858
+#: openslides\users\static\js\users\site.js:1859
 msgid "Title for access data and welcome PDF"
 msgstr "Titel für das Zugangsdaten- und Begrüßungs-PDF"
 
@@ -4067,7 +4042,7 @@ msgstr "Hochgeladen durch"
 msgid "Use the following custom number"
 msgstr "Verwende die folgende benutzerdefinierte Anzahl"
 
-#: openslides\users\static\js\users\site.js:1879
+#: openslides\users\static\js\users\site.js:1880
 msgid ""
 "Use these placeholders: {name}, {event_name}, {url}, {username}, {password}. "
 "The url referrs to the system url."
@@ -4075,13 +4050,13 @@ msgstr ""
 "Verwendbare Platzhalter: {name}, {event_name}, {url}, {username}, "
 "{password}. Die URL bezieht sich auf die System-URL."
 
-#: openslides\users\static\js\users\site.js:1862
+#: openslides\users\static\js\users\site.js:1863
 msgid "Used for QRCode in PDF of access data."
 msgstr "Wird als QR-Code im Zugangsdaten-PDF verwendet."
 
-#: openslides\users\static\js\users\site.js:1864
-#: openslides\users\static\js\users\site.js:1866
-#: openslides\users\static\js\users\site.js:1868
+#: openslides\users\static\js\users\site.js:1865
+#: openslides\users\static\js\users\site.js:1867
+#: openslides\users\static\js\users\site.js:1869
 msgid "Used for WLAN QRCode in PDF of access data."
 msgstr "Wird als WLAN-QR-Code im Zugangsdaten-PDF verwendet."
 
@@ -4106,7 +4081,7 @@ msgstr ""
 "dieser Gruppe."
 
 #: openslides\assignments\static\js\assignments\site.js:826
-#: openslides\assignments\static\templates\assignments\assignment-detail.html:268
+#: openslides\assignments\static\templates\assignments\assignment-detail.html:272
 #: openslides\assignments\static\templates\assignments\slide_assignment.html:82
 msgid "Valid ballots"
 msgstr "Gültige Stimmzettel"
@@ -4117,12 +4092,12 @@ msgstr "Gültige Stimmzettel"
 msgid "Valid votes"
 msgstr "Gültige Stimmen"
 
-#: openslides\motions\static\templates\motions\motion-detail.html:613
-#: openslides\motions\static\templates\motions\motion-detail.html:616
+#: openslides\motions\static\templates\motions\motion-detail.html:617
+#: openslides\motions\static\templates\motions\motion-detail.html:620
 msgid "Version"
 msgstr "Version"
 
-#: openslides\motions\static\templates\motions\motion-detail.html:609
+#: openslides\motions\static\templates\motions\motion-detail.html:613
 msgid "Version history"
 msgstr "Versionshistorie"
 
@@ -4173,7 +4148,7 @@ msgstr "Abstimmung und Stimmzettel"
 msgid "Voting result"
 msgstr "Abstimmungsergebnis"
 
-#: openslides\users\static\js\users\site.js:1869
+#: openslides\users\static\js\users\site.js:1870
 msgid "WEP"
 msgstr "WEP"
 
@@ -4182,21 +4157,21 @@ msgid "WLAN access data"
 msgstr "WLAN-Zugangsdaten"
 
 #: openslides\users\static\js\users\pdf.js:157
-#: openslides\users\static\js\users\site.js:1867
+#: openslides\users\static\js\users\site.js:1868
 msgid "WLAN encryption"
 msgstr "WLAN-Verschlüsselung"
 
 #: openslides\users\static\js\users\pdf.js:141
-#: openslides\users\static\js\users\site.js:1863
+#: openslides\users\static\js\users\site.js:1864
 msgid "WLAN name (SSID)"
 msgstr "WLAN-Name (SSID)"
 
 #: openslides\users\static\js\users\pdf.js:149
-#: openslides\users\static\js\users\site.js:1865
+#: openslides\users\static\js\users\site.js:1866
 msgid "WLAN password"
 msgstr "WLAN-Passwort"
 
-#: openslides\users\static\js\users\site.js:1870
+#: openslides\users\static\js\users\site.js:1871
 msgid "WPA/WPA2"
 msgstr "WPA/WPA2"
 
@@ -4213,7 +4188,7 @@ msgid "Web interface header logo"
 msgstr "Web-Interface-Kopfzeilen-Logo"
 
 #: openslides\core\static\js\core\site.js:2094
-#: openslides\users\static\js\users\site.js:1857
+#: openslides\users\static\js\users\site.js:1858
 msgid "Welcome to OpenSlides"
 msgstr "Willkommen bei OpenSlides"
 
@@ -4247,7 +4222,7 @@ msgstr "Arbeitsabläufe"
 msgid "Yellow"
 msgstr "Gelb"
 
-#: openslides\assignments\static\js\assignments\pdf.js:317
+#: openslides\assignments\static\js\assignments\pdf.js:345
 #: openslides\assignments\static\js\assignments\site.js:611
 #: openslides\assignments\static\js\assignments\site.js:729
 #: openslides\motions\static\js\motions\pdf.js:193
@@ -4263,7 +4238,7 @@ msgid "Yes/No"
 msgstr "Ja/Nein"
 
 #: openslides\assignments\static\js\assignments\site.js:916
-#: openslides\assignments\static\templates\assignments\assignment-detail.html:289
+#: openslides\assignments\static\templates\assignments\assignment-detail.html:293
 msgid "Yes/No per candidate"
 msgstr "Ja/Nein pro Kandidat"
 
@@ -4272,7 +4247,7 @@ msgid "Yes/No/Abstain"
 msgstr "Ja/Nein/Enthaltung"
 
 #: openslides\assignments\static\js\assignments\site.js:915
-#: openslides\assignments\static\templates\assignments\assignment-detail.html:288
+#: openslides\assignments\static\templates\assignments\assignment-detail.html:292
 msgid "Yes/No/Abstain per candidate"
 msgstr "Ja/Nein/Enthaltung pro Kandidat"
 
@@ -4289,7 +4264,7 @@ msgstr ""
 "Sie können das Logo austauschen indem Sie ein Bild unter \"Dateien\" "
 "hochladen und es als \"Projektor-Logo\" festlegen."
 
-#: openslides\users\static\js\users\site.js:1876
+#: openslides\users\static\js\users\site.js:1877
 msgid "You can use {event_name} as a placeholder."
 msgstr "Sie können {event_name} als Platzhalter verwenden."
 
@@ -4301,7 +4276,7 @@ msgstr "Sie müssen Cookies aktivieren, um Vote@Home verwenden zu können."
 msgid "You override the personally set password of"
 msgstr "Sie überschreiben hiermit das persönlich gesetzte Passwort von"
 
-#: openslides\users\static\js\users\site.js:1875
+#: openslides\users\static\js\users\site.js:1876
 msgid "Your login for {event_name}"
 msgstr "Zugangsdaten für {event_name}"
 
@@ -4322,7 +4297,7 @@ msgid "[Begin speech] starts the countdown, [End speech] stops the countdown."
 msgstr ""
 "[Rede beginnen] startet den Countdown, [Rede beenden] stoppt den Countdown."
 
-#: openslides\users\static\js\users\site.js:1859
+#: openslides\users\static\js\users\site.js:1860
 msgid "[Place for your welcome and help text.]"
 msgstr "[Platz für Ihren Begrüßungs- und Hilfetext.]"
 
@@ -4443,7 +4418,7 @@ msgstr "intern"
 msgid "is also editing this."
 msgstr "ist auch gerade in Bearbeitung."
 
-#: openslides\assignments\static\js\assignments\pdf.js:223
+#: openslides\assignments\static\js\assignments\pdf.js:251
 #: openslides\assignments\static\templates\assignments\assignment-detail.html:224
 #: openslides\assignments\static\templates\assignments\assignment-detail.html:95
 #: openslides\assignments\static\templates\assignments\slide_assignment.html:23
@@ -4529,6 +4504,11 @@ msgstr "nicht befasst"
 msgid "not decided"
 msgstr "nicht entschieden"
 
+#: openslides\assignments\static\templates\assignments\assignment-detail.html:254
+#: openslides\motions\static\templates\motions\motion-detail.html:489
+msgid "not reached"
+msgstr "nicht erreicht"
+
 #: openslides\core\static\js\core\site.js:38
 msgid "now"
 msgstr "jetzt"
@@ -4582,6 +4562,11 @@ msgstr "Persönliche Notiz"
 #: openslides\motions\static\js\motions\base.js:1619
 msgid "published"
 msgstr "veröffentlicht"
+
+#: openslides\assignments\static\templates\assignments\assignment-detail.html:249
+#: openslides\motions\static\templates\motions\motion-detail.html:484
+msgid "reached"
+msgstr "erreicht"
 
 #: openslides\motions\static\js\motions\base.js:1637
 msgid "refered to committee"
@@ -4663,6 +4648,3 @@ msgstr "unerledigt"
 #: openslides\motions\static\js\motions\base.js:1629
 msgid "withdrawed"
 msgstr "zurückgezogen"
-
-#~ msgid "OpenSlides access data"
-#~ msgstr "OpenSlides-Zugangsdaten"
