@@ -233,16 +233,16 @@ angular.module('OpenSlidesApp.assignments.pdf', ['OpenSlidesApp.core.pdf'])
                         pushConcludeRow('Invalid ballots', 'votesinvalid');
                         pushConcludeRow('Casted ballots', 'votescast');
 
-                        var resultTableJsonSting = {
+                        var resultTableJsonString = {
                             table: {
-                                widths: ['45%','20%', '35%'],
+                                widths: showQuorum ? ['35%', '30%', '35%'] : ['69%', '31%', '0%'],
                                 headerRows: 1,
                                 body: pollTableBody,
                             },
                             layout: 'headerLineOnly',
                         };
 
-                        resultBody.push(resultTableJsonSting);
+                        resultBody.push(resultTableJsonString);
                     }
                 });
 
