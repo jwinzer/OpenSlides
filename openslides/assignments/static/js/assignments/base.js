@@ -237,6 +237,10 @@ angular.module('OpenSlidesApp.assignments', [])
                                         base = _.reduce(this.options, function (sum, option) {
                                             return sum + option.votes[0].weight;
                                         }, 0);
+                                        base += this.votesno;
+                                        if (config === 'YES_NO_ABSTAIN') {
+                                            base += this.votesabstain;
+                                        }
                                     }
                                 }
                             }
