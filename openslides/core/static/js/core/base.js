@@ -808,7 +808,7 @@ angular.module('OpenSlidesApp.core', [
                 $timeout(function () {
                     Messaging.createOrEditMessage(
                         'connectionLostMessage',
-                        gettextCatalog.getString('Offline mode: You can use OpenSlides but changes are not saved.'),
+                        gettextCatalog.getString('Offline mode: You can use Vote@Home but changes are not saved.'),
                         'warning',
                         {noClose: true});
                 }, 1);
