@@ -164,6 +164,22 @@ class User(RESTModelMixin, PermissionsMixin, AbstractBaseUser):
         default=Decimal("1"), max_digits=15, decimal_places=6, null=False, blank=True
     )
 
+    vote_weight_2 = models.DecimalField(
+        default=Decimal("0"), max_digits=15, decimal_places=6, null=False, blank=True
+    )
+
+    vote_weight_3 = models.DecimalField(
+        default=Decimal("0"), max_digits=15, decimal_places=6, null=False, blank=True
+    )
+
+    vote_weight_4 = models.DecimalField(
+        default=Decimal("0"), max_digits=15, decimal_places=6, null=False, blank=True
+    )
+
+    vote_weight_5 = models.DecimalField(
+        default=Decimal("0"), max_digits=15, decimal_places=6, null=False, blank=True
+    )
+
     objects = UserManager()
 
     class Meta:
