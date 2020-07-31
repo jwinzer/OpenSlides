@@ -51,6 +51,7 @@ BASE_POLL_FIELDS = (
     "onehundred_percent_base",
     "majority_method",
     "voted",
+    "voting_principle",
 )
 
 

@@ -27,6 +27,7 @@ class BasePollViewSet(ModelViewSet):
         "onehundred_percent_base",
         "title",
         "description",
+        "voting_principle"
     ]
 
     def check_view_permissions(self):

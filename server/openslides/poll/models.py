@@ -178,6 +178,8 @@ class BasePoll(models.Model):
         max_length=14, blank=False, null=False, choices=MAJORITY_METHODS
     )
 
+    voting_principle = models.PositiveSmallIntegerField(default=1)
+
     class Meta:
         abstract = True
 

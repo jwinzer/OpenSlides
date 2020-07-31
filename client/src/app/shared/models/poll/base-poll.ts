@@ -60,6 +60,7 @@ export abstract class BasePoll<
 
     public pollmethod: PM;
     public onehundred_percent_base: PB;
+    public voting_principle: number;
 
     public get isCreated(): boolean {
         return this.state === PollState.Created;
