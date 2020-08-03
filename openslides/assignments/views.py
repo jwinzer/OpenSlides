@@ -493,16 +493,14 @@ class AssignmentPollViewSet(BasePollViewSet):
                     continue
                 weight = Decimal(amount)
                 if config["users_activate_vote_weight"]:
-                    weight *= user.vote_weight
+                    weight *= poll.get_vote_weight(user)
                 vote = AssignmentVote.objects.create(
                     option=option, user=user, weight=weight, value="Y"
                 )
                 inform_changed_data(vote, no_delete_on_restriction=True)
         else:  # global_no or global_abstain
             option = options[0]
-            weight = (
-                user.vote_weight if config["users_activate_vote_weight"] else Decimal(1)
-            )
+            weight = poll.get_vote_weight(user) if config["users_activate_vote_weight"] else Decimal(1)
             vote = AssignmentVote.objects.create(
                 option=option, user=user, weight=weight, value=data
             )
@@ -518,11 +516,7 @@ class AssignmentPollViewSet(BasePollViewSet):
         vote_user is the one put into the vote
         """
         options = poll.get_options()
-        weight = (
-            check_user.vote_weight
-            if config["users_activate_vote_weight"]
-            else Decimal(1)
-        )
+        weight = poll.get_vote_weight(check_user) if config["users_activate_vote_weight"] else Decimal(1)
         for option_id, result in data.items():
             option = options.get(pk=option_id)
             vote = AssignmentVote.objects.create(
