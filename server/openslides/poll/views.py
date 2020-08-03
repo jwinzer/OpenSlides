@@ -227,6 +227,7 @@ class BasePollViewSet(ModelViewSet):
     @transaction.atomic
     def refresh(self, request, pk):
         poll = self.get_object()
+        poll.refresh()
         inform_changed_data(poll, final_data=True)
         inform_changed_data(poll.get_options(), final_data=True)
         inform_changed_data(poll.get_votes(), final_data=True)

@@ -312,6 +312,15 @@
             <span>{{ user.number }}</span>
         </div>
 
+        <!-- Vote weight -->
+        <div *ngIf="user.vote_weight && showVoteWeight">
+            <h4>{{ 'Vote weight' | translate }}</h4>
+            <span>
+                {{ user.vote_weight }} &middot; {{ user.vote_weight_2 }} &middot;
+                {{ user.vote_weight_3 }} &middot; {{ user.vote_weight_4 }} &middot; {{ user.vote_weight_5 }}
+            </span>
+        </div>
+
         <!-- Groups -->
         <div *ngIf="user.groups && user.groups.length > 0">
             <h4>{{ 'Groups' | translate }}</h4>
@@ -325,12 +334,6 @@
         </div>
 
         <div *ngIf="isAllowed('manage')">
-            <!-- Vote weight -->
-            <div *ngIf="user.vote_weight && showVoteWeight">
-                <h4>{{ 'Vote weight' | translate }} 1</h4>
-                <span>{{ user.vote_weight }}</span>
-            </div>
-
             <!-- Username -->
             <div *ngIf="user.username">
                 <h4>{{ 'Username' | translate }}</h4>
