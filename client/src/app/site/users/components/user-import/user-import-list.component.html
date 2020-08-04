@@ -307,8 +307,28 @@
             </ng-container>
 
             <ng-container matColumnDef="vote_weight">
-                <mat-header-cell *matHeaderCellDef>{{ 'Vote weight' | translate }}</mat-header-cell>
+                <mat-header-cell *matHeaderCellDef>{{ 'Vote weight' | translate }} 1</mat-header-cell>
                 <mat-cell *matCellDef="let entry"> {{ entry.newEntry.vote_weight }} </mat-cell>
+            </ng-container>
+
+            <ng-container matColumnDef="vote_weight_2">
+                <mat-header-cell *matHeaderCellDef>{{ 'Vote weight' | translate }} 2</mat-header-cell>
+                <mat-cell *matCellDef="let entry"> {{ entry.newEntry.vote_weight_2 }} </mat-cell>
+            </ng-container>
+
+            <ng-container matColumnDef="vote_weight_3">
+                <mat-header-cell *matHeaderCellDef>{{ 'Vote weight' | translate }} 3</mat-header-cell>
+                <mat-cell *matCellDef="let entry"> {{ entry.newEntry.vote_weight_3 }} </mat-cell>
+            </ng-container>
+
+            <ng-container matColumnDef="vote_weight_4">
+                <mat-header-cell *matHeaderCellDef>{{ 'Vote weight' | translate }} 4</mat-header-cell>
+                <mat-cell *matCellDef="let entry"> {{ entry.newEntry.vote_weight_4 }} </mat-cell>
+            </ng-container>
+
+            <ng-container matColumnDef="vote_weight_5">
+                <mat-header-cell *matHeaderCellDef>{{ 'Vote weight' | translate }} 5</mat-header-cell>
+                <mat-cell *matCellDef="let entry"> {{ entry.newEntry.vote_weight_5 }} </mat-cell>
             </ng-container>
 
             <mat-header-row *matHeaderRowDef="getColumnDefinition()"></mat-header-row>

@@ -69,7 +69,7 @@
                                 </div>
 
                                 <div *ngIf="isVoteWeightActive">
-                                    {{ 'Vote weight' | translate }}: {{ vote.weight }}
+                                    {{ 'Vote weight' | translate }}: {{ vote.user.getVoteWeight(poll.voting_principle) }}
                                 </div>
                             </div>
                         </div>
