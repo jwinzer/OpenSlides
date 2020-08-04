@@ -93,7 +93,10 @@ class BasePollViewSet(ModelViewSet):
 
         if "votes" in request.data:
             self.handle_request_with_votes(request, poll)
-        return super().update(request, *args, **kwargs)
+        response = super().update(request, *args, **kwargs)
+        # Poll options might have changed.
+        inform_changed_data(poll.get_options(), final_data=True)
+        return response
 
     def handle_request_with_votes(self, request, poll):
         if poll.type != BasePoll.TYPE_ANALOG:

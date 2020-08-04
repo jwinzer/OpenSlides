@@ -104,6 +104,9 @@ class BasePollSerializer(ModelSerializer):
             instance.onehundred_percent_base = new_100_percent_base
             instance.save()
 
+        # Refresh votes since voting principle might have changed.
+        instance.refresh()
+
         return instance
 
     def validate(self, data):
