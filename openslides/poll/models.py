@@ -291,5 +291,6 @@ class BasePoll(models.Model):
         """
         if config["users_activate_vote_weight"]:
             for vote in self.get_votes():
-                vote.weight = self.get_vote_weight(vote.user)
-                vote.save(no_delete_on_restriction=True)
+                if vote.user:
+                    vote.weight = self.get_vote_weight(vote.user)
+                    vote.save(no_delete_on_restriction=True)
