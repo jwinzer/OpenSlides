@@ -1,10 +1,12 @@
 from textwrap import dedent
 
+from django.conf import settings
 from django.contrib.auth.models import AnonymousUser
 from django.db import transaction
 from django.db.utils import IntegrityError
 from rest_framework import status
 
+from openslides.users.models import User
 from openslides.utils.auth import in_some_groups
 from openslides.utils.autoupdate import inform_changed_data
 from openslides.utils.rest_api import (
@@ -121,8 +123,12 @@ class BasePollViewSet(ModelViewSet):
         poll = self.get_object()
         if poll.state != BasePoll.STATE_CREATED:
             raise ValidationError({"detail": "Wrong poll state"})
+        voters = User.objects.filter(is_present=True, is_active=True, groups__id__in=poll.groups.all()).count()
+        if voters > settings.MAX_VOTERS:
+            raise ValidationError({
+                "detail": "Voting is limited to {} participants.".format(settings.MAX_VOTERS)
+            })
         poll.state = BasePoll.STATE_STARTED
-
         poll.save()
         inform_changed_data(poll.get_votes())
         return Response()
