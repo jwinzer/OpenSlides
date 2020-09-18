@@ -133,6 +133,13 @@ if ENABLE_SAML:
 ENABLE_ELECTRONIC_VOTING = False
 
 
+# Vote@Home extensions
+AUTHENTICATION_BACKENDS = [
+    # "django.contrib.auth.backends.ModelBackend"
+    "django.contrib.auth.backends.AllowAllUsersModelBackend"
+]
+MAX_VOTERS = 10
+
 # Jitsi integration
 # JITSI_DOMAIN = None
 # JITSI_ROOM_NAME = None
