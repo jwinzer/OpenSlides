@@ -48,7 +48,7 @@ export class MotionPollComponent extends BasePollComponent<ViewMotionPoll, Motio
     public get reducedPollTableData(): PollTableData[] {
         return this.pollService
             .generateTableData(this.poll)
-            .filter(data => ['yes', 'no', 'abstain', 'votesinvalid'].includes(data.votingOption));
+            .filter(data => ['yes', 'no', /*'abstain',*/ 'votesinvalid'].includes(data.votingOption));
     }
 
     public get showPoll(): boolean {

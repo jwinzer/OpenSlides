@@ -40,12 +40,14 @@ export class MotionPollVoteComponent extends BasePollVoteComponent<ViewMotionPol
             icon: 'thumb_down',
             label: 'No'
         },
+/*
         {
             vote: 'A',
             css: 'voted-abstain',
             icon: 'trip_origin',
             label: 'Abstain'
         }
+*/
     ];
 
     public constructor(

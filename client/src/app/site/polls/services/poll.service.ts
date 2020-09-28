@@ -265,11 +265,13 @@ export abstract class PollService {
                 icon: 'thumb_down',
                 showPercent: true
             },
+/*
             {
                 vote: 'abstain',
                 icon: 'trip_origin',
                 showPercent: this.showAbstainPercent(poll)
             }
+*/
         ];
     }
 
