@@ -27,6 +27,11 @@
             <span>
                 {{ poll.stateVerbose | translate }}
             </span>
+
+            <!-- Voting principle -->
+            <span *ngIf="isVoteWeightActive">
+                &middot; {{ 'Vote weight' | translate }} {{ poll.voting_principle }}
+            </span>
         </div>
 
         <os-motion-poll-detail-content [poll]="poll"></os-motion-poll-detail-content>
@@ -61,10 +66,10 @@
                                 {{ vote.user.getLevelAndNumber() }}
                             </div>
 
-                            <!-- Vote weight -->
-                            <div *ngIf="isVoteWeightActive">
-                                {{ 'Vote weight' | translate }}: {{ vote.user.vote_weight }}
-                            </div>
+                                <!-- Vote weight -->
+                                <div *ngIf="isVoteWeightActive">
+                                    {{ 'Vote weight' | translate }}: {{ vote.user.getVoteWeight(poll.voting_principle) }}
+                                </div>
 
                             <!-- Delegation -->
                             <div *ngIf="userHasVoteDelegation(vote.user)">

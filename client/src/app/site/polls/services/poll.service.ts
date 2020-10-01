@@ -107,6 +107,7 @@ export interface PollData {
     type: string;
     state: PollState;
     onehundred_percent_base: string;
+    voting_principle: number;
     options: PollDataOption[];
     votesvalid: number;
     votesinvalid: number;
