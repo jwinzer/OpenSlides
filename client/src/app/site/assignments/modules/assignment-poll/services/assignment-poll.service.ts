@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
 
 import { ConstantsService } from 'app/core/core-services/constants.service';
+import { OperatorService, Permission } from 'app/core/core-services/operator.service';
 import { AssignmentPollRepositoryService } from 'app/core/repositories/assignments/assignment-poll-repository.service';
 import { ConfigService } from 'app/core/ui-services/config.service';
 import {
@@ -54,10 +55,11 @@ export class AssignmentPollService extends PollService {
         constants: ConstantsService,
         pollKeyVerbose: PollKeyVerbosePipe,
         parsePollNumber: ParsePollNumberPipe,
+        protected operator: OperatorService,
         protected translate: TranslateService,
         private pollRepo: AssignmentPollRepositoryService
     ) {
-        super(constants, translate, pollKeyVerbose, parsePollNumber);
+        super(constants, operator, translate, pollKeyVerbose, parsePollNumber);
         config
             .get<AssignmentPollPercentBase>('assignment_poll_default_100_percent_base')
             .subscribe(base => (this.defaultPercentBase = base));

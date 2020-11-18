@@ -133,44 +133,44 @@
 
         <div *ngIf="showVoteWeight">
             <!-- Vote weights -->
-            <mat-form-field class="form16 distance" >
+            <mat-form-field class="form16 distance">
                 <!-- TODO Input type should be number with limited decimal spaces -->
                 <input
                     type="number"
                     matInput
-                    placeholder="{{ 'Vote weight' | translate }} 1"
+                    placeholder="{{ 'Role Units' | translate }}"
                     formControlName="vote_weight"
                 />
             </mat-form-field>
-            <mat-form-field class="form16 distance">
+            <mat-form-field class="form16 distance" *ngIf="isAllowed('manage')">
                 <input
                     type="number"
                     matInput
-                    placeholder="{{ 'Vote weight' | translate }} 2"
+                    placeholder="{{ 'Role Units' | translate }} 2"
                     formControlName="vote_weight_2"
                 />
             </mat-form-field>
-            <mat-form-field class="form16 distance">
+            <mat-form-field class="form16 distance" *ngIf="isAllowed('manage')">
                 <input
                     type="number"
                     matInput
-                    placeholder="{{ 'Vote weight' | translate }} 3"
+                    placeholder="{{ 'Role Units' | translate }} 3"
                     formControlName="vote_weight_3"
                 />
             </mat-form-field>
-            <mat-form-field class="form16 distance">
+            <mat-form-field class="form16 distance" *ngIf="isAllowed('manage')">
                 <input
                     type="number"
                     matInput
-                    placeholder="{{ 'Vote weight' | translate }} 4"
+                    placeholder="{{ 'Role Units' | translate }} 4"
                     formControlName="vote_weight_4"
                 />
             </mat-form-field>
-            <mat-form-field class="form16">
+            <mat-form-field class="form16" *ngIf="isAllowed('manage')">
                 <input
                     type="number"
                     matInput
-                    placeholder="{{ 'Vote weight' | translate }} 5"
+                    placeholder="{{ 'Role Units' | translate }} 5"
                     formControlName="vote_weight_5"
                 />
             </mat-form-field>
@@ -349,7 +349,7 @@
 
             <!-- Vote weight -->
             <div *ngIf="user.vote_weight && showVoteWeight">
-                <h4>{{ 'Vote weight' | translate }}</h4>
+                <h4>{{ 'Role Units' | translate }}</h4>
                 <span>
                     {{ user.vote_weight }} &middot; {{ user.vote_weight_2 }} &middot;
                     {{ user.vote_weight_3 }} &middot; {{ user.vote_weight_4 }} &middot; {{ user.vote_weight_5 }}

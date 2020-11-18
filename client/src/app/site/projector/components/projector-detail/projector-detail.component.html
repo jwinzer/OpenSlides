@@ -41,11 +41,14 @@
 <os-grid-layout *ngIf="projector">
     <os-tile [preferredSize]="projectorTileSizeLeft">
         <div *ngIf="projector" class="projector-detail-wrapper column-left">
-            <a [routerLink]="['/projector', projector.id]" target="_blank">
+            <a [routerLink]="['/projector', projector.id]" target="_blank" *osPerms="'core.can_manage_projector'">
                 <div id="projector">
                     <os-projector [projector]="projector"></os-projector>
                 </div>
             </a>
+            <div id="projector" *osPerms="'core.can_manage_projector'; complement: true">
+                <os-projector [projector]="projector"></os-projector>
+            </div>
             <!-- Controls under the projector preview -->
             <div *osPerms="'core.can_manage_projector'" class="control-group projector-controls">
                 <!-- scale down -->

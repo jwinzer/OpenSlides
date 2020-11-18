@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
 
 import { ConstantsService } from 'app/core/core-services/constants.service';
+import { OperatorService, Permission } from 'app/core/core-services/operator.service';
 import { MotionPollRepositoryService } from 'app/core/repositories/motions/motion-poll-repository.service';
 import { ConfigService } from 'app/core/ui-services/config.service';
 import { MotionPoll, MotionPollMethod } from 'app/shared/models/motions/motion-poll';
@@ -49,10 +50,11 @@ export class MotionPollService extends PollService {
         constants: ConstantsService,
         pollKeyVerbose: PollKeyVerbosePipe,
         parsePollNumber: ParsePollNumberPipe,
+        protected operator: OperatorService,
         protected translate: TranslateService,
         private pollRepo: MotionPollRepositoryService
     ) {
-        super(constants, translate, pollKeyVerbose, parsePollNumber);
+        super(constants, operator, translate, pollKeyVerbose, parsePollNumber);
         config
             .get<PercentBase>('motion_poll_default_100_percent_base')
             .subscribe(base => (this.defaultPercentBase = base));

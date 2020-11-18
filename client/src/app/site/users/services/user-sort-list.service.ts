@@ -6,6 +6,7 @@ import { OpenSlidesStatusService } from 'app/core/core-services/openslides-statu
 import { StorageService } from 'app/core/core-services/storage.service';
 import { BaseSortListService } from 'app/core/ui-services/base-sort-list.service';
 import { OsSortingDefinition, OsSortingOption } from 'app/core/ui-services/base-sort.service';
+import { OperatorService } from "../../../core/core-services/operator.service";
 import { ViewUser } from '../models/view-user';
 
 /**
@@ -42,7 +43,12 @@ export class UserSortListService extends BaseSortListService<ViewUser> {
      * @param translate required by parent
      * @param store requires by parent
      */
-    public constructor(translate: TranslateService, store: StorageService, OSStatus: OpenSlidesStatusService) {
+    public constructor(
+        translate: TranslateService,
+        store: StorageService,
+        OSStatus: OpenSlidesStatusService,
+        private operator: OperatorService
+    ) {
         super(translate, store, OSStatus);
     }
 
@@ -50,7 +56,8 @@ export class UserSortListService extends BaseSortListService<ViewUser> {
      * @override
      */
     protected getSortOptions(): OsSortingOption<ViewUser>[] {
-        return this.userSortOptions;
+        // Non-admins can only sort by name or presence.
+        return this.operator.isSuperAdmin ? this.userSortOptions : this.userSortOptions.slice(0, 3);
     }
 
     /**

@@ -42,7 +42,7 @@ export class PollPercentBasePipe implements PipeTransform {
         }
 
         if (voteValueInPercent) {
-            return `(${voteValueInPercent})`;
+            return `${voteValueInPercent}`;
         } else {
             return null;
         }

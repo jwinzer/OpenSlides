@@ -265,7 +265,7 @@ export class UserDetailComponent extends BaseViewComponentDirective implements O
         // Disable not permitted controls
         if (!this.isAllowed('manage')) {
             formControlNames.forEach(formControlName => {
-                if (!['username', 'email', 'about_me'].includes(formControlName)) {
+                if (!['about_me'].includes(formControlName)) {
                     this.personalInfoForm.get(formControlName).disable();
                 }
             });

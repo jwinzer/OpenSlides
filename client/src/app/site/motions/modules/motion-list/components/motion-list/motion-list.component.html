@@ -301,7 +301,7 @@
         </div>
 
         <!-- Export -->
-        <button mat-menu-item *ngIf="selectedView === 'list'" (click)="openExportDialog()">
+        <button mat-menu-item *ngIf="selectedView === 'list' && perms.isAllowed('manage')" (click)="openExportDialog()">
             <mat-icon>archive</mat-icon>
             <span>{{ 'Export' | translate }}</span>
         </button>

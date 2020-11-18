@@ -33,12 +33,6 @@ export class MotionPollVoteComponent extends BasePollVoteComponentDirective<View
             icon: 'thumb_down',
             label: 'No'
         },
-        {
-            vote: 'A',
-            css: 'voted-abstain',
-            icon: 'trip_origin',
-            label: 'Abstain'
-        }
     ];
 
     public constructor(

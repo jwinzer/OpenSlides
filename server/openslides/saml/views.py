@@ -169,6 +169,8 @@ class SamlView(View):
             if isinstance(attribute, list):
                 attribute = ", ".join(attribute)
 
+            if value == "email":
+                attribute = attribute.lower()
             if lookup:
                 queryargs[value] = attribute
             else:

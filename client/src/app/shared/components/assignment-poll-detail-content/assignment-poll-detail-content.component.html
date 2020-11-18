@@ -7,8 +7,10 @@
                     <span *ngIf="!isMethodY">
                         {{ 'Yes' | translate }}
                     </span>
-                    <span *ngIf="isMethodY">
-                        {{ 'Votes' | translate }}
+                    <span *osPerms="'core.can_see_livestream'">
+                        <span *ngIf="isMethodY">
+                            {{ 'Votes' | translate }}
+                        </span>
                     </span>
                 </th>
                 <th class="result no" *ngIf="!isMethodY">{{ 'No' | translate }}</th>
@@ -32,7 +34,9 @@
                             <span *ngIf="vote.showPercent">
                                 {{ vote.amount | pollPercentBase: poll:'assignment' }}
                             </span>
-                            {{ vote.amount | parsePollNumber }}
+                            <span *osPerms="'core.can_see_livestream'">
+                                {{ vote.amount | parsePollNumber }}
+                            </span>
                         </span>
                     </div>
                 </td>

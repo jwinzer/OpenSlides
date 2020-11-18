@@ -92,7 +92,9 @@
                 The error-handling-service (PR #5131) might be helpful here. Nothing easy to find. -->
             <div *ngFor="let row of reducedPollTableData; trackBy: trackByIndex" [class]="row.votingOption">
                 <os-icon-container [icon]="row.value[0].icon" size="large">
-                    {{ row.value[0].amount | parsePollNumber }}
+                    <span *osPerms="'core.can_see_livestream'">
+                        {{ row.value[0].amount | parsePollNumber }}
+                    </span>
                     <span *ngIf="row.value[0].showPercent">
                         {{ row.value[0].amount | pollPercentBase: poll:'motion' }}
                     </span>

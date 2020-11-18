@@ -6,6 +6,7 @@ import { OpenSlidesStatusService } from 'app/core/core-services/openslides-statu
 import { StorageService } from 'app/core/core-services/storage.service';
 import { GroupRepositoryService } from 'app/core/repositories/users/group-repository.service';
 import { BaseFilterListService, OsFilter } from 'app/core/ui-services/base-filter-list.service';
+import { OperatorService } from "../../../core/core-services/operator.service";
 import { DelegationType, ViewUser } from '../models/view-user';
 
 /**
@@ -38,7 +39,8 @@ export class UserFilterListService extends BaseFilterListService<ViewUser> {
         store: StorageService,
         OSStatus: OpenSlidesStatusService,
         groupRepo: GroupRepositoryService,
-        private translate: TranslateService
+        private translate: TranslateService,
+        private operator: OperatorService
     ) {
         super(store, OSStatus);
         this.updateFilterForRepo(
@@ -113,6 +115,8 @@ export class UserFilterListService extends BaseFilterListService<ViewUser> {
                 ]
             }
         ];
-        return staticFilterOptions.concat(this.userGroupFilterOptions);
+        // Non-admins can only filter by presence.
+        return this.operator.isSuperAdmin ? staticFilterOptions.concat(this.userGroupFilterOptions) :
+            staticFilterOptions.slice(0, 1);
     }
 }

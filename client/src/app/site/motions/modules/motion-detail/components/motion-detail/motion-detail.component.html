@@ -62,7 +62,7 @@
             <!-- List of speakers -->
             <os-speaker-button [object]="motion" [menuItem]="true"></os-speaker-button>
             <!-- PDF -->
-            <button mat-menu-item (click)="onDownloadPdf()">
+            <button mat-menu-item *osPerms="'motions.can_manage'" (click)="onDownloadPdf()">
                 <mat-icon>picture_as_pdf</mat-icon>
                 <span>{{ 'PDF' | translate }}</span>
             </button>

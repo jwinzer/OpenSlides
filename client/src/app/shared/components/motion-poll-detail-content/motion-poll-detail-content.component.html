@@ -1,10 +1,13 @@
 <div class="result-wrapper" *ngIf="hasVotes">
+    <style>
+        #slide td { font-size: 22px; }
+    </style>
     <!-- result table -->
     <table class="result-table">
         <tbody>
             <tr>
                 <th></th>
-                <th colspan="2">{{ 'Votes' | translate }}</th>
+                <th *osPerms="'core.can_see_livestream'" colspan="2">{{ 'Votes' | translate }}</th>
             </tr>
             <tr *ngFor="let row of getTableData()" [class]="row.votingOption">
                 <!-- YNA/Valid etc -->
@@ -24,8 +27,8 @@
                     </span>
                 </td>
 
-                <!-- Voices -->
-                <td class="result-cell-definition">
+                <!-- Votes -->
+                <td *osPerms="'core.can_see_livestream'" class="result-cell-definition">
                     {{ row.value[0].amount | parsePollNumber }}
                 </td>
             </tr>

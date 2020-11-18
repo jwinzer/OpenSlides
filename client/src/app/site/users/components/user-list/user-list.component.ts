@@ -119,7 +119,13 @@ export class UserListComponent extends BaseListViewComponent<ViewUser> implement
     }
 
     public get showVoteWeight(): boolean {
-        return this.pollService.isElectronicVotingEnabled && this.isVoteWeightActive;
+        return this.pollService.isElectronicVotingEnabled && this.isVoteWeightActive &&
+            this.operator.hasPerms(Permission.usersCanManage);
+    }
+
+    public get totalVoteWeight(): number {
+        const votes = this.dataSource?.filteredData?.reduce((previous, current) => previous + current.vote_weight, 0);
+        return votes ?? 0;
     }
 
     /**
@@ -295,7 +301,8 @@ export class UserListComponent extends BaseListViewComponent<ViewUser> implement
                 { property: 'email' },
                 { property: 'username' },
                 { property: 'gender' },
-                { property: 'vote_weight', label: 'Vote weight' }
+                { property: 'vote_weight', label: 'Vote weight' },
+                { label: 'voting right delegated to (proxy)', map: user => user.delegationName }
             ],
             this.translate.instant('Participants') + '.csv'
         );

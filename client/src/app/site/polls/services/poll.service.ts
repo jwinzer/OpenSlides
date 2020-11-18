@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { marker as _ } from '@biesbjerg/ngx-translate-extract-marker';
 import { TranslateService } from '@ngx-translate/core';
 
+import { OperatorService, Permission } from 'app/core/core-services/operator.service';
 import { ChartData, ChartDate } from 'app/shared/components/charts/charts.component';
 import { AssignmentPollMethod } from 'app/shared/models/assignments/assignment-poll';
 import {
@@ -25,7 +26,7 @@ import {
 } from 'app/site/polls/models/view-base-poll';
 import { ConstantsService } from '../../../core/core-services/constants.service';
 
-const PERCENT_DECIMAL_PLACES = 3;
+const PERCENT_DECIMAL_PLACES = 2;
 /**
  * The possible keys of a poll object that represent numbers.
  * TODO Should be 'key of MotionPoll|AssinmentPoll if type of key is number'
@@ -198,6 +199,7 @@ export abstract class PollService {
 
     public constructor(
         constants: ConstantsService,
+        protected operator: OperatorService,
         protected translate: TranslateService,
         protected pollKeyVerbose: PollKeyVerbosePipe,
         protected parsePollNumber: ParsePollNumberPipe
@@ -266,11 +268,6 @@ export abstract class PollService {
                 icon: 'thumb_down',
                 showPercent: true
             },
-            {
-                vote: 'abstain',
-                icon: 'trip_origin',
-                showPercent: this.showAbstainPercent(poll)
-            }
         ];
     }
 
@@ -290,7 +287,7 @@ export abstract class PollService {
         return [
             {
                 vote: 'votesvalid',
-                hide: poll.votesvalid === VOTE_UNDOCUMENTED,
+                hide: !this.operator.hasPerms(Permission.coreCanSeeLiveStream),
                 showPercent: this.showPercentOfValidOrCast(poll)
             },
             {

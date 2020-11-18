@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { Router} from '@angular/router';
 
 import { BehaviorSubject } from 'rxjs';
 
@@ -22,14 +23,25 @@ export interface BannerDefinition {
 export class BannerService {
     public activeBanners: BehaviorSubject<BannerDefinition[]> = new BehaviorSubject<BannerDefinition[]>([]);
 
+    public constructor(
+        private router: Router
+    ) {}
+
     /**
      * Adds a banner to the list of active banners. Skip the banner if it's already in the list
      * @param toAdd the banner to add
      */
     public addBanner(toAdd: BannerDefinition): void {
         if (!this.activeBanners.value.find(banner => banner === toAdd)) {
-            const newBanners = this.activeBanners.value.concat([toAdd]);
-            this.activeBanners.next(newBanners);
+            console.log(toAdd);
+            if (toAdd.link) {
+                if (this.router.url !== "/autopilot") {
+                    this.router.navigate(["/autopilot"]);
+                }
+            } else {
+                const newBanners = this.activeBanners.value.concat([toAdd]);
+                this.activeBanners.next(newBanners);
+            }
         }
     }
 
@@ -43,7 +55,13 @@ export class BannerService {
             const newArray = Array.from(this.activeBanners.value);
             const idx = newArray.findIndex(banner => banner === toRemove);
             if (idx === -1) {
-                throw new Error("The given banner couldn't be found.");
+                if (toRemove.link) {
+                    if (this.router.url !== "/autopilot") {
+                        this.router.navigate(["/autopilot"]);
+                    }
+                } else {
+                    throw new Error("The given banner couldn't be found.");
+                }
             } else {
                 newArray[idx] = toAdd;
                 this.activeBanners.next(newArray); // no need for this.update since the length doesn't change

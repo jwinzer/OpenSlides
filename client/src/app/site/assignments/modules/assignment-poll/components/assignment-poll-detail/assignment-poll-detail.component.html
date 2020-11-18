@@ -29,7 +29,7 @@
 
             <!-- Voting principle -->
             <span *ngIf="isVoteWeightActive">
-                &middot; {{ 'Vote weight' | translate }} {{ poll.voting_principle }}
+                &middot; {{ 'Role Units' | translate }} {{ poll.voting_principle }}
             </span>
         </div>
 
@@ -38,7 +38,7 @@
             <os-assignment-poll-detail-content [poll]="poll"></os-assignment-poll-detail-content>
 
             <!-- Result Chart -->
-            <div class="chart-wrapper">
+            <div class="chart-wrapper" *osPerms="'core.can_see_livestream'">
                 <os-charts
                     class="assignment-result-chart"
                     *ngIf="chartDataSubject.value"
@@ -83,7 +83,7 @@
 
                                 <!-- Vote weight -->
                                 <div *ngIf="isVoteWeightActive">
-                                    {{ 'Vote weight' | translate }}: {{ vote.user.getVoteWeight(poll.voting_principle) }}
+                                    {{ 'Role Units' | translate }}: {{ vote.user.getVoteWeight(poll.voting_principle) }}
                                 </div>
 
                                 <!-- Delegation -->

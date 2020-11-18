@@ -56,12 +56,6 @@ export class SortFilterBarComponent<V extends BaseViewModel> {
     public filterService: BaseFilterListService<V>;
 
     /**
-     * optional additional string to show after the item count. This string will not be translated here
-     */
-    @Input()
-    public extraItemInfo: string;
-
-    /**
      * Optional string to tell the verbose name of the filtered items. This string is displayed,
      * if no filter service is given.
      */
@@ -86,12 +80,6 @@ export class SortFilterBarComponent<V extends BaseViewModel> {
      */
     @ViewChild('filterMenu', { static: true })
     public filterMenu: FilterMenuComponent;
-
-    /**
-     * The bottom sheet used to alter sorting in mobile view
-     */
-    @ViewChild('sortBottomSheet')
-    public sortBottomSheet: SortBottomSheetComponent<V>;
 
     /**
      * Optional boolean, whether the filter and sort service should be shown.
