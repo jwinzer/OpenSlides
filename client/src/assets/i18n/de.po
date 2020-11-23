@@ -508,6 +508,9 @@ msgstr "Darf den Projektor steuern"
 msgid "Can manage users"
 msgstr "Darf Benutzer verwalten"
 
+msgid "Can navigate"
+msgstr "Darf navigieren"
+
 msgid "Can nominate another participant"
 msgstr "Darf andere Teilnehmende für Wahlen vorschlagen"
 

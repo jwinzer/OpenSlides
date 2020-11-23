@@ -41,6 +41,7 @@ export enum Permission {
     coreCanManageTags = 'core.can_manage_tags',
     coreCanSeeLiveStream = 'core.can_see_livestream',
     coreCanSeeAutopilot = 'core.can_see_autopilot',
+    coreCanNavigate = 'core.can_navigate',
     mediafilesCanManage = 'mediafiles.can_manage',
     mediafilesCanSee = 'mediafiles.can_see',
     motionsCanCreate = 'motions.can_create',

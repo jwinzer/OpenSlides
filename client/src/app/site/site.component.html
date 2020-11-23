@@ -1,4 +1,4 @@
-<os-banner *ngIf="href !== '/autopilot'"></os-banner>
+<os-banner *ngIf="!autopilot"></os-banner>
 <mat-sidenav-container
     #siteContainer
     class="main-container"
@@ -9,7 +9,7 @@
     <mat-sidenav
         #sideNav
         [mode]="vp.isMobile ? 'over' : 'side'"
-        [opened]="!vp.isMobile && href !== '/autopilot'"
+        [opened]="!vp.isMobile && !autopilot"
         disableClose="!vp.isMobile"
         class="side-panel"
     >
@@ -25,20 +25,33 @@
 
         <!-- navigation -->
         <mat-nav-list class="main-nav">
-            <span *ngFor="let entry of mainMenuEntries">
-                <a
-                    [@navItemAnim]
-                    *osPerms="entry.permission"
-                    mat-list-item
-                    (click)="mobileAutoCloseNav()"
-                    [routerLink]="entry.route"
-                    routerLinkActive="active"
-                    [routerLinkActiveOptions]="{ exact: entry.route === '/' }"
-                >
-                    <mat-icon>{{ entry.icon }}</mat-icon>
-                    <span>{{ entry.displayName | translate }}</span>
-                </a>
-            </span>
+            <ng-container *osPerms="permission.coreCanNavigate">
+                <span *ngFor="let entry of mainMenuEntries">
+                    <a
+                        [@navItemAnim]
+                        *osPerms="entry.permission"
+                        mat-list-item
+                        (click)="mobileAutoCloseNav()"
+                        [routerLink]="entry.route"
+                        routerLinkActive="active"
+                        [routerLinkActiveOptions]="{ exact: entry.route === '/' }"
+                    >
+                        <mat-icon>{{ entry.icon }}</mat-icon>
+                        <span>{{ entry.displayName | translate }}</span>
+                    </a>
+                </span>
+            </ng-container>
+            <a
+                [@navItemAnim]
+                *osPerms="permission.coreCanNavigate; complement: true"
+                mat-list-item
+                routerLink="/autopilot"
+                routerLinkActive="active"
+                (click)="mobileAutoCloseNav()"
+            >
+                <mat-icon>sync</mat-icon>
+                <span>{{ 'Autopilot' | translate }}</span>
+            </a>
             <mat-divider></mat-divider>
             <a
                 [@navItemAnim]

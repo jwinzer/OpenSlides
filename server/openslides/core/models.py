@@ -120,6 +120,7 @@ class Projector(RESTModelMixin, models.Model):
             ("can_see_frontpage", "Can see the front page"),
             ("can_see_livestream", "Can see the live stream"),
             ("can_see_autopilot", "Can see the autopilot"),
+            ("can_navigate", "Can navigate"),
         )
 
 

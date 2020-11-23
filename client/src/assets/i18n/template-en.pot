@@ -469,6 +469,9 @@ msgstr ""
 msgid "Can manage users"
 msgstr ""
 
+msgid "Can navigate"
+msgstr ""
+
 msgid "Can nominate another participant"
 msgstr ""
 

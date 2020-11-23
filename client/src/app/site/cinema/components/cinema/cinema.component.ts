@@ -86,7 +86,7 @@ export class CinemaComponent extends BaseViewComponentDirective implements OnIni
         title: Title,
         translate: TranslateService,
         snackBar: MatSnackBar,
-        private operator: OperatorService,
+        public operator: OperatorService,
         private projectorService: ProjectorService,
         private projectorRepo: ProjectorRepositoryService,
         private closService: CurrentListOfSpeakersService,

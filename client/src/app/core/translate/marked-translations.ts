@@ -340,6 +340,7 @@ _('Can manage configuration');
 _('Can manage logos and fonts');
 _('Can see history');
 _('Can see the live stream');
+_('Can navigate');
 // mediafiles
 _('Can see the list of files');
 _('Can upload files');
