@@ -607,6 +607,9 @@ msgstr "Diese Aktion ist im Demo-Modus nicht möglich!"
 msgid "Cannot navigate to the selected history element."
 msgstr "Das ausgewählte Chronikelement kann nicht geöffnet werden."
 
+msgid "Casted vote"
+msgstr "Abgegebene Stimme"
+
 msgid "Categories"
 msgstr "Sachgebiete"
 

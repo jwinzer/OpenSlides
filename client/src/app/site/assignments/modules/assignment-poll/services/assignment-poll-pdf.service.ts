@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 
 import { TranslateService } from '@ngx-translate/core';
+import { Observable } from "rxjs";
 
 import { AbstractPollData, BallotCountChoices, PollPdfService } from 'app/core/pdf-services/base-poll-pdf-service';
 import { PdfDocumentService } from 'app/core/pdf-services/pdf-document.service';
@@ -9,6 +10,7 @@ import { UserRepositoryService } from 'app/core/repositories/users/user-reposito
 import { ConfigService } from 'app/core/ui-services/config.service';
 import { AssignmentPollMethod } from 'app/shared/models/assignments/assignment-poll';
 import { ViewAssignmentPoll } from 'app/site/assignments/models/view-assignment-poll';
+import { BaseVoteData } from "../../../../polls/components/base-poll-detail.component";
 
 /**
  * Creates a pdf for a motion poll. Takes as input any motionPoll
@@ -104,6 +106,82 @@ export class AssignmentPollPdfService extends PollPdfService {
             fileName,
             this.logo
         );
+    }
+
+    /**
+     * Export a pdf document of single votes.
+     * @param poll: Assignment poll to create document for.
+     * @param votes: Votes data.
+     * @param includeWeight: Adds an optional vote weight column.
+     */
+    public exportSingleVotes(
+        poll: ViewAssignmentPoll,
+        votes: Observable<BaseVoteData[]>,
+        includeWeight: boolean
+    ): void {
+        const assignment = this.assignmentRepo.getViewModel(poll.assignment_id);
+
+        // Create title.
+        const title = {
+            text: `${assignment.title} - ${this.translate.instant('Single votes')}`,
+            style: 'title'
+        }
+
+        // Create table body.
+        const tableBody = [];
+        tableBody.push([
+            {
+                text: this.translate.instant('Name'),
+                style: 'tableHeader'
+            },
+            {
+                text: this.translate.instant('Casted vote'),
+                style: 'tableHeader'
+            },
+            {
+                text: includeWeight ? this.translate.instant('Vote weight') : '',
+                style: 'tableHeader'
+            },
+        ]);
+        const languageCollator = new Intl.Collator(this.translate.currentLang);
+        votes
+            .forEach(item => {
+                item
+                    // Sort by first name.
+                    .sort((a, b) => languageCollator.compare(
+                        a.user ? a.user.first_name : '', b.user ? b.user.first_name : ''
+                    ))
+                    .forEach(vote => {
+                        let name = this.translate.instant('Anonymous');
+                        if (vote.user) {
+                            name = vote.user.full_name;
+                            if (vote.user.isVoteRightDelegated) {
+                                name += `\n(${this.translate.instant('represented by')} ${vote.user.delegationName})`;
+                            }
+                        }
+                        tableBody.push([
+                            { text: name },
+                            { text: vote.votes.join('\n') },
+                            { text: includeWeight && vote.user ? vote.user.getVoteWeight(poll.voting_principle) : ''}
+                        ]);
+                    });
+            });
+
+        // Create table.
+        const table = {
+            table: {
+                widths: ['*', 'auto', 'auto'],
+                headerRows: 1,
+                body: tableBody
+            },
+            layout: 'switchColorTableLayout'
+        }
+
+        // Create pdf.
+        const doc = [title, table];
+        const filename = `${this.translate.instant(
+            'Assignment')} ${assignment.title} - ${this.translate.instant('Single votes')}`;
+        this.pdfService.download(doc, filename);
     }
 
     /**

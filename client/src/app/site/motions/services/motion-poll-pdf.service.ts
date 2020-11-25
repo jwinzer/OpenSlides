@@ -8,6 +8,7 @@ import { MotionRepositoryService } from 'app/core/repositories/motions/motion-re
 import { UserRepositoryService } from 'app/core/repositories/users/user-repository.service';
 import { ConfigService } from 'app/core/ui-services/config.service';
 import { MotionPoll } from 'app/shared/models/motions/motion-poll';
+import { ViewMotionPoll } from "../models/view-motion-poll";
 
 type BallotCountChoices = 'NUMBER_OF_DELEGATES' | 'NUMBER_OF_ALL_PARTICIPANTS' | 'CUSTOM_NUMBER';
 
@@ -87,6 +88,80 @@ export class MotionPollPdfService extends PollPdfService {
             fileName,
             this.logo
         );
+    }
+
+    /**
+     * Exports a pdf document of single votes.
+     * @param poll: Motion poll to create document for.
+     * @param includeWeight: Adds an optional vote weight column.
+     */
+    public exportSingleVotes(poll: ViewMotionPoll, includeWeight: boolean): void {
+        const motion = this.motionRepo.getViewModel(poll.motion_id);
+
+        // Create title and subtitle.
+        const identifier = motion.identifier ? ' ' + motion.identifier : '';
+        const title = {
+            text: `${this.translate.instant(
+                'Motion')}${identifier}: ${motion.title} - ${this.translate.instant('Single votes')}`,
+            style: 'title'
+        }
+        const subtitle = {
+            text: poll.title,
+            style: 'subtitle'
+        }
+
+        // Create table body.
+        const tableBody = [];
+        tableBody.push([
+            {
+                text: this.translate.instant('Name'),
+                style: 'tableHeader'
+            },
+            {
+                text: this.translate.instant('Casted vote'),
+                style: 'tableHeader'
+            },
+            {
+                text: includeWeight ? this.translate.instant('Vote weight') : '',
+                style: 'tableHeader'
+            },
+        ]);
+        const languageCollator = new Intl.Collator(this.translate.currentLang);
+        poll.options[0].votes
+            // Sort by first name.
+            .sort((a, b) => languageCollator.compare(
+                a.user ? a.user.first_name : '', b.user ? b.user.first_name : ''
+            ))
+            .forEach(vote => {
+                let name = this.translate.instant('Anonymous');
+                if (vote.user) {
+                    name = vote.user.full_name;
+                    if (vote.user.isVoteRightDelegated) {
+                        name += `\n(${this.translate.instant('represented by')} ${vote.user.delegationName})`;
+                    }
+                }
+                tableBody.push([
+                    { text: name },
+                    { text: this.translate.instant(vote.valueVerbose) },
+                    { text: includeWeight && vote.user ? vote.user.getVoteWeight(poll.voting_principle) : ''}
+                ]);
+            });
+
+        // Create table.
+        const table = {
+            table: {
+                widths: ['*', 'auto', 'auto'],
+                headerRows: 1,
+                body: tableBody
+            },
+            layout: 'switchColorTableLayout'
+        }
+
+        // Create pdf.
+        const doc = [title, subtitle, table];
+        const filename = `${this.translate.instant(
+            'Motion')} ${motion.identifierOrTitle} - ${this.translate.instant('Single votes')}`;
+        this.pdfService.download(doc, filename);
     }
 
     /**

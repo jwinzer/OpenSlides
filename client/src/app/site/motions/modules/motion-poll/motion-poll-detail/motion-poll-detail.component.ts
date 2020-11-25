@@ -17,6 +17,7 @@ import { ViewMotionPoll } from 'app/site/motions/models/view-motion-poll';
 import { MotionPollDialogService } from 'app/site/motions/services/motion-poll-dialog.service';
 import { MotionPollService } from 'app/site/motions/services/motion-poll.service';
 import { BasePollDetailComponentDirective } from 'app/site/polls/components/base-poll-detail.component';
+import { MotionPollPdfService } from "../../../services/motion-poll-pdf.service";
 
 @Component({
     selector: 'os-motion-poll-detail',
@@ -58,6 +59,7 @@ export class MotionPollDetailComponent extends BasePollDetailComponentDirective<
         prompt: PromptService,
         pollDialog: MotionPollDialogService,
         pollService: MotionPollService,
+        private pdfService: MotionPollPdfService,
         votesRepo: MotionVoteRepositoryService,
         configService: ConfigService,
         protected operator: OperatorService,
@@ -81,6 +83,10 @@ export class MotionPollDetailComponent extends BasePollDetailComponentDirective<
         configService
             .get<boolean>('users_activate_vote_weight')
             .subscribe(active => (this.isVoteWeightActive = active));
+    }
+
+    public downLoadPdf(): void {
+        this.pdfService.exportSingleVotes(this.poll, this.isVoteWeightActive);
     }
 
     protected createVotesData(): void {

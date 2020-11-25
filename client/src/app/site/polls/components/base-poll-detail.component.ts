@@ -26,6 +26,7 @@ import { ViewBaseVote } from '../models/view-base-vote';
 
 export interface BaseVoteData {
     user?: ViewUser;
+    votes?: any;
 }
 
 @Directive()
@@ -74,6 +75,20 @@ export abstract class BasePollDetailComponentDirective<V extends ViewBasePoll, S
     public votesDataObservable: Observable<BaseVoteData[]>;
 
     protected optionsLoaded = new Deferred();
+
+    protected abstract get hasPerms(): boolean;
+
+    protected get canSeeVotes(): boolean {
+        return (this.hasPerms && this.poll.isFinished) || this.poll.isPublished;
+    }
+
+    public get hasResult(): boolean {
+        return this.poll?.stateHasVotes && (this.hasPerms || this.poll.isPublished);
+    }
+
+    public get hasSingleVotes(): boolean {
+        return this.hasResult && this.poll.type === 'named';
+    }
 
     /**
      * Constructor
@@ -159,13 +174,7 @@ export abstract class BasePollDetailComponentDirective<V extends ViewBasePoll, S
 
     protected onStateChanged(): void {}
 
-    protected abstract hasPerms(): boolean;
-
     protected abstract onDeleted(): void;
-
-    protected get canSeeVotes(): boolean {
-        return (this.hasPerms && this.poll.isFinished) || this.poll.isPublished;
-    }
 
     /**
      * sets the votes data only if the poll wasn't pseudoanonymized
@@ -199,32 +208,6 @@ export abstract class BasePollDetailComponentDirective<V extends ViewBasePoll, S
                     }
                 })
             );
-        }
-    }
-
-    protected userHasVoteDelegation(user: ViewUser): boolean {
-        /**
-         * This will be false if the operator does not have "can_see_extra_data"
-         */
-        if (user.isVoteRightDelegated) {
-            return true;
-        } else if (this.operator.viewUser.canVoteFor(user)) {
-            return true;
-        }
-
-        return false;
-    }
-
-    protected getUsersVoteDelegation(user: ViewUser): ViewUser {
-        /**
-         * This will be false if the operator does not have "can_see_extra_data"
-         */
-        if (!!user.voteDelegatedTo) {
-            return user.voteDelegatedTo;
-        }
-
-        if (this.operator.viewUser.canVoteFor(user)) {
-            return this.operator.viewUser;
         }
     }
 }

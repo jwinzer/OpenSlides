@@ -63,7 +63,7 @@ export class User extends BaseDecimalModel<User> {
         return ['vote_weight', 'vote_weight_2', 'vote_weight_3', 'vote_weight_4', 'vote_weight_5'];
     }
 
-    protected getVoteWeight(principle: number): number {
+    public getVoteWeight(principle: number): number {
         const weights = [
             this.vote_weight,
             this.vote_weight_2,

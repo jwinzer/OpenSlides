@@ -268,7 +268,7 @@ export class UserPdfService {
             const groupList = user.groups.map(grp => this.translate.instant(grp.name));
             let name = user.full_name;
             if (user.isVoteRightDelegated) {
-                name += '\t\n>> ' + user.delegationName;
+                name += `\n(${this.translate.instant('represented by')} ${user.delegationName})`;
             }
             result.push([
                 { text: '' + counter },

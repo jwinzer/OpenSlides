@@ -3,7 +3,10 @@
         <h2 *ngIf="!!poll">{{ poll.title }}</h2>
     </div>
 
-    <div class="menu-slot" *osPerms="'assignments.can_manage'">
+    <div
+        class="menu-slot"
+        *osPerms="[permission.assignmentsCanManage, permission.coreCanManageProjector]; or: hasSingleVotes"
+    >
         <button type="button" mat-icon-button [matMenuTriggerFor]="pollDetailMenu">
             <mat-icon>more_vert</mat-icon>
         </button>
@@ -30,17 +33,22 @@
             </span>
         </div>
 
-        <div class="assignment-result-wrapper" *ngIf="poll">
+        <div class="assignment-result-wrapper" *ngIf="poll && poll.stateHasVotes">
             <!-- Result Table -->
             <os-assignment-poll-detail-content [poll]="poll"></os-assignment-poll-detail-content>
 
             <!-- Result Chart -->
-            <div class="chart-wrapper" *ngIf="showResults && poll.stateHasVotes">
-                <os-charts class="assignment-result-chart" [labels]="candidatesLabels" [data]="chartData"></os-charts>
+            <div class="chart-wrapper">
+                <os-charts
+                    class="assignment-result-chart"
+                    *ngIf="chartDataSubject.value"
+                    [labels]="candidatesLabels"
+                    [data]="chartDataSubject | async"
+                ></os-charts>
             </div>
 
             <!-- Single Votes Table -->
-            <div class="named-result-table" *ngIf="showResults && poll.stateHasVotes && poll.type === 'named'">
+            <div class="named-result-table" *ngIf="poll.type === 'named'">
                 <h3>{{ 'Single votes' | translate }}</h3>
                 <os-list-view-table
                     class="single-votes-table"
@@ -74,15 +82,15 @@
                                 </div>
 
                                 <!-- Vote weight -->
-                                <div *ngIf="isVoteWeightActive">
+                                <div *osPerms="permission.usersCanSeeExtraData; and: isVoteWeightActive">
                                     {{ 'Vote weight' | translate }}: {{ vote.user.getVoteWeight(poll.voting_principle) }}
                                 </div>
 
                                 <!-- Delegation -->
-                                <div *ngIf="userHasVoteDelegation(vote.user)">
+                                <div *osPerms="permission.usersCanSeeExtraData; and:vote.user.isVoteRightDelegated">
                                     <span>
                                         ({{ 'represented by' | translate }}
-                                        {{ getUsersVoteDelegation(vote.user).getShortName().trim() }})
+                                        {{ vote.user.voteDelegatedTo.getShortName() }})
                                     </span>
                                 </div>
                             </div>
@@ -109,21 +117,26 @@
 
 <!-- More Menu -->
 <mat-menu #pollDetailMenu="matMenu">
-    <os-projector-button [menuItem]="true" [object]="poll" *osPerms="'core.can_manage_projector'"></os-projector-button>
-    <button *osPerms="'assignments.can_manage'" mat-menu-item (click)="openDialog(poll)">
+    <button mat-menu-item (click)="downLoadPdf()" *ngIf="hasSingleVotes">
+        <mat-icon>picture_as_pdf</mat-icon>
+        <span>{{ 'PDF' | translate }}</span>
+    </button>
+    <os-projector-button [menuItem]="true" [object]="poll" *osPerms="permission.coreCanManageProjector">
+    </os-projector-button>
+    <button *osPerms="permission.assignmentsCanManage" mat-menu-item (click)="openDialog(poll)">
         <mat-icon>edit</mat-icon>
         <span>{{ 'Edit' | translate }}</span>
     </button>
     <button
         mat-menu-item
-        *osPerms="'assignments.can_manage'; and: poll && poll.type === 'named'"
+        *osPerms="permission.assignmentsCanManage; and: poll && poll.type === 'named'"
         (click)="pseudoanonymizePoll()"
     >
         <mat-icon>warning</mat-icon>
         <span>{{ 'Anonymize votes' | translate }}</span>
     </button>
     <mat-divider></mat-divider>
-    <button *osPerms="'assignments.can_manage'" mat-menu-item (click)="deletePoll()">
+    <button *osPerms="permission.assignmentsCanManage" mat-menu-item (click)="deletePoll()">
         <mat-icon color="warn">delete</mat-icon>
         <span>{{ 'Delete' | translate }}</span>
     </button>
