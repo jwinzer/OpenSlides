@@ -553,6 +553,9 @@ msgstr ""
 msgid "Cannot navigate to the selected history element."
 msgstr ""
 
+msgid "Casted vote"
+msgstr ""
+
 msgid "Categories"
 msgstr ""
 

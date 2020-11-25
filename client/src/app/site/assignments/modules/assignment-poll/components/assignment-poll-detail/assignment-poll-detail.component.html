@@ -3,7 +3,10 @@
         <h2 *ngIf="!!poll">{{ poll.title }}</h2>
     </div>
 
-    <div class="menu-slot" *osPerms="'assignments.can_manage'">
+    <div
+        class="menu-slot"
+        *osPerms="[permission.assignmentsCanManage, permission.coreCanManageProjector]; or: hasSingleVotes"
+    >
         <button type="button" mat-icon-button [matMenuTriggerFor]="pollDetailMenu">
             <mat-icon>more_vert</mat-icon>
         </button>
@@ -79,24 +82,21 @@
                                 </div>
 
                                 <!-- Vote weight -->
-                                <div *ngIf="isVoteWeightActive">
+                                <div *osPerms="permission.usersCanSeeExtraData; and: isVoteWeightActive">
                                     {{ 'Vote weight' | translate }}: {{ vote.user.getVoteWeight(poll.voting_principle) }}
                                 </div>
 
                                 <!-- Delegation -->
-                                <div *ngIf="userHasVoteDelegation(vote.user)">
+                                <div *osPerms="permission.usersCanSeeExtraData; and:vote.user.isVoteRightDelegated">
                                     <span>
                                         ({{ 'represented by' | translate }}
-                                        {{ getUsersVoteDelegation(vote.user).getShortName().trim() }})
+                                        {{ vote.user.voteDelegatedTo.getShortName() }})
                                     </span>
                                 </div>
                             </div>
                         </div>
-                        <div *ngIf="!vote.user">
-                            {{ 'Anonymous' | translate }}
-                        </div>
+                        <div *ngIf="!vote.user">{{ 'Anonymous' | translate }}</div>
                     </div>
-
                     <div *pblNgridCellDef="'votes'; row as vote">
                         <div class="single-vote-result" *ngFor="let candidate of vote.votes">{{ candidate }}</div>
                     </div>
@@ -112,12 +112,10 @@
     <div *ngIf="poll" class="assignment-poll-meta">
         <small *ngIf="poll.groups && poll.type && poll.type !== 'analog'">
             {{ 'Groups' | translate }}:
-
             <span *ngFor="let group of poll.groups; let i = index">
                 {{ group.getTitle() | translate }}<span *ngIf="i < poll.groups.length - 1">, </span>
             </span>
         </small>
-
         <small *ngIf="poll.onehundred_percent_base">
             {{ '100% base' | translate }}: {{ poll.percentBaseVerbose | translate }}
         </small>
@@ -126,21 +124,26 @@
 
 <!-- More Menu -->
 <mat-menu #pollDetailMenu="matMenu">
-    <os-projector-button [menuItem]="true" [object]="poll" *osPerms="'core.can_manage_projector'"></os-projector-button>
-    <button *osPerms="'assignments.can_manage'" mat-menu-item (click)="openDialog(poll)">
+    <button mat-menu-item (click)="downLoadPdf()" *ngIf="hasSingleVotes">
+        <mat-icon>picture_as_pdf</mat-icon>
+        <span>{{ 'PDF' | translate }}</span>
+    </button>
+    <os-projector-button [menuItem]="true" [object]="poll" *osPerms="permission.coreCanManageProjector">
+    </os-projector-button>
+    <button *osPerms="permission.assignmentsCanManage" mat-menu-item (click)="openDialog(poll)">
         <mat-icon>edit</mat-icon>
         <span>{{ 'Edit' | translate }}</span>
     </button>
     <button
         mat-menu-item
-        *osPerms="'assignments.can_manage'; and: poll && poll.type === 'named'"
+        *osPerms="permission.assignmentsCanManage; and: poll && poll.type === 'named'"
         (click)="pseudoanonymizePoll()"
     >
         <mat-icon>warning</mat-icon>
         <span>{{ 'Anonymize votes' | translate }}</span>
     </button>
     <mat-divider></mat-divider>
-    <button *osPerms="'assignments.can_manage'" mat-menu-item (click)="deletePoll()">
+    <button *osPerms="permission.assignmentsCanManage" mat-menu-item (click)="deletePoll()">
         <mat-icon color="warn">delete</mat-icon>
         <span>{{ 'Delete' | translate }}</span>
     </button>

@@ -17,6 +17,7 @@ import { ViewMotionPoll } from 'app/site/motions/models/view-motion-poll';
 import { MotionPollDialogService } from 'app/site/motions/services/motion-poll-dialog.service';
 import { MotionPollService } from 'app/site/motions/services/motion-poll.service';
 import { BasePollDetailComponentDirective } from 'app/site/polls/components/base-poll-detail.component';
+import { MotionPollPdfService } from "../../../services/motion-poll-pdf.service";
 
 @Component({
     selector: 'os-motion-poll-detail',
@@ -44,6 +45,10 @@ export class MotionPollDetailComponent extends BasePollDetailComponentDirective<
 
     public isVoteWeightActive: boolean;
 
+    protected get hasPerms(): boolean {
+        return this.operator.hasPerms(Permission.motionsCanManagePolls);
+    }
+
     public constructor(
         title: Title,
         translate: TranslateService,
@@ -54,6 +59,7 @@ export class MotionPollDetailComponent extends BasePollDetailComponentDirective<
         prompt: PromptService,
         pollDialog: MotionPollDialogService,
         pollService: MotionPollService,
+        private pdfService: MotionPollPdfService,
         votesRepo: MotionVoteRepositoryService,
         configService: ConfigService,
         protected operator: OperatorService,
@@ -77,19 +83,15 @@ export class MotionPollDetailComponent extends BasePollDetailComponentDirective<
             .subscribe(active => (this.isVoteWeightActive = active));
     }
 
+    public downLoadPdf(): void {
+        this.pdfService.exportSingleVotes(this.poll, this.isVoteWeightActive);
+    }
+
     protected createVotesData(): void {
         this.setVotesData(this.poll.options[0].votes);
     }
 
-    public openDialog(): void {
-        this.pollDialog.openDialog(this.poll);
-    }
-
     protected onDeleted(): void {
         this.router.navigate(['motions', this.poll.motion_id]);
-    }
-
-    protected hasPerms(): boolean {
-        return this.operator.hasPerms(Permission.motionsCanManagePolls);
     }
 }

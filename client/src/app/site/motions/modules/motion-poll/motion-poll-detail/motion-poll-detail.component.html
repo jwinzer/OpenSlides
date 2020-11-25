@@ -3,7 +3,10 @@
         <h2 *ngIf="poll">{{ 'Motion' | translate }} {{ poll.motion.identifierOrTitle }}</h2>
     </div>
 
-    <div class="menu-slot" *osPerms="'motions.can_manage_polls'">
+    <div
+        class="menu-slot"
+        *osPerms="[permission.motionsCanManagePolls, permission.coreCanManageProjector]; or: hasSingleVotes"
+    >
         <button type="button" mat-icon-button [matMenuTriggerFor]="pollDetailMenu">
             <mat-icon>more_vert</mat-icon>
         </button>
@@ -32,7 +35,7 @@
 
         <p *ngIf="!poll.hasVotes || !poll.stateHasVotes">{{ 'No results yet.' | translate }}</p>
 
-        <div *ngIf="poll.stateHasVotes && (hasPerms() || poll.isPublished)">
+        <div *ngIf="hasResult">
             <os-motion-poll-detail-content [poll]="poll" [chartData]="chartDataSubject">
             </os-motion-poll-detail-content>
 
@@ -67,15 +70,15 @@
                                 </div>
 
                                 <!-- Vote weight -->
-                                <div *ngIf="isVoteWeightActive">
+                                <div *osPerms="permission.usersCanSeeExtraData; and: isVoteWeightActive">
                                     {{ 'Vote weight' | translate }}: {{ vote.user.getVoteWeight(poll.voting_principle) }}
                                 </div>
 
                                 <!-- Delegation -->
-                                <div *ngIf="userHasVoteDelegation(vote.user)">
+                                <div *osPerms="permission.usersCanSeeExtraData; and:vote.user.isVoteRightDelegated">
                                     <span>
                                         ({{ 'represented by' | translate }}
-                                        {{ getUsersVoteDelegation(vote.user).getShortName().trim() }})
+                                        {{ vote.user.voteDelegatedTo.getShortName() }})
                                     </span>
                                 </div>
                             </div>
@@ -98,7 +101,6 @@
         <div class="poll-content">
             <small *ngIf="poll.groups && poll.type && poll.type !== 'analog'">
                 {{ 'Groups' | translate }}:
-
                 <span *ngFor="let group of poll.groups; let i = index">
                     {{ group.getTitle() | translate }}<span *ngIf="i < poll.groups.length - 1">, </span>
                 </span>
@@ -110,21 +112,26 @@
 
 <!-- More Menu -->
 <mat-menu #pollDetailMenu="matMenu">
-    <os-projector-button [menuItem]="true" [object]="poll" *osPerms="'core.can_manage_projector'"></os-projector-button>
-    <button *osPerms="'motions.can_manage_polls'" mat-menu-item (click)="openDialog(poll)">
+    <button mat-menu-item (click)="downLoadPdf()" *ngIf="hasSingleVotes">
+        <mat-icon>picture_as_pdf</mat-icon>
+        <span>{{ 'PDF' | translate }}</span>
+    </button>
+    <os-projector-button [menuItem]="true" [object]="poll" *osPerms="permission.coreCanManageProjector">
+    </os-projector-button>
+    <button *osPerms="permission.motionsCanManagePolls" mat-menu-item (click)="openDialog(poll)">
         <mat-icon>edit</mat-icon>
         <span>{{ 'Edit' | translate }}</span>
     </button>
     <button
         mat-menu-item
-        *osPerms="'motions.can_manage_polls'; and: poll && poll.type === 'named'"
+        *osPerms="permission.motionsCanManagePolls; and: poll && poll.type === 'named'"
         (click)="pseudoanonymizePoll()"
     >
         <mat-icon>warning</mat-icon>
         <span>{{ 'Anonymize votes' | translate }}</span>
     </button>
     <mat-divider></mat-divider>
-    <button *osPerms="'motions.can_manage_polls'" mat-menu-item (click)="deletePoll()">
+    <button *osPerms="permission.motionsCanManagePolls" mat-menu-item (click)="deletePoll()">
         <mat-icon color="warn">delete</mat-icon>
         <span>{{ 'Delete' | translate }}</span>
     </button>

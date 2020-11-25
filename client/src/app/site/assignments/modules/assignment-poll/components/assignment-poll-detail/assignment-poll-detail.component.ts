@@ -16,6 +16,7 @@ import { VoteValue } from 'app/shared/models/poll/base-vote';
 import { ViewAssignmentPoll } from 'app/site/assignments/models/view-assignment-poll';
 import { BasePollDetailComponentDirective } from 'app/site/polls/components/base-poll-detail.component';
 import { AssignmentPollDialogService } from '../../services/assignment-poll-dialog.service';
+import { AssignmentPollPdfService } from "../../services/assignment-poll-pdf.service";
 import { AssignmentPollService } from '../../services/assignment-poll.service';
 
 @Component({
@@ -38,6 +39,10 @@ export class AssignmentPollDetailComponent extends BasePollDetailComponentDirect
 
     public isVoteWeightActive: boolean;
 
+    protected get hasPerms(): boolean {
+        return this.operator.hasPerms(Permission.assignmentsCanManage);
+    }
+
     public constructor(
         title: Title,
         translate: TranslateService,
@@ -49,6 +54,7 @@ export class AssignmentPollDetailComponent extends BasePollDetailComponentDirect
         pollDialog: AssignmentPollDialogService,
         configService: ConfigService,
         protected pollService: AssignmentPollService,
+        private pdfService: AssignmentPollPdfService,
         votesRepo: AssignmentVoteRepositoryService,
         protected operator: OperatorService,
         private router: Router
@@ -69,6 +75,10 @@ export class AssignmentPollDetailComponent extends BasePollDetailComponentDirect
         configService
             .get<boolean>('users_activate_vote_weight')
             .subscribe(active => (this.isVoteWeightActive = active));
+    }
+
+    public downLoadPdf(): void {
+        this.pdfService.exportSingleVotes(this.poll, this.votesDataObservable, this.isVoteWeightActive);
     }
 
     protected createVotesData(): void {
@@ -104,7 +114,7 @@ export class AssignmentPollDetailComponent extends BasePollDetailComponentDirect
                     if (vote.weight > 0) {
                         if (this.poll.isMethodY) {
                             if (vote.value === 'Y') {
-                                votes[userId].votes.push(option.user.getFullName());
+                                votes[userId].votes.push(option.user.getShortName());
                             } else {
                                 votes[userId].votes.push(this.voteValueToLabel(vote.value));
                             }
@@ -145,10 +155,6 @@ export class AssignmentPollDetailComponent extends BasePollDetailComponentDirect
         } else {
             throw new Error(`voteValueToLabel received illegal arguments: ${vote}`);
         }
-    }
-
-    protected hasPerms(): boolean {
-        return this.operator.hasPerms(Permission.assignmentsCanManage);
     }
 
     protected onDeleted(): void {
