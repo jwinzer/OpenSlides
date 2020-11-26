@@ -78,7 +78,11 @@ export class AssignmentPollDetailComponent extends BasePollDetailComponentDirect
     }
 
     public downLoadPdf(): void {
-        this.pdfService.exportSingleVotes(this.poll, this.votesDataObservable, this.isVoteWeightActive);
+        this.pdfService.exportSingleVotes(
+            this.poll,
+            this.votesDataObservable,
+            this.isVoteWeightActive && this.operator.hasPerms(Permission.usersCanSeeExtraData)
+        );
     }
 
     protected createVotesData(): void {
