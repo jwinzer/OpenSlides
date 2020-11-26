@@ -5,7 +5,8 @@
 
     <div
         class="menu-slot"
-        *osPerms="[permission.assignmentsCanManage, permission.coreCanManageProjector]; or: hasSingleVotes"
+        *osPerms="[permission.assignmentsCanManage, permission.coreCanManageProjector];
+        or: hasSingleVotes && votesDataObservable"
     >
         <button type="button" mat-icon-button [matMenuTriggerFor]="pollDetailMenu">
             <mat-icon>more_vert</mat-icon>
@@ -117,7 +118,7 @@
 
 <!-- More Menu -->
 <mat-menu #pollDetailMenu="matMenu">
-    <button mat-menu-item (click)="downLoadPdf()" *ngIf="hasSingleVotes">
+    <button mat-menu-item (click)="downLoadPdf()" *ngIf="hasSingleVotes && votesDataObservable">
         <mat-icon>picture_as_pdf</mat-icon>
         <span>{{ 'PDF' | translate }}</span>
     </button>
@@ -129,7 +130,7 @@
     </button>
     <button
         mat-menu-item
-        *osPerms="permission.assignmentsCanManage; and: poll && poll.type === 'named'"
+        *osPerms="permission.assignmentsCanManage; and: poll?.type === 'named' and votesDataObservable"
         (click)="pseudoanonymizePoll()"
     >
         <mat-icon>warning</mat-icon>
