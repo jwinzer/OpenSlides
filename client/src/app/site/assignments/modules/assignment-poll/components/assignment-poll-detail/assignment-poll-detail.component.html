@@ -87,7 +87,7 @@
                                 </div>
 
                                 <!-- Delegation -->
-                                <div *osPerms="permission.usersCanSeeExtraData; and:vote.user.isVoteRightDelegated">
+                                <div *ngIf="vote.user.isVoteRightDelegated">
                                     <span>
                                         ({{ 'represented by' | translate }}
                                         {{ vote.user.voteDelegatedTo.getShortName() }})

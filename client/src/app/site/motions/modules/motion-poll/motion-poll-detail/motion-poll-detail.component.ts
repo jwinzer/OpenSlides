@@ -86,7 +86,10 @@ export class MotionPollDetailComponent extends BasePollDetailComponentDirective<
     }
 
     public downLoadPdf(): void {
-        this.pdfService.exportSingleVotes(this.poll, this.isVoteWeightActive);
+        this.pdfService.exportSingleVotes(
+            this.poll,
+            this.isVoteWeightActive && this.operator.hasPerms(Permission.usersCanSeeExtraData)
+        );
     }
 
     protected createVotesData(): void {
