@@ -132,7 +132,7 @@ export class AssignmentPollDetailComponent extends BasePollDetailComponentDirect
             }
         }
         // if the poll was not pseudoanonymized, add all other users as empty votes
-        if (!isPseudoanonymized) {
+        if (!isPseudoanonymized && this.poll.voted) {
             for (const user of this.poll.voted) {
                 if (!votes[user.id]) {
                     votes[user.id] = {

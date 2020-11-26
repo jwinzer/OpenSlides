@@ -124,7 +124,7 @@
     </button>
     <button
         mat-menu-item
-        *osPerms="permission.motionsCanManagePolls; and: poll && poll.type === 'named'"
+        *osPerms="permission.motionsCanManagePolls; and: poll?.type === 'named' && votesDataObservable"
         (click)="pseudoanonymizePoll()"
     >
         <mat-icon>warning</mat-icon>
