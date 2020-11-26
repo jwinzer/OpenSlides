@@ -96,6 +96,7 @@ export class CinemaComponent extends BaseViewComponentDirective implements OnIni
     }
 
     public ngOnInit(): void {
+        super.setTitle('Autopilot');
         this.subscriptions.push(
             this.projectorRepo.getReferenceProjectorObservable().subscribe(refProjector => {
                 this.projector = refProjector;
