@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { Router } from "@angular/router";
 
 import { marker as _ } from '@biesbjerg/ngx-translate-extract-marker';
 import { TranslateService } from '@ngx-translate/core';
@@ -9,6 +10,7 @@ import { ViewBasePoll } from 'app/site/polls/models/view-base-poll';
 import { PollListObservableService } from 'app/site/polls/services/poll-list-observable.service';
 import { BannerDefinition, BannerService } from './banner.service';
 import { OpenSlidesStatusService } from '../core-services/openslides-status.service';
+import { OperatorService, Permission } from "../core-services/operator.service";
 import { VotingService } from './voting.service';
 
 @Injectable({
@@ -24,7 +26,9 @@ export class VotingBannerService {
         private banner: BannerService,
         private translate: TranslateService,
         private OSStatus: OpenSlidesStatusService,
-        private votingService: VotingService
+        private votingService: VotingService,
+        private operator: OperatorService,
+        private router: Router
     ) {
         pollListObservableService.getViewModelListObservable().subscribe(polls => this.checkForVotablePolls(polls));
     }
@@ -60,7 +64,7 @@ export class VotingBannerService {
         return {
             text: text,
             subText: this.subText,
-            link: link,
+            link: this.operator.hasPerms(Permission.coreCanNavigate) ? link : '/autopilot',
             icon: 'how_to_vote',
             largerOnMobileView: true
         };
@@ -95,5 +99,10 @@ export class VotingBannerService {
             this.banner.removeBanner(this.currentBanner);
         }
         this.currentBanner = nextBanner || null;
+
+        // Vote@Home: Redirect from home to autopilot if operator is not permitted to navigate.
+        if (this.router.url === '/' && !this.operator.hasPerms(Permission.coreCanNavigate)) {
+            this.router.navigate(['/autopilot']);
+        }
     }
 }

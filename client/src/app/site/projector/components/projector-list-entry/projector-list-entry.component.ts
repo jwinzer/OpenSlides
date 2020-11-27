@@ -64,7 +64,7 @@ export class ProjectorListEntryComponent extends BaseViewComponentDirective impl
         private repo: ProjectorRepositoryService,
         private promptService: PromptService,
         private dialogService: MatDialog,
-        private operator: OperatorService
+        public operator: OperatorService
     ) {
         super(titleService, translate, matSnackBar);
     }

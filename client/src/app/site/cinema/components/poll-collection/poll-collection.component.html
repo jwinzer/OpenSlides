@@ -1,7 +1,7 @@
 <mat-card class="os-card" *ngFor="let poll of polls; trackBy: identifyPoll">
     <p class="subtitle-text">
         <a
-            [class.disabled]="!operator.hasPerms(permission.agendaCanManage)"
+            [class.disabled]="!operator.hasPerms(permission.coreCanNavigate)"
             [routerLink]="getPollDetailLink(poll)"
             [state]="{ back: 'true' }"
         >

@@ -1,24 +1,24 @@
-import { Component, HostListener, OnInit, ViewChild } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
-import { MatDialog } from '@angular/material/dialog';
-import { MatSidenav } from '@angular/material/sidenav';
-import { MatSnackBar } from '@angular/material/snack-bar';
-import { Title } from '@angular/platform-browser';
-import { ActivationEnd, NavigationEnd, Router } from '@angular/router';
+import {Component, HostListener, OnInit, ViewChild} from '@angular/core';
+import {FormControl, FormGroup} from '@angular/forms';
+import {MatDialog} from '@angular/material/dialog';
+import {MatSidenav} from '@angular/material/sidenav';
+import {MatSnackBar} from '@angular/material/snack-bar';
+import {Title} from '@angular/platform-browser';
+import {ActivationEnd, NavigationEnd, Router} from '@angular/router';
 
-import { TranslateService } from '@ngx-translate/core';
-import { filter } from 'rxjs/operators';
+import {TranslateService} from '@ngx-translate/core';
+import {filter} from 'rxjs/operators';
 
-import { navItemAnim } from '../shared/animations';
-import { OfflineService } from 'app/core/core-services/offline.service';
-import { OverlayService } from 'app/core/ui-services/overlay.service';
-import { UpdateService } from 'app/core/ui-services/update.service';
-import { BaseComponent } from '../base.component';
-import { MainMenuEntry, MainMenuService } from '../core/core-services/main-menu.service';
-import { OpenSlidesStatusService } from '../core/core-services/openslides-status.service';
-import { OperatorService } from '../core/core-services/operator.service';
-import { TimeTravelService } from '../core/core-services/time-travel.service';
-import { ViewportService } from '../core/ui-services/viewport.service';
+import {navItemAnim} from '../shared/animations';
+import {OfflineService} from 'app/core/core-services/offline.service';
+import {OverlayService} from 'app/core/ui-services/overlay.service';
+import {UpdateService} from 'app/core/ui-services/update.service';
+import {BaseComponent} from '../base.component';
+import {MainMenuEntry, MainMenuService} from '../core/core-services/main-menu.service';
+import {OpenSlidesStatusService} from '../core/core-services/openslides-status.service';
+import {OperatorService, Permission} from '../core/core-services/operator.service';
+import {TimeTravelService} from '../core/core-services/time-travel.service';
+import {ViewportService} from '../core/ui-services/viewport.service';
 
 /**
  * Interface to describe possible routing data
@@ -70,8 +70,8 @@ export class SiteComponent extends BaseComponent implements OnInit {
         return this.mainMenuService.entries;
     }
 
-    public get href(): string {
-        return this.router.url;
+    public get autopilot(): boolean {
+        return !this.operator.hasPerms(Permission.coreCanNavigate) && this.router.url === '/autopilot';
     }
 
     /**
