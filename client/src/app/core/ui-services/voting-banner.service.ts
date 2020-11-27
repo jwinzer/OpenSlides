@@ -98,11 +98,13 @@ export class VotingBannerService {
         } else {
             this.banner.removeBanner(this.currentBanner);
         }
-        this.currentBanner = nextBanner || null;
 
         // Vote@Home: Redirect from home to autopilot if operator is not permitted to navigate.
-        if (this.router.url === '/' && !this.operator.hasPerms(Permission.coreCanNavigate)) {
+        if (this.router.url === '/' && !this.operator.hasPerms(Permission.coreCanNavigate) && (
+            nextBanner || this.currentBanner)) {
             this.router.navigate(['/autopilot']);
         }
+
+        this.currentBanner = nextBanner || null;
     }
 }
