@@ -194,6 +194,26 @@ def get_config_variables():
         subgroup="System",
     )
 
+    # Projector
+
+    yield ConfigVariable(
+        name="projector_show_votes_received",
+        default_value=False,
+        label="Show votes received",
+        input_type="boolean",
+        weight=156,
+        subgroup="Projector",
+    )
+
+    yield ConfigVariable(
+        name="projector_show_delegate_board",
+        default_value=False,
+        label="Show delegate board",
+        input_type="boolean",
+        weight=157,
+        subgroup="Projector",
+    )
+
     # General export settings
 
     yield ConfigVariable(

@@ -25,11 +25,20 @@ export interface AssignmentPollSlideData extends BasePollSlideData {
             abstain?: number;
         }[];
 
-        // optional for published polls:
+        // optional for started polls
+        voters: {
+            name: string,
+            vote: string
+        }[];
+        voters_count: number;
+
+        // optional for started or published polls
+        votescast: number;
+
+        // optional for published polls
         amount_global_no?: number;
         amount_global_abstain?: number;
         votesvalid: number;
         votesinvalid: number;
-        votescast: number;
     };
 }

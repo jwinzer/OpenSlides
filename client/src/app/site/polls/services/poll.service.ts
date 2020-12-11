@@ -386,4 +386,19 @@ export abstract class PollService {
     public isVoteDocumented(vote: number): boolean {
         return vote !== null && vote !== undefined && vote !== VOTE_UNDOCUMENTED;
     }
+
+    public getVoterTableData(voters: { name: string, vote: string }[]): [{ name: string, vote: string }][] {
+        // Make a copy of voters since voterData gets consumed by splicing.
+        const voterData = [...voters];
+        const maxRowCount = 16;
+        // Calculate a reasonable column count in the range 10-25.
+        const colCount = Math.max(10, Math.min(25, Math.ceil(voterData.length / maxRowCount)));
+
+        // Split voterData into line chunks of colCount.
+        const voterTableData = [];
+        while (voterData.length) {
+            voterTableData.push(voterData.splice(0, colCount));
+        }
+        return voterTableData;
+    }
 }

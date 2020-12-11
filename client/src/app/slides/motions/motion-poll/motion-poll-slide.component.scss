@@ -3,3 +3,40 @@
 .motion-title {
     margin: 0 0 10px;
 }
+
+.poll-title {
+    display: flex !important;
+}
+
+.voters-wrapper {
+    margin-top: 10px;
+
+    .voters-table {
+        width: 100%;
+        td {
+            background-color: #ffffff;
+            padding: 0 2px;
+            font-size: 0.75em;
+            height: 50px;
+            border: 1px solid black;
+            line-height: 120%;
+            text-align: center;
+        }
+        td.V {
+            background-color: $votes-anonymous-color;
+            color: $vote-active-color;
+        }
+        td.Y {
+            background-color: $votes-yes-color;
+            color: $vote-active-color;
+        }
+        td.N {
+            background-color: $votes-no-color;
+            color: $vote-active-color;
+        }
+        td.A {
+            background-color: $votes-abstain-color;
+            color: $vote-active-color;
+        }
+    }
+}

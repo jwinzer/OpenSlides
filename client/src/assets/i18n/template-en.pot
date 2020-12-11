@@ -2424,6 +2424,9 @@ msgstr ""
 msgid "Show correct entries only"
 msgstr ""
 
+msgid "Show delegate board"
+msgstr ""
+
 msgid "Show devtools"
 msgstr ""
 
@@ -2482,6 +2485,9 @@ msgid "Show this text on the login page"
 msgstr ""
 
 msgid "Show title"
+msgstr ""
+
+msgid "Show votes received"
 msgstr ""
 
 msgid "Show/Hide video conference"

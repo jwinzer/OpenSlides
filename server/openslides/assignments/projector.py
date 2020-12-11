@@ -1,6 +1,8 @@
 from typing import Any, Dict, List
 
+from ..core.config import config
 from ..users.projector import get_user_name
+from ..utils.cache import element_cache
 from ..utils.projector import (
     ProjectorAllDataProvider,
     get_model,
@@ -64,7 +66,7 @@ async def assignment_poll_slide(
             "description",
             "state",
             "onehundred_percent_base",
-            "majority_method",
+            "majority_method"
         )
     }
 
@@ -96,7 +98,38 @@ async def assignment_poll_slide(
         )
         poll_data["votesvalid"] = float(poll["votesvalid"])
         poll_data["votesinvalid"] = float(poll["votesinvalid"])
-        poll_data["votescast"] = float(poll["votescast"])
+        poll_data["votescast"] = poll["votescast"]
+        poll_data["votescast"] = poll["votescast"]
+
+    elif poll["state"] == AssignmentPoll.STATE_STARTED:
+        show_votes_received = (await element_cache.get_element_data(
+            config.get_collection_string(),
+            (await config.async_get_key_to_id())["projector_show_votes_received"],
+        ))["value"]
+        show_delegate_board = (await element_cache.get_element_data(
+            config.get_collection_string(),
+            (await config.async_get_key_to_id())["projector_show_delegate_board"],
+        ))["value"]
+        if show_votes_received or show_delegate_board:
+            if show_votes_received:
+                poll_data["votescast"] = poll["votescast"]
+            users = await element_cache.get_collection_data("users/user")
+            poll_groups_id = set(poll["groups_id"])
+            poll_data["voters"] = []
+            n = 0
+            for user in sorted(users.values(), key=lambda u: u["number"]):
+                proxy_id = user["vote_delegated_to_id"]
+                if set(user["groups_id"]) & poll_groups_id and (
+                        (proxy_id and users[proxy_id]["is_present"]) or (not proxy_id and user["is_present"])):
+                    n += 1
+                    if show_delegate_board:
+                        name = user["number"]
+                        vote = "V" if user["id"] in poll["voted_id"] else ""
+                        poll_data["voters"].append({
+                            "name": name,
+                            "vote": vote
+                        })
+            poll_data["voters_count"] = n
 
     return {
         "assignment": {"title": assignment["title"]},

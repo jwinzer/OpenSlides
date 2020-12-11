@@ -20,9 +20,18 @@ export interface MotionPollSlideData extends BasePollSlideData {
             abstain?: number;
         }[];
 
-        // optional for published polls:
+        // optional for started polls
+        voters_count: number;
+        voters: {
+            name: string,
+            vote: string
+        }[];
+
+        // optional for started or published polls
+        votescast: number;
+
+        // optional for published polls
         votesvalid: number;
         votesinvalid: number;
-        votescast: number;
     };
 }
