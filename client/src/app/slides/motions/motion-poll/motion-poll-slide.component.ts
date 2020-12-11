@@ -19,6 +19,7 @@ export class MotionPollSlideComponent extends BasePollSlideComponentDirective<Mo
     public voteYes: number;
     public voteNo: number;
     public voteAbstain: number;
+    public cellStyle: string;
 
     public constructor(pollService: MotionPollService) {
         super(pollService);
@@ -43,5 +44,11 @@ export class MotionPollSlideComponent extends BasePollSlideComponentDirective<Mo
 
     public getTableData(): PollTableData[] {
         return this.pollService.generateTableData(this.pollData);
+    }
+
+    public getVoterTableData(): [{ name: string, vote: string }][] {
+        const voterTableData = this.pollService.getVoterTableData(this.data.data.poll.voters);
+        this.cellStyle = "width: calc(100%/" + voterTableData[0].length + ");"
+        return voterTableData;
     }
 }

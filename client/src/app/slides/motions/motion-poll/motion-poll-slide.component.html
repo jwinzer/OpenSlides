@@ -4,8 +4,28 @@
             <span *ngIf="data.data.motion.identifier">{{ data.data.motion.identifier }}:</span>
             {{ data.data.motion.title }}
         </h1>
-        <h2 class="poll-title">{{ data.data.poll.title }}</h2>
+        <h2 class="poll-title">
+            <span>{{ data.data.poll.title }}</span>
+            <span class="spacer"></span>
+            <ng-container *ngIf="data.data.poll.state === PollState.Started && data.data.poll.votescast >= 0">
+                {{ 'Received votes' | translate }}: {{ data.data.poll.votescast }}
+                <span *ngIf="data.data.poll.voters_count">&nbsp;/ {{ data.data.poll.voters_count }}</span>
+            </ng-container>
+        </h2>
     </div>
+
+    <div class="voters-wrapper" *ngIf="data.data.poll.state === PollState.Started && data.data.poll.voters">
+        <table class="voters-table">
+            <tbody>
+                <tr *ngFor="let line of getVoterTableData()">
+                    <td [class]="voter.vote" [style]="cellStyle" *ngFor="let voter of line">
+                        {{ voter.name}}
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
     <div *ngIf="data.data.poll.state === PollState.Published">
         <os-motion-poll-detail-content [poll]="pollData" iconSize="gigantic"></os-motion-poll-detail-content>
     </div>

@@ -1,7 +1,9 @@
 import re
 from typing import Any, Dict, List, Optional
 
+from ..core.config import config
 from ..users.projector import get_user_name
+from ..utils.cache import element_cache
 from ..utils.projector import (
     ProjectorAllDataProvider,
     ProjectorElementException,
@@ -395,6 +397,8 @@ async def motion_poll_slide(
     """
     Poll slide.
     """
+    from timeit import default_timer as timer
+    start = timer()
     poll = await get_model(all_data_provider, "motions/motion-poll", element.get("id"))
     motion = await get_model(all_data_provider, "motions/motion", poll["motion_id"])
 
@@ -406,7 +410,7 @@ async def motion_poll_slide(
             "pollmethod",
             "state",
             "onehundred_percent_base",
-            "majority_method",
+            "majority_method"
         )
     }
 
@@ -424,6 +428,54 @@ async def motion_poll_slide(
         poll_data["votesvalid"] = poll["votesvalid"]
         poll_data["votesinvalid"] = poll["votesinvalid"]
         poll_data["votescast"] = poll["votescast"]
+
+    elif poll["state"] == MotionPoll.STATE_STARTED:
+        show_votes_received = (await element_cache.get_element_data(
+            config.get_collection_string(),
+            (await config.async_get_key_to_id())["projector_show_votes_received"],
+        ))["value"]
+        show_delegate_board = (await element_cache.get_element_data(
+            config.get_collection_string(),
+            (await config.async_get_key_to_id())["projector_show_delegate_board"],
+        ))["value"]
+        if show_votes_received or show_delegate_board:
+            if show_votes_received:
+                poll_data["votescast"] = poll["votescast"]
+            users = await element_cache.get_collection_data("users/user")
+            votes = None
+            if show_delegate_board and poll["type"] == "named":
+                votes = await element_cache.get_collection_data("motions/motion-vote")
+            option_id = poll["options_id"][0]
+            poll_groups_id = set(poll["groups_id"])
+            poll_data["voters"] = []
+            n = 0
+            for user in sorted(users.values(), key=lambda u: u["number"]):
+                proxy_id = user["vote_delegated_to_id"]
+                if set(user["groups_id"]) & poll_groups_id and (
+                        (proxy_id and users[proxy_id]["is_present"]) or (not proxy_id and user["is_present"])):
+                    n += 1
+                    if show_delegate_board:
+                        name = user["number"]
+                        vote = ""
+                        if user["id"] in poll["voted_id"]:
+                            if votes:
+                                # Get vote value for name voting.
+                                # WARNING! This will be time consuming for thousands of votes.
+                                vote = next(
+                                    v["value"] for v in votes.values()
+                                    if v["option_id"] == option_id and v["user_id"] == user["id"]
+                                )
+                            else:
+                                vote = "V"
+                        poll_data["voters"].append({
+                            "name": name,
+                            "vote": vote
+                        })
+            poll_data["voters_count"] = n
+    # FIXME: remove elapsed
+    elapsed = timer() - start
+    from ..utils import logging
+    logging.getLogger(__name__).info(f"motion_poll_slide run time: {round(elapsed / 3, 3)} ms")
 
     return {
         "motion": {"title": motion["title"], "identifier": motion["identifier"]},

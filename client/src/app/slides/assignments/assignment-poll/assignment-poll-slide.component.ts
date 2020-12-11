@@ -16,10 +16,17 @@ export class AssignmentPollSlideComponent extends BasePollSlideComponentDirectiv
     AssignmentPollService
 > {
     public PollState = PollState;
+    public cellStyle: string;
 
     public options = { maintainAspectRatio: false, responsive: true, legend: { position: 'right' } };
 
     protected getDecimalFields(): string[] {
         return AssignmentPoll.DECIMAL_FIELDS;
+    }
+
+    public getVoterTableData(): [{ name: string, vote: string }][] {
+        const voterTableData = this.pollService.getVoterTableData(this.data.data.poll.voters);
+        this.cellStyle = "width: calc(100%/" + voterTableData[0].length + ");"
+        return voterTableData;
     }
 }
