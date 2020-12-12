@@ -30,7 +30,7 @@
                     <div class="single-result" [ngClass]="getVoteClass(vote)" *ngIf="vote && voteFitsMethod(vote)">
                         <span>
                             <span *ngIf="vote.showPercent">
-                                {{ vote.amount | pollPercentBase: poll:'assignment' }}
+                                {{ vote.amount | pollPercentBase: poll:'assignment' : vote.candidateId }}
                             </span>
                             {{ vote.amount | parsePollNumber }}
                         </span>
