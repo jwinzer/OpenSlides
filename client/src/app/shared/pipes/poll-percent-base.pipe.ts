@@ -26,7 +26,12 @@ export class PollPercentBasePipe implements PipeTransform {
         private motionPollService: MotionPollService
     ) {}
 
-    public transform(value: number, poll: PollData, type: 'motion' | 'assignment'): string | null {
+    public transform(
+        value: number,
+        poll: PollData,
+        type: 'motion' | 'assignment',
+        candidateId?: number
+    ): string | null {
         // logic handles over the pollService to avoid circular dependencies
         let voteValueInPercent: string;
 
@@ -36,7 +41,7 @@ export class PollPercentBasePipe implements PipeTransform {
          * we cannot expect the projector to work with real types for now, we need to provice the type
          */
         if (type === 'assignment') {
-            voteValueInPercent = this.assignmentPollService.getVoteValueInPercent(value, poll);
+            voteValueInPercent = this.assignmentPollService.getVoteValueInPercent(value, poll, candidateId);
         } else {
             voteValueInPercent = this.motionPollService.getVoteValueInPercent(value, poll);
         }

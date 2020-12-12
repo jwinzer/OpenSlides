@@ -120,6 +120,7 @@ export interface PollData {
 
 export interface PollDataOption {
     user?: {
+        id?: number;
         short_name?: string;
     };
     yes?: number;
@@ -157,6 +158,7 @@ export interface VotingResult {
     icon?: string;
     hide?: boolean;
     showPercent?: boolean;
+    candidateId?: number;
 }
 
 const PollChartBarThickness = 20;
@@ -221,10 +223,10 @@ export abstract class PollService {
     /**
      * return the total number of votes depending on the selected percent base
      */
-    public abstract getPercentBase(poll: PollData): number;
+    public abstract getPercentBase(poll: PollData, candidateId?: number): number;
 
-    public getVoteValueInPercent(value: number, poll: PollData): string | null {
-        const totalByBase = this.getPercentBase(poll);
+    public getVoteValueInPercent(value: number, poll: PollData, candidateId?: number): string | null {
+        const totalByBase = this.getPercentBase(poll, candidateId);
         if (totalByBase && totalByBase > 0) {
             const percentNumber = (value / totalByBase) * 100;
             if (percentNumber >= 0) {

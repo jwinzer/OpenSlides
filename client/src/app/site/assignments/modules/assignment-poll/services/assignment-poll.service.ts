@@ -29,6 +29,27 @@ export const UnknownUserLabel = _('Deleted user');
     providedIn: 'root'
 })
 export class AssignmentPollService extends PollService {
+
+    private static sumOptionsYN(poll: PollData): number {
+        return poll.options.reduce((t, o) => {
+            if (t >= 0 && o.yes >= 0 && o.no >= 0) {
+                t += o.yes + o.no;
+                return t;
+            }
+            return -1; // yes or no < 0
+        }, 0);
+    }
+
+    private static sumOptionsYNA(poll: PollData): number {
+        return poll.options.reduce((t, o) => {
+            if (t >= 0 && o.yes >= 0 && o.no >= 0 && o.abstain >= 0) {
+                t += o.yes + o.no + o.abstain;
+                return t;
+            }
+            return -1; // yes, no, or abstain < 0
+        }, 0);
+    }
+
     /**
      * The default percentage base
      */
@@ -155,7 +176,8 @@ export class AssignmentPollService extends PollService {
                                 amount: candidate[key.vote],
                                 icon: key.icon,
                                 hide: key.hide,
-                                showPercent: key.showPercent
+                                showPercent: key.showPercent,
+                                candidateId: candidate.user_id
                             } as VotingResult)
                     )
                 };
@@ -196,31 +218,36 @@ export class AssignmentPollService extends PollService {
             }));
     }
 
-    private sumOptionsYN(poll: PollData): number {
-        return poll.options.reduce((o, n) => {
-            o += n.yes > 0 ? n.yes : 0;
-            o += n.no > 0 ? n.no : 0;
-            return o;
-        }, 0);
-    }
-
-    private sumOptionsYNA(poll: PollData): number {
-        return poll.options.reduce((o, n) => {
-            o += n.abstain > 0 ? n.abstain : 0;
-            return o;
-        }, this.sumOptionsYN(poll));
-    }
-
-    public getPercentBase(poll: PollData): number {
+    public getPercentBase(poll: PollData, candidateId: number): number {
         const base: AssignmentPollPercentBase = poll.onehundred_percent_base as AssignmentPollPercentBase;
         let totalByBase: number;
+        let option: PollDataOption;
         switch (base) {
             case AssignmentPollPercentBase.YN:
-                totalByBase = this.sumOptionsYN(poll);
+                if (candidateId) {
+                    // 100% percent base is sum of YN of the candidate.
+                    option = poll.options.find(o => o.user.id === candidateId);
+                    totalByBase = option.yes >= 0 && option.no >= 0 ?
+                        option.yes + option.no : -1;
+                } else {
+                    // 100% base is sum of YN of all candidates.
+                    totalByBase = AssignmentPollService.sumOptionsYN(poll);
+                }
                 break;
             case AssignmentPollPercentBase.YNA:
-                totalByBase = this.sumOptionsYNA(poll);
+                if (candidateId) {
+                    // 100% percent base is sum of YNA of the candidate.
+                    option = poll.options.find(o => o.user.id === candidateId);
+                    totalByBase = option.yes >= 0 && option.no >= 0 && option.abstain >= 0 ?
+                        option.yes + option.no + option.abstain : -1;
+                } else {
+                    // 100% base is sum of YNA of all candidates.
+                    totalByBase = AssignmentPollService.sumOptionsYNA(poll)
+                }
                 break;
+            case AssignmentPollPercentBase.Votes:
+                // 100% base is sum of YNA of all candidates.
+                totalByBase = AssignmentPollService.sumOptionsYNA(poll);
             case AssignmentPollPercentBase.Y:
                 totalByBase = this.sumOptionsYNA(poll);
                 break;
