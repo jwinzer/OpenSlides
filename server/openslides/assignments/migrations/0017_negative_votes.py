@@ -9,7 +9,7 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ("assignments", "0015_assignmentvote_delegated_user"),
+        ("assignments", "0016_assignmentpoll_voting_principle"),
     ]
 
     operations = [

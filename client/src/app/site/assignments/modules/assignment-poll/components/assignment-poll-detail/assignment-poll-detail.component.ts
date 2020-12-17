@@ -41,8 +41,8 @@ export class AssignmentPollDetailComponent extends BasePollDetailComponentDirect
 
     public isVoteWeightActive: boolean;
 
-    public get showResults(): boolean {
-        return this.hasPerms() || this.poll.isPublished;
+    protected get hasPerms(): boolean {
+        return this.operator.hasPerms(Permission.assignmentsCanManage);
     }
 
     public get chartData(): ChartData {
@@ -167,10 +167,6 @@ export class AssignmentPollDetailComponent extends BasePollDetailComponentDirect
         } else {
             throw new Error(`voteValueToLabel received illegal arguments: ${vote}`);
         }
-    }
-
-    protected hasPerms(): boolean {
-        return this.operator.hasPerms(Permission.assignmentsCanManage);
     }
 
     protected onDeleted(): void {

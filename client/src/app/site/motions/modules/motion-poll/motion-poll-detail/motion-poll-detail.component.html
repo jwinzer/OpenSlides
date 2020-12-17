@@ -36,7 +36,7 @@
         <os-motion-poll-detail-content [poll]="poll"></os-motion-poll-detail-content>
 
         <!-- Named table: only show if votes are present -->
-        <div class="named-result-table" *ngIf="showResults && poll.stateHasVotes && poll.type === 'named'">
+        <div class="named-result-table" *ngIf="hasResult && poll.type === 'named'">
             <h2>{{ 'Single votes' | translate }}</h2>
             <os-list-view-table
                 *ngIf="votesDataObservable"
@@ -70,28 +70,28 @@
                                     {{ 'Vote weight' | translate }}: {{ vote.user.getVoteWeight(poll.voting_principle) }}
                                 </div>
 
-                            <!-- Delegation -->
-                            <div *ngIf="userHasVoteDelegation(vote.user)">
-                                <span>
-                                    ({{ 'represented by' | translate }}
-                                    {{ getUsersVoteDelegation(vote.user).getShortName().trim() }})
-                                </span>
+                                <!-- Delegation -->
+                                <div *ngIf="vote.user.isVoteRightDelegated">
+                                    <span>
+                                        ({{ 'represented by' | translate }}
+                                        {{ vote.user.voteDelegatedTo.getShortName() }})
+                                    </span>
+                                </div>
                             </div>
                         </div>
+                        <div *ngIf="!vote.user">{{ 'Anonymous' | translate }}</div>
                     </div>
-                    <div *ngIf="!vote.user">{{ 'Anonymous' | translate }}</div>
-                </div>
-                <div *pblNgridCellDef="'vote'; row as vote" class="vote-cell">
-                    <div class="vote-cell-icon-container" [ngClass]="voteOptionStyle[vote.value].css">
-                        <mat-icon>{{ voteOptionStyle[vote.value].icon }}</mat-icon>
+                    <div *pblNgridCellDef="'vote'; row as vote" class="vote-cell">
+                        <div class="vote-cell-icon-container" [ngClass]="voteOptionStyle[vote.value].css">
+                            <mat-icon>{{ voteOptionStyle[vote.value].icon }}</mat-icon>
+                        </div>
+                        <div>{{ vote.valueVerbose | translate }}</div>
                     </div>
-                    <div>{{ vote.valueVerbose | translate }}</div>
+                </os-list-view-table>
+                <div *ngIf="!votesDataObservable">
+                    {{ 'The individual votes were anonymized.' | translate }}
                 </div>
-            </os-list-view-table>
-            <div *ngIf="!votesDataObservable">
-                {{ 'The individual votes were anonymized.' | translate }}
             </div>
-        </div>
 
         <div class="poll-content">
             <small *ngIf="poll.groups && poll.type && poll.type !== 'analog'">

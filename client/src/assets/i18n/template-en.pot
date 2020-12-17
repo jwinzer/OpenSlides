@@ -1024,6 +1024,9 @@ msgstr ""
 msgid "Empty text field"
 msgstr ""
 
+msgid "Enable RF keypad based voting"
+msgstr ""
+
 msgid "Enable numbering for agenda items"
 msgstr ""
 
@@ -2266,6 +2269,9 @@ msgid ""
 msgstr ""
 
 msgid "Required majority"
+msgstr ""
+
+msgid "Requires VoteCollector software"
 msgstr ""
 
 msgid "Reset"

@@ -245,11 +245,9 @@ export class AssignmentPollService extends PollService {
                     totalByBase = AssignmentPollService.sumOptionsYNA(poll)
                 }
                 break;
-            case AssignmentPollPercentBase.Votes:
+            case AssignmentPollPercentBase.Y:
                 // 100% base is sum of YNA of all candidates.
                 totalByBase = AssignmentPollService.sumOptionsYNA(poll);
-            case AssignmentPollPercentBase.Y:
-                totalByBase = this.sumOptionsYNA(poll);
                 break;
             case AssignmentPollPercentBase.Valid:
                 totalByBase = poll.votesvalid;

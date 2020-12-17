@@ -21,6 +21,7 @@ urlpatterns = [
     url(r"^rest/", include(router.urls)),
     # Other urls defined by modules and plugins
     url(r"^apps/", include("openslides.urls_apps")),
+    url(r"^votecollector/", include("openslides.votecollector.urls")),
     # Main entry point for all angular pages.
     # Has to be the last entry in the urls.py
     url(r"^(?P<path>.*)$", core_views.IndexView.as_view(), name="index"),

@@ -224,6 +224,16 @@ def get_config_variables():
         subgroup="System",
     )
 
+    yield ConfigVariable(
+        name="voting_enable_votecollector",
+        default_value=False,
+        input_type="boolean",
+        label="Enable RF keypad based voting",
+        help_text="Requires VoteCollector software",
+        weight=155,
+        subgroup="System",
+    )
+
     # Projector
 
     yield ConfigVariable(

@@ -42,6 +42,7 @@ export class User extends BaseDecimalModel<User> {
     public vote_weight_3: number;
     public vote_weight_4: number;
     public vote_weight_5: number;
+    public keypad?: number;
 
     public get isVoteWeightOne(): boolean {
         return this.vote_weight === 1;
@@ -53,6 +54,10 @@ export class User extends BaseDecimalModel<User> {
 
     public get hasVoteRightFromOthers(): boolean {
         return this.vote_delegated_from_users_id?.length > 0;
+    }
+
+    public get hasKeypad(): boolean {
+        return this.keypad > 0;
     }
 
     public constructor(input?: Partial<User>) {

@@ -111,6 +111,20 @@ export class UserFilterListService extends BaseFilterListService<ViewUser> {
                         label: this.translate.instant('No delegation of vote')
                     }
                 ]
+            },
+            {
+                property: 'hasKeypad',
+                label: this.translate.instant('Keypad'),
+                options: [
+                    {
+                        condition: true,
+                        label: this.translate.instant('With keypad')
+                    },
+                    {
+                        condition: false,
+                        label: this.translate.instant('Without keypad')
+                    },
+                ]
             }
         ];
         return staticFilterOptions.concat(this.userGroupFilterOptions);

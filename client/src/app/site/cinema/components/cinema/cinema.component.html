@@ -59,14 +59,16 @@
     <!-- Projector -->
     <mat-card class="os-card spacer-bottom-60">
         <p class="subtitle-text">{{ projectorTitle | translate }}</p>
-        <a
-            [class.disabled]="!operator.hasPerms(permission.coreCanNavigate)"
-            [routerLink]="projectorUrl"
-            [target]="projectionTarget"
-        >
-            <div class="projector">
-                <os-projector *ngIf="projector" [projector]="projector"></os-projector>
-            </div>
-        </a>
+        <div>
+            <a
+                [class.disabled]="!operator.hasPerms(permission.coreCanNavigate)"
+                [routerLink]="projectorUrl"
+                [target]="projectionTarget"
+            >
+                <div class="projector">
+                    <os-projector *ngIf="projector" [projector]="projector"></os-projector>
+                </div>
+            </a>
+        </div>
     </mat-card>
 </div>

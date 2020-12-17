@@ -592,14 +592,14 @@ class AssignmentPollViewSet(BasePollViewSet):
             AssignmentPoll.POLLMETHOD_N,
         ):
             self.create_votes_type_votes(
-                data, poll, vote_user.vote_weight, vote_user, request_user
+                data, poll, poll.get_vote_weight(vote_user), vote_user, request_user
             )
         elif poll.pollmethod in (
             AssignmentPoll.POLLMETHOD_YN,
             AssignmentPoll.POLLMETHOD_YNA,
         ):
             self.create_votes_types_yn_yna(
-                data, poll, vote_user.vote_weight, vote_user, request_user
+                data, poll, poll.get_vote_weight(vote_user), vote_user, request_user
             )
         else:
             raise NotImplementedError(f"The method {poll.pollmethod} is not supported!")
@@ -609,12 +609,12 @@ class AssignmentPollViewSet(BasePollViewSet):
             AssignmentPoll.POLLMETHOD_Y,
             AssignmentPoll.POLLMETHOD_N,
         ):
-            self.create_votes_type_votes(data, poll, user.vote_weight, None, None)
+            self.create_votes_type_votes(data, poll, poll.get_vote_weight(user), None, None)
         elif poll.pollmethod in (
             AssignmentPoll.POLLMETHOD_YN,
             AssignmentPoll.POLLMETHOD_YNA,
         ):
-            self.create_votes_types_yn_yna(data, poll, user.vote_weight, None, None)
+            self.create_votes_types_yn_yna(data, poll,poll.get_vote_weight(user), None, None)
         else:
             raise NotImplementedError(f"The method {poll.pollmethod} is not supported!")
 
@@ -632,6 +632,10 @@ class AssignmentPollViewSet(BasePollViewSet):
                 )
             new_option_data[option.id] = val
         data["options"] = new_option_data
+
+    def start_votecollector(self, poll, request):
+        # Not supported yet.
+        pass
 
 
 class AssignmentOptionViewSet(BaseOptionViewSet):

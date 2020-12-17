@@ -38,7 +38,8 @@ export class UserImportService extends BaseImportService<User> {
         'vote_weight_2',
         'vote_weight_3',
         'vote_weight_4',
-        'vote_weight_5'
+        'vote_weight_5',
+        'keypad'
     ];
 
     /**

@@ -32,6 +32,7 @@ USERCANSEESERIALIZER_FIELDS = (
     "vote_weight_4",
     "vote_weight_5",
     "gender",
+    "keypad",
 )
 
 

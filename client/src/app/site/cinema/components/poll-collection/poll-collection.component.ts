@@ -65,7 +65,7 @@ export class PollCollectionComponent extends BaseViewComponentDirective implemen
         title: Title,
         translate: TranslateService,
         snackBar: MatSnackBar,
-        private operator: OperatorService,
+        public operator: OperatorService,
         private pollService: PollListObservableService,
         private cd: ChangeDetectorRef
     ) {

@@ -196,6 +196,8 @@ class User(RESTModelMixin, PermissionsMixin, AbstractBaseUser):
         related_name="vote_delegated_from_users",
     )
 
+    keypad = models.PositiveSmallIntegerField(unique=True, null=True, blank=True)
+
     objects = UserManager()
 
     class Meta:

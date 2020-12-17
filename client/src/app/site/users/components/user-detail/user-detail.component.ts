@@ -82,6 +82,10 @@ export class UserDetailComponent extends BaseViewComponentDirective implements O
 
     private isVoteWeightActive: boolean;
 
+    public get showKeypad(): boolean {
+        return this.pollService.isElectronicVotingEnabled;
+    }
+
     public get showVoteWeight(): boolean {
         return this.pollService.isElectronicVotingEnabled && this.isVoteWeightActive;
     }
@@ -173,6 +177,7 @@ export class UserDetailComponent extends BaseViewComponentDirective implements O
                 gender: [''],
                 structure_level: [''],
                 number: [''],
+                keypad: [],
                 vote_weight: [],
                 vote_weight_2: [],
                 vote_weight_3: [],

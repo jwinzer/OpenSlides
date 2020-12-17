@@ -21,6 +21,8 @@ from openslides.utils.rest_api import (
     detail_route,
 )
 
+from ..core.config import config
+from ..votecollector.client import Client, VoteCollectorError
 from .models import BasePoll
 
 
@@ -128,11 +130,17 @@ class BasePollViewSet(ModelViewSet):
         poll = self.get_object()
         if poll.state != BasePoll.STATE_CREATED:
             raise ValidationError({"detail": "Wrong poll state"})
+
         voters = User.objects.filter(is_present=True, is_active=True, groups__id__in=poll.groups.all()).count()
         if voters > settings.MAX_VOTERS:
             raise ValidationError({
-                "detail": "Voting is limited to {} participants.".format(settings.MAX_VOTERS)
+                "detail": f"Voting is limited to {settings.MAX_VOTERS} participants."
             })
+
+        # Start VoteCollector voting.
+        if config["voting_enable_votecollector"]:
+            self.start_votecollector(poll, request)
+
         poll.state = BasePoll.STATE_STARTED
         poll.save()
         inform_changed_data(poll.get_votes())
@@ -151,6 +159,15 @@ class BasePollViewSet(ModelViewSet):
 
         if poll.state != BasePoll.STATE_STARTED:
             raise ValidationError({"detail": "Wrong poll state"})
+
+        # Stop VoteCollector voting.
+        if config["voting_enable_votecollector"]:
+            try:
+                vc = Client(f"http://{request.META['HTTP_HOST']}:8030")
+                vc.stop_voting()
+            except VoteCollectorError as e:
+                # Ignore error and continue to stop voting.
+                pass
 
         poll.state = BasePoll.STATE_FINISHED
         poll.save()
@@ -194,6 +211,16 @@ class BasePollViewSet(ModelViewSet):
     def reset(self, request, pk):
         poll = self.get_object()
         poll.reset()
+
+        # Stop VoteCollector voting.
+        if config["voting_enable_votecollector"]:
+            try:
+                vc = Client(f"http://{request.META['HTTP_HOST']}:8030")
+                vc.stop_voting()
+            except VoteCollectorError as e:
+                # Ignore error.
+                pass
+
         return Response()
 
     @detail_route(methods=["POST"])
@@ -360,6 +387,12 @@ class BasePollViewSet(ModelViewSet):
         To be implemented by subclass. Handles the pseudoanonymous vote. Assumes data
         is validated. Needs to check, if the vote is allowed by the voted-array per poll.
         Needs to add the user to the voted-array.
+        """
+        raise NotImplementedError()
+
+    def start_votecollector(self, poll, request):
+        """
+        To be implemented by subclass. Starts voting using the VoteCollector.
         """
         raise NotImplementedError()
 

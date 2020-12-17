@@ -45,8 +45,8 @@ export class MotionPollDetailComponent extends BasePollDetailComponentDirective<
 
     public isVoteWeightActive: boolean;
 
-    public get showResults(): boolean {
-        return this.hasPerms() || this.poll.isPublished;
+    protected get hasPerms(): boolean {
+        return this.operator.hasPerms(Permission.motionsCanManagePolls);
     }
 
     public constructor(
@@ -96,15 +96,7 @@ export class MotionPollDetailComponent extends BasePollDetailComponentDirective<
         this.setVotesData(this.poll.options[0].votes);
     }
 
-    public openDialog(): void {
-        this.pollDialog.openDialog(this.poll);
-    }
-
     protected onDeleted(): void {
         this.router.navigate(['motions', this.poll.motion_id]);
-    }
-
-    protected hasPerms(): boolean {
-        return this.operator.hasPerms(Permission.motionsCanManagePolls);
     }
 }

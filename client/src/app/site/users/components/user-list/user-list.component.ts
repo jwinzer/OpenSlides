@@ -66,6 +66,11 @@ interface InfoDialog {
      * Transfer voting rights to
      */
     vote_delegated_to_id: number;
+
+    /**
+     * Keypad number.
+     */
+    keypad: number;
 }
 
 /**
@@ -131,8 +136,14 @@ export class UserListComponent extends BaseListViewComponent<ViewUser> implement
         return this.pollService.isElectronicVotingEnabled && this.isVoteWeightActive;
     }
 
+    public get showKeypad(): boolean {
+        return this.pollService.isElectronicVotingEnabled;
+    }
+
     public get totalVoteWeight(): number {
-        const votes = this.dataSource?.filteredData?.reduce((previous, current) => previous + current.vote_weight, 0);
+        const votes = this.dataSource?.filteredData?.reduce(
+            (previous, current) => previous + current.vote_weight, 0
+        );
         return votes ?? 0;
     }
 
@@ -161,7 +172,7 @@ export class UserListComponent extends BaseListViewComponent<ViewUser> implement
     /**
      * Define extra filter properties
      */
-    public filterProps = ['full_name', 'groups', 'structure_level', 'number', 'delegationName'];
+    public filterProps = ['full_name', 'groups', 'structure_level', 'number', 'delegationName', 'keypad'];
 
     private selfPresentConfStr = 'users_allow_self_set_present';
 
@@ -270,7 +281,8 @@ export class UserListComponent extends BaseListViewComponent<ViewUser> implement
             structure_level: user.structure_level,
             number: user.number,
             vote_delegated_from_users_id: user.vote_delegated_from_users_id,
-            vote_delegated_to_id: user.vote_delegated_to_id
+            vote_delegated_to_id: user.vote_delegated_to_id,
+            keypad: user.keypad
         };
 
         const dialogRef = this.dialog.open(this.userInfoDialog, infoDialogSettings);
@@ -311,7 +323,7 @@ export class UserListComponent extends BaseListViewComponent<ViewUser> implement
                 { property: 'username' },
                 { property: 'gender' },
                 { property: 'vote_weight', label: 'Vote weight' },
-                { label: 'voting right delegated to (proxy)', map: user => user.delegationName }
+                { label: 'Voting right delegated to (proxy)', map: user => user.delegationName }
             ],
             this.translate.instant('Participants') + '.csv'
         );
@@ -388,6 +400,19 @@ export class UserListComponent extends BaseListViewComponent<ViewUser> implement
         if (selectedChoice) {
             const value = selectedChoice.action === options[0];
             this.repo.bulkSetState(this.selectedRows, field, value).catch(this.raiseError);
+        }
+    }
+
+    /**
+     * Handler for bulk removing of keypads.
+     * Uses selectedRows defined via multiSelect mode.
+     */
+    public async removeKeypadSelected(): Promise<void> {
+        const title = this.translate.instant(
+            'Are you sure you want to remove the keypads for all selected participants?'
+        );
+        if (await this.promptService.open(title)) {
+            this.repo.bulkRemoveKeypad(this.selectedRows).catch(this.raiseError);
         }
     }
 

@@ -397,8 +397,6 @@ async def motion_poll_slide(
     """
     Poll slide.
     """
-    from timeit import default_timer as timer
-    start = timer()
     poll = await get_model(all_data_provider, "motions/motion-poll", element.get("id"))
     motion = await get_model(all_data_provider, "motions/motion", poll["motion_id"])
 
@@ -472,10 +470,6 @@ async def motion_poll_slide(
                             "vote": vote
                         })
             poll_data["voters_count"] = n
-    # FIXME: remove elapsed
-    elapsed = timer() - start
-    from ..utils import logging
-    logging.getLogger(__name__).info(f"motion_poll_slide run time: {round(elapsed / 3, 3)} ms")
 
     return {
         "motion": {"title": motion["title"], "identifier": motion["identifier"]},

@@ -105,6 +105,7 @@ class UserViewSet(ModelViewSet):
             "bulk_reset_passwords_to_default",
             "bulk_set_state",
             "bulk_alter_groups",
+            "bulk_remove_keypad",
             "bulk_delete",
             "mass_import",
             "mass_invite_email",
@@ -405,6 +406,22 @@ class UserViewSet(ModelViewSet):
                 user.groups.add(*groups)
             else:
                 user.groups.remove(*groups)
+
+        inform_changed_data(users)
+        return Response()
+
+    @list_route(methods=["post"])
+    def bulk_remove_keypad(self, request):
+        """
+        Sets keypad field to None for given users. Expected data:
+        { user_ids: <list of ids> }
+        """
+        user_ids = request.data.get("user_ids")
+        self.assert_list_of_ints(user_ids)
+        assertNoDemoAndAdmin(user_ids)
+
+        users = User.objects.filter(pk__in=user_ids)
+        users.update(keypad=None)
 
         inform_changed_data(users)
         return Response()

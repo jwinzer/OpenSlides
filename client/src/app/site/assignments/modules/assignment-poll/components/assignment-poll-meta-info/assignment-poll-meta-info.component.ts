@@ -26,11 +26,6 @@ export class AssignmentPollMetaInfoComponent {
 
     public constructor() {}
 
-    public userCanVoe(): boolean {
-        // this.poll.canBeVotedFor
-        return true;
-    }
-
     public getOptionTitle(option: ViewAssignmentOption): string {
         return option.user?.getShortName().trim() ?? this.unknownUserLabel;
     }

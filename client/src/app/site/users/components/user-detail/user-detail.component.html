@@ -131,6 +131,18 @@
             </mat-form-field>
         </div>
 
+        <!-- Keypad -->
+        <mat-form-field *ngIf="showKeypad">
+            <input
+                type="number"
+                min="1"
+                oninput="validity.valid || (value='');"
+                matInput
+                placeholder="{{ 'Keypad' | translate }}"
+                formControlName="keypad"
+            />
+        </mat-form-field>
+
         <div *ngIf="showVoteWeight">
             <!-- Vote weights -->
             <mat-form-field class="form16 distance" >
@@ -329,6 +341,12 @@
         <div *ngIf="user.number">
             <h4>{{ 'Participant number' | translate }}</h4>
             <span>{{ user.number }}</span>
+        </div>
+
+        <!-- Keypad -->
+        <div *ngIf="showKeypad && user.keypad">
+            <h4>{{ 'Keypad' | translate }}</h4>
+            <span>{{ user.keypad }}</span>
         </div>
 
         <!-- Groups -->

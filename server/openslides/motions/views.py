@@ -25,6 +25,7 @@ from ..utils.rest_api import (
     list_route,
 )
 from ..utils.views import TreeSortMixin
+from ..votecollector.client import Client, get_callback_url, VoteCollectorError
 from .access_permissions import (
     CategoryAccessPermissions,
     MotionAccessPermissions,
@@ -1267,6 +1268,14 @@ class MotionPollViewSet(BasePollViewSet):
         vote.weight = poll.get_vote_weight(weight_user) if config["users_activate_vote_weight"] else Decimal(1)
         vote.save(no_delete_on_restriction=True)
         inform_changed_data(option)
+
+    def start_votecollector(self, poll, request):
+        url = f"{get_callback_url(request)}/vote/{poll.id}/"
+        try:
+            vc = Client(f"http://{request.META['HTTP_HOST']}:8030")
+            vc.start_voting("YesNoAbstain", url)
+        except VoteCollectorError as e:
+            raise ValidationError({"detail": e.value})
 
 
 class MotionOptionViewSet(BaseOptionViewSet):

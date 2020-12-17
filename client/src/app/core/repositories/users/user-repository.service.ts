@@ -324,6 +324,19 @@ export class UserRepositoryService extends BaseRepository<ViewUser, User, UserTi
     }
 
     /**
+     * Removes keypad for all given users.
+     * @param users
+     */
+    public async bulkRemoveKeypad(
+        users: ViewUser[]
+    ): Promise<void> {
+        this.preventAlterationOnDemoUsers(users);
+        await this.httpService.post('/rest/users/user/bulk_remove_keypad/', {
+            user_ids: users.map(user => user.id)
+        });
+    }
+
+    /**
      * Sends invitation emails to all given users. Returns a prepared string to show the user.
      * This string should always be shown, becuase even in success cases, some users may not get
      * an email and the user should be notified about this.

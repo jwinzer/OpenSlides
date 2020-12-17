@@ -49,10 +49,7 @@
                 <mat-icon matTooltip="{{ 'Is committee' | translate }}" *ngIf="user.is_committee">
                     account_balance
                 </mat-icon>
-                <mat-icon
-                    matTooltip="{{ 'Inactive' | translate }}"
-                    *osPerms="'users.can_see_extra_data'; and: !user.is_active"
-                >
+                <mat-icon matTooltip="{{ 'Inactive' | translate }}" *ngIf="!user.is_active && canSeeExtra">
                     block
                 </mat-icon>
             </div>
@@ -80,11 +77,12 @@
             <div *ngIf="user.number" class="spacer-top-5">
                 <os-icon-container icon="perm_identity">{{ user.number }}</os-icon-container>
             </div>
-
-            <div *ngIf="user.vote_delegated_to_id" class="spacer-top-5" matTooltip="{{ 'Voting right delegated to (proxy)' | translate }}">
+            <div *ngIf="showKeypad && user.keypad" class="spacer-top-5">
+                <os-icon-container icon="dialpad">{{ user.keypad }}</os-icon-container>
+            </div>
+            <div *ngIf="user.vote_delegated_to_id" class="spacer-top-5">
                 <os-icon-container icon="forward" noWrap="true">{{ user.voteDelegatedTo }}</os-icon-container>
             </div>
-
             <div *ngIf="user.vote_delegated_from_users_id?.length" class="spacer-top-5" matTooltip="{{ 'Voting right received from (principals)' | translate }}">
                 <os-icon-container icon="work" noWrap="true">{{ user.voteDelegationsFrom }}</os-icon-container>
             </div>
@@ -240,6 +238,16 @@
                     <span>{{ 'Set committee ...' | translate }}</span>
                 </button>
 
+                <button
+                    mat-menu-item
+                    *ngIf="showKeypad"
+                    [disabled]="!selectedRows.length"
+                    (click)="removeKeypadSelected()"
+                >
+                    <mat-icon>dialpad</mat-icon>
+                    <span>{{ 'Remove keypads' | translate }}</span>
+                </button>
+
                 <mat-divider></mat-divider>
 
                 <button mat-menu-item [disabled]="!selectedRows.length" (click)="sendInvitationEmailSelected()">
@@ -325,6 +333,16 @@
                 [(ngModel)]="infoDialog.number"
             />
         </mat-form-field>
+        <mat-form-field *ngIf="showKeypad">
+            <input
+                type="number"
+                min="1"
+                oninput="validity.valid || (value='');"
+                matInput
+                placeholder="{{ 'Keypad' | translate }}"
+                [(ngModel)]="infoDialog.keypad"
+            />
+        </mat-form-field>
     </div>
     <div mat-dialog-actions>
         <button
@@ -337,7 +355,8 @@
                 vote_delegated_to_id: infoDialog.vote_delegated_to_id,
                 gender: infoDialog.gender,
                 number: infoDialog.number,
-                structure_level: infoDialog.structure_level
+                structure_level: infoDialog.structure_level,
+                keypad: infoDialog.keypad
             }"
         >
             <span>{{ 'Save' | translate }}</span>

@@ -22,7 +22,7 @@ def votes_to_y(apps, schema_editor):
 class Migration(migrations.Migration):
 
     dependencies = [
-        ("assignments", "0016_negative_votes"),
+        ("assignments", "0017_negative_votes"),
     ]
 
     operations = [
