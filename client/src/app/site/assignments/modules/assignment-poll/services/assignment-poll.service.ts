@@ -268,7 +268,7 @@ export class AssignmentPollService extends PollService {
                 const voteValue = option[field];
                 const votingKey = this.translate.instant(this.pollKeyVerbose.transform(field));
                 const resultValue = this.parsePollNumber.transform(voteValue);
-                const resultInPercent = this.getVoteValueInPercent(voteValue, poll);
+                const resultInPercent = this.getVoteValueInPercent(voteValue, poll, option.user?.id);
                 let resultLabel = `${votingKey}: ${resultValue}`;
 
                 // 0 is a valid number in this case
