@@ -18,6 +18,7 @@ export abstract class BasePollComponent<
     V extends ViewBasePoll,
     S extends PollService
 > extends BaseViewComponentDirective {
+    public PollState = PollState;
     public stateChangePending = false;
 
     public chartDataSubject: BehaviorSubject<ChartData> = new BehaviorSubject([]);
@@ -109,5 +110,15 @@ export abstract class BasePollComponent<
 
     public refreshPoll(): void {
         this.repo.refresh(this._poll);
+    }
+
+    public continuePoll(): void {
+        this.stateChangePending = true;
+        this.repo
+            .continuePoll(this._poll)
+            .catch(this.raiseError)
+            .finally(() => {
+                this.stateChangePending = false;
+            });
     }
 }

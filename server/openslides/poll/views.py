@@ -128,7 +128,9 @@ class BasePollViewSet(ModelViewSet):
     @transaction.atomic
     def start(self, request, pk):
         poll = self.get_object()
-        if poll.state != BasePoll.STATE_CREATED:
+        # Allow start in any poll state except for STATE_STARTED.
+        # This permits continue voting when in STATE_FINISHED or STATE_PUBLISHED.
+        if poll.state == BasePoll.STATE_STARTED:
             raise ValidationError({"detail": "Wrong poll state"})
 
         voters = User.objects.filter(is_present=True, is_active=True, groups__id__in=poll.groups.all()).count()

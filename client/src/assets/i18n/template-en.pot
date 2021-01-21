@@ -703,6 +703,9 @@ msgstr ""
 msgid "Content"
 msgstr ""
 
+msgid "Continue voting"
+msgstr ""
+
 msgid "Copy and paste your participant names in this textbox."
 msgstr ""
 

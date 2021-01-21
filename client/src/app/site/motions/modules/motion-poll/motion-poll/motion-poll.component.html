@@ -118,6 +118,15 @@
             <span>{{ 'Refresh' | translate }}</span>
         </button>
 
+        <!-- Continue Button -->
+        <button mat-menu-item
+                (click)="continuePoll()"
+                [disabled]="stateChangePending"
+                *ngIf="poll.state === PollState.Finished || poll.state === PollState.Published">
+            <mat-icon>play_arrow</mat-icon>
+            <span>{{ 'Continue voting' | translate }}</span>
+        </button>
+
         <!-- Reset Button -->
         <button mat-menu-item (click)="resetState()">
             <mat-icon color="warn">replay</mat-icon>

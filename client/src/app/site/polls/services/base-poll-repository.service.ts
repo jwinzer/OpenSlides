@@ -85,4 +85,8 @@ export abstract class BasePollRepositoryService<
     public refresh(poll: BasePoll): Promise<void> {
         return this.http.post(`${this.restPath(poll)}/refresh/`);
     }
+
+    public continuePoll(poll: BasePoll): Promise<void> {
+        return this.http.post(`${this.restPath(poll)}/start/`);
+    }
 }

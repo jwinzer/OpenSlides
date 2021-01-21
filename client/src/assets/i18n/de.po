@@ -746,6 +746,9 @@ msgstr "Alle Nutzer automatisch mit der Livekonferenz verbinden"
 msgid "Content"
 msgstr "Inhalt"
 
+msgid "Continue voting"
+msgstr "Stimmabgabe fortsetzen"
+
 msgid "Copy and paste your participant names in this textbox."
 msgstr "Kopieren Sie die Name Ihrer Teilnehmer/innen in diese Textbox."
 
