@@ -24,15 +24,16 @@
         </button>
     </ng-container>
     <ng-container class="meta-text-block-content">
-        <a
-            [class.disabled]="!operator.hasPerms(permission.coreCanNavigate)"
-            class="no-markup"
-            [routerLink]="getDetailLink()"
-            [target]="projectionTarget"
-        >
-            <div class="projector">
-                <os-projector [projector]="projector"></os-projector>
-            </div>
-        </a>
+        <div [class.disabled]="!operator.hasPerms(permission.coreCanNavigate)">
+            <a
+                class="no-markup"
+                [routerLink]="getDetailLink()"
+                [target]="projectionTarget"
+            >
+                <div class="projector">
+                    <os-projector [projector]="projector"></os-projector>
+                </div>
+            </a>
+        </div>
     </ng-container>
 </os-meta-text-block>

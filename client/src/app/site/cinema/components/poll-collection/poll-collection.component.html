@@ -12,15 +12,16 @@
 
 <ng-template #pollArea let-poll="poll" let-last="last">
     <mat-card class="os-card">
-        <p class="subtitle-text">
-            <a
-                [class.disabled]="!operator.hasPerms(permission.coreCanNavigate)"
-                [routerLink]="getPollDetailLink(poll)"
-                [state]="{ back: 'true' }"
-            >
-                {{ getPollVoteTitle(poll) }}
-            </a>
-        </p>
+        <div [class.disabled]="!operator.hasPerms(permission.coreCanNavigate)">
+            <p class="subtitle-text">
+                <a
+                    [routerLink]="getPollDetailLink(poll)"
+                    [state]="{ back: 'true' }"
+                >
+                    {{ getPollVoteTitle(poll) }}
+                </a>
+            </p>
+        </div>
 
         <os-poll-progress *ngIf="canManage(poll) && poll.canBeVotedFor()" [poll]="poll"></os-poll-progress>
 

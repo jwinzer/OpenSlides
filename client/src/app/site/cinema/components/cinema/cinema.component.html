@@ -59,9 +59,8 @@
     <!-- Projector -->
     <mat-card class="os-card spacer-bottom-60">
         <p class="subtitle-text">{{ projectorTitle | translate }}</p>
-        <div>
+        <div [class.disabled]="!operator.hasPerms(permission.coreCanNavigate)">
             <a
-                [class.disabled]="!operator.hasPerms(permission.coreCanNavigate)"
                 [routerLink]="projectorUrl"
                 [target]="projectionTarget"
             >
